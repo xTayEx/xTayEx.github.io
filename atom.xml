@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mimori.coding.me/"/>
-  <updated>2020-07-19T14:17:27.701Z</updated>
+  <updated>2020-07-25T01:27:42.077Z</updated>
   <id>https://mimori.coding.me/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【OpenGL学习笔记】一、VBO，VAO与EBO</title>
+    <link href="https://mimori.coding.me/2020/07/25/%E3%80%90OpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E4%B8%80%E3%80%81VBO%EF%BC%8CVAO%E4%B8%8EEBO/"/>
+    <id>https://mimori.coding.me/2020/07/25/%E3%80%90OpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E4%B8%80%E3%80%81VBO%EF%BC%8CVAO%E4%B8%8EEBO/</id>
+    <published>2020-07-25T01:22:00.000Z</published>
+    <updated>2020-07-25T01:27:42.077Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://pic.downk.cc/item/5f1b8a4e14195aa594516bd0.png" alt><br><a id="more"></a></p><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>VBO、VAO和EBO是OpenGL中三个很基础的概念，但一开始时总是分不清他们的区别与联系。</p><h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul><li><p>VBO：顶点缓冲对象</p><ul><li><p>是在显卡存储空间中开辟的一块内存缓存去，用于存储顶点的各类属性（顶点坐标、顶点法向量、顶点颜色等）</p></li><li><p>渲染时，可以直接从VBO中取出顶点的各类属性数据</p></li><li><p>每个VBO都有其唯一标识ID</p></li><li><p>使用glGenBuffers开辟VBO并分配id</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> VBO;</span><br><span class="line">glGenBuffers(<span class="number">1</span>,&amp;VBO);</span><br></pre></td></tr></table></figure></li></ul></li></ul><ul><li><p>通过glBindBuffer将某种类型的顶点数据绑定到某个VBO上（可以暂时理解为告诉该VBO它要存储的数据的类型，当然这是不准确的，因为同一类型的顶点数据一次只能绑定一个VBO）。绑定的类型必须是以下几种中的一种</p><ul><li>GL_ARRAY_BUFFER</li><li>GL_ELEMENT_ARRAY_BUFFER</li><li>GL_PIXEL_PACK_BUFFER</li><li>GL_PIXEL_UNPACK_BUFFER</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> VBO;</span><br><span class="line">glGenBuffers(<span class="number">1</span>,&amp;VBO);</span><br><span class="line">glBindBuffer(GL_ARRAY_BUFFER,VBO);</span><br></pre></td></tr></table></figure></li><li><p>通过glBufferData将数据传送到绑定的VBO中</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glBufferData(GL_ARRAY_BUFFER,<span class="keyword">sizeof</span>(vertices),vertices,GL_STATIC_DRAW);</span><br></pre></td></tr></table></figure></li><li><p>使用glVertexAttribPointer告知OpenGL如何处理某个VBO中的数据</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glVertexAttribPointer(<span class="number">0</span>,<span class="number">4</span>,GL_FLOAT,GL_FALSE,<span class="number">0</span>,(<span class="keyword">void</span>*)<span class="number">0</span>);</span><br></pre></td></tr></table></figure><ul><li>第一个参数指定顶点属性位置，与顶点着色器中的layout(location=0)对应</li><li>第二个参数指定一个顶点属性组的大小（数据元素个数）</li><li>第三个参数指定顶点属性数据类型</li><li>第四个参数指定数据是否要被标准化</li><li>第五个参数是步长，指定连续顶点属性组之间的间隔。比方说三个GL_FLOAT数据表示一个坐标点，那就把他们作为一个属性组，步长就是3*sizeof(float)</li><li>第六个参数是数据起始位置距离缓冲区中起始位置的偏移量</li></ul></li><li><p>使用glEnableVertexAttribArray开启glVertexAttribPointer。由于glVertexAttribPointer默认是关闭的，所以使用时要用顶点属性位置的值为参数，通过glEnableVertexAttribArray来开启这一功能</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glEnableVertexAttribArray(<span class="number">0</span>)</span><br></pre></td></tr></table></figure></li></ul><ul><li><p>VAO：顶点数组对象</p><ul><li><p>保存了很多VBO的引用，相当于把很多VBO统一到一个对象中进行管理</p></li><li><p>使用glGenVertexArrays得到一个VAO，并分配id</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glGenVertexArrays(<span class="number">1</span>,&amp;VAO);</span><br></pre></td></tr></table></figure></li><li><p>使用glBindVertexArray绑定VAO。绑定后，后面所有VBO的引用都会被保存在这一个VAO中。</p></li><li><p>VAO的存在意义是减少绑定的工作量。因为每次绘制某些之前都需要绑定顶点的所有信息到对应的VBO中。这样做未免有点太麻烦，尤其是数据量很大的情况下。使用VAO，可以把所有顶点信息都绑定到VBO后，再通过VAO把所有顶点信息绑定到一个对象上(VAO)，后面只需要绑定VAO这一个对象即可。</p></li></ul></li><li><p>EBO：索引缓存对象</p><ul><li>存储顶点的索引，避免因为某些点重复存储导致的空间浪费</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://pic.downk.cc/item/5f1b8a4e14195aa594516bd0.png&quot; alt&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="OpenGL学习笔记" scheme="https://mimori.coding.me/categories/OpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="计算机图形学" scheme="https://mimori.coding.me/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="OpenGL" scheme="https://mimori.coding.me/tags/OpenGL/"/>
+    
+      <category term="OpenGL学习笔记" scheme="https://mimori.coding.me/tags/OpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>2020牛客多校第三场</title>
@@ -571,31 +598,6 @@
       <category term="第三方库" scheme="https://mimori.coding.me/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
     
       <category term="Armadillo" scheme="https://mimori.coding.me/tags/Armadillo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo博客中加入B站视频与网易云歌单</title>
-    <link href="https://mimori.coding.me/2019/08/01/hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5B%E7%AB%99%E8%A7%86%E9%A2%91/"/>
-    <id>https://mimori.coding.me/2019/08/01/hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5B%E7%AB%99%E8%A7%86%E9%A2%91/</id>
-    <published>2019-08-01T15:02:00.000Z</published>
-    <updated>2019-08-01T15:55:49.116Z</updated>
-    
-    <content type="html"><![CDATA[<p>没有封面图，懒得找了……</p><a id="more"></a><h3 id="添加B站视频"><a href="#添加B站视频" class="headerlink" title="添加B站视频"></a>添加B站视频</h3><p>在文章中添加如下代码:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;% raw %&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"position: relative; width: 100%; height: 0; padding-bottom: 75%;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"//player.bilibili.com/player.html?aid=57933879&amp;cid=101052438&amp;page=1"</span> <span class="attr">scrolling</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">framespacing</span>=<span class="string">"0"</span> <span class="attr">allowfullscreen</span>=<span class="string">"true"</span> <span class="attr">style</span>=<span class="string">"position: absolute; width: 100%; height: 100%; left: 0; top: 0;"</span>&gt;</span> <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure></p><p>在b站视频分享处可以得到视频对应&lt; iframe &gt;标签</p><p>效果如下:</p><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">    <iframe src="//player.bilibili.com/player.html?aid=57933879&cid=101052438&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe></div><h3 id="添加网易云歌单"><a href="#添加网易云歌单" class="headerlink" title="添加网易云歌单"></a>添加网易云歌单</h3><h4 id="获取外链"><a href="#获取外链" class="headerlink" title="获取外链"></a>获取外链</h4><p>首先打开网易云音乐网页版，找到要生成外链的歌单。然后点击“分享”。</p><p><img src="https://ae01.alicdn.com/kf/Ha0f6cd7fae4e4b1e8fade6891b755091r.jpg" alt></p><p>分享成功后，返回首页，进入个人动态，可以看到之前的分享。</p><p><img src="https://ae01.alicdn.com/kf/Hbb20fa711df74bc480e5f97a249ed77d7.jpg" alt></p><p>点击分享链接，就可以看到生成外链播放器的选项</p><p><img src="https://ae01.alicdn.com/kf/H47884c7176254ed8be7cfb2b1c11d7ddD.jpg" alt></p><h4 id="插入播放器"><a href="#插入播放器" class="headerlink" title="插入播放器"></a>插入播放器</h4><p>获取外链后，直接在文章中将其插入即可。最好加上。</p><p><br><br><br></p><div align="center"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="400" height="450" src="//music.163.com/outchain/player?type=0&id=648450046&auto=1&height=430"></iframe></div>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;没有封面图，懒得找了……&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="https://mimori.coding.me/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="https://mimori.coding.me/tags/hexo/"/>
-    
-      <category term="Bilibili" scheme="https://mimori.coding.me/tags/Bilibili/"/>
     
   </entry>
   
