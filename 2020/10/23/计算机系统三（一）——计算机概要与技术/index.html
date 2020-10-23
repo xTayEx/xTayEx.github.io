@@ -136,7 +136,7 @@
 <meta property="og:site_name" content="-xGeminix-">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pic.downk.cc/item/5f924bd31cd1bbb86be6ec2b.jpg">
-<meta property="og:updated_time" content="2020-10-23T03:29:15.798Z">
+<meta property="og:updated_time" content="2020-10-23T03:35:30.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机系统三（一）——计算机概要与技术">
 <meta name="twitter:image" content="https://pic.downk.cc/item/5f924bd31cd1bbb86be6ec2b.jpg">
@@ -444,7 +444,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  422
+                  418
                 </span>
               
 
@@ -492,9 +492,9 @@
 <li>通过冗余提高可靠性</li>
 </ul>
 <h4 id="集成电路的成本"><a href="#集成电路的成本" class="headerlink" title="集成电路的成本"></a>集成电路的成本</h4><ul>
-<li>$每芯片的价格=\frac{每晶圆的价格}{每晶圆的芯片数\times 成品率}$</li>
-<li>$每晶圆的芯片数\approx \frac{晶圆面积}{芯片面积}$</li>
-<li>$成品率=\frac{1}{(1+(单位面积的瑕疵数\times芯片面积/2))^2}(经验公式)$</li>
+<li>$每芯片的价格=每晶圆的价格/(每晶圆的芯片数\times 成品率)$</li>
+<li>$每晶圆的芯片数\approx 晶圆面积/芯片面积$</li>
+<li>$成品率=1/(1+(单位面积的瑕疵数\times芯片面积/2))^2$（经验公式）</li>
 <li>芯片面积与缺陷率非线性相关<ul>
 <li>晶圆成本和面积是固定的</li>
 <li>缺陷率取决于制造过程</li>
@@ -523,7 +523,7 @@
 </li>
 <li><p>如果有n种不同类型指令，则</p>
 <p>总cpu时钟周期数=$\sum_{i=1}^n(CPI_i\times C_i)$</p>
-<p>加权平均CPI：CPU=$\frac{总CPU时钟周期数}{指令数}=\sum_{i=1}^n(CPI_i\times\frac{C_i}{指令数})$</p>
+<p>加权平均CPI：CPU=$总CPU时钟周期数/指令数=\sum_{i=1}^n(CPI_i\times\frac{C_i}{指令数})$</p>
 </li>
 <li><p>能耗正比于：$1/2\times负载电容\times电压^2$</p>
 </li>
