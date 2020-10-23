@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xtayex.gitee.io/2020/10/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E4%B8%89%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%8C%87%E4%BB%A4/</loc>
+    
+    <lastmod>2020-10-23T08:11:00.433Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xtayex.gitee.io/2020/10/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E4%B8%89%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%A6%81%E4%B8%8E%E6%8A%80%E6%9C%AF/</loc>
     
     <lastmod>2020-10-23T03:35:30.958Z</lastmod>
@@ -331,14 +338,14 @@
   </url>
   
   <url>
-    <loc>https://xtayex.gitee.io/2019/03/02/UVA294-Divisors/</loc>
+    <loc>https://xtayex.gitee.io/2019/01/26/UVa101-The-Blocks-Problem/</loc>
     
     <lastmod>2019-06-07T02:24:24.868Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://xtayex.gitee.io/2019/01/26/UVa101-The-Blocks-Problem/</loc>
+    <loc>https://xtayex.gitee.io/2019/03/02/UVA294-Divisors/</loc>
     
     <lastmod>2019-06-07T02:24:24.868Z</lastmod>
     
@@ -429,14 +436,14 @@
   </url>
   
   <url>
-    <loc>https://xtayex.gitee.io/2019/02/17/POJ1384-Piggy-Bank/</loc>
+    <loc>https://xtayex.gitee.io/2019/01/26/POJ1328-Radar-Installation-%E8%B4%AA%E5%BF%83/</loc>
     
     <lastmod>2019-06-07T02:24:24.759Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://xtayex.gitee.io/2019/01/26/POJ1328-Radar-Installation-%E8%B4%AA%E5%BF%83/</loc>
+    <loc>https://xtayex.gitee.io/2019/02/17/POJ1384-Piggy-Bank/</loc>
     
     <lastmod>2019-06-07T02:24:24.759Z</lastmod>
     
@@ -450,13 +457,6 @@
   </url>
   
   <url>
-    <loc>https://xtayex.gitee.io/2019/03/23/HDU5922-Minimum%E2%80%99s-Revenge-2016CCPC%E4%B8%9C%E5%8C%97%E5%9C%B0%E5%8C%BA%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9BA%E9%A2%98/</loc>
-    
-    <lastmod>2019-06-07T02:24:24.743Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://xtayex.gitee.io/2019/03/02/HDU4133-StrangeStandard/</loc>
     
     <lastmod>2019-06-07T02:24:24.743Z</lastmod>
@@ -464,7 +464,7 @@
   </url>
   
   <url>
-    <loc>https://xtayex.gitee.io/2019/03/23/HDU5926-Mr-Frog%E2%80%99s-Game-2016CCPC%E4%B8%9C%E5%8C%97%E5%9C%B0%E5%8C%BA%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9BE%E9%A2%98/</loc>
+    <loc>https://xtayex.gitee.io/2019/03/23/HDU5922-Minimum%E2%80%99s-Revenge-2016CCPC%E4%B8%9C%E5%8C%97%E5%9C%B0%E5%8C%BA%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9BA%E9%A2%98/</loc>
     
     <lastmod>2019-06-07T02:24:24.743Z</lastmod>
     
@@ -478,7 +478,21 @@
   </url>
   
   <url>
+    <loc>https://xtayex.gitee.io/2019/03/23/HDU5926-Mr-Frog%E2%80%99s-Game-2016CCPC%E4%B8%9C%E5%8C%97%E5%9C%B0%E5%8C%BA%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9BE%E9%A2%98/</loc>
+    
+    <lastmod>2019-06-07T02:24:24.743Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xtayex.gitee.io/2019/02/18/HDU3466-Proud-Merchant/</loc>
+    
+    <lastmod>2019-06-07T02:24:24.728Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xtayex.gitee.io/2019/03/24/HDU4015-Mario-and-Mushrooms-The-36th-ACM-ICPC-Asia-Regional-Shanghai-Site-%E2%80%94%E2%80%94-Warmup-E%E9%A2%98/</loc>
     
     <lastmod>2019-06-07T02:24:24.728Z</lastmod>
     
@@ -499,14 +513,7 @@
   </url>
   
   <url>
-    <loc>https://xtayex.gitee.io/2019/03/24/HDU4015-Mario-and-Mushrooms-The-36th-ACM-ICPC-Asia-Regional-Shanghai-Site-%E2%80%94%E2%80%94-Warmup-E%E9%A2%98/</loc>
-    
-    <lastmod>2019-06-07T02:24:24.728Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xtayex.gitee.io/2019/03/21/HDU2647-Reward/</loc>
+    <loc>https://xtayex.gitee.io/2019/02/17/HDU2639-Bone-Collector-II/</loc>
     
     <lastmod>2019-06-07T02:24:24.712Z</lastmod>
     
@@ -520,7 +527,7 @@
   </url>
   
   <url>
-    <loc>https://xtayex.gitee.io/2019/02/17/HDU2639-Bone-Collector-II/</loc>
+    <loc>https://xtayex.gitee.io/2019/03/21/HDU2647-Reward/</loc>
     
     <lastmod>2019-06-07T02:24:24.712Z</lastmod>
     
@@ -548,14 +555,14 @@
   </url>
   
   <url>
-    <loc>https://xtayex.gitee.io/2019/04/22/HDU2376-HDU5723/</loc>
+    <loc>https://xtayex.gitee.io/2019/02/22/HDU2191-%E6%82%BC%E5%BF%B5512%E6%B1%B6%E5%B7%9D%E5%A4%A7%E5%9C%B0%E9%9C%87%E9%81%87%E9%9A%BE%E5%90%8C%E8%83%9E%E2%80%94%E2%80%94%E7%8F%8D%E6%83%9C%E7%8E%B0%E5%9C%A8%EF%BC%8C%E6%84%9F%E6%81%A9%E7%94%9F%E6%B4%BB/</loc>
     
     <lastmod>2019-06-07T02:24:24.697Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://xtayex.gitee.io/2019/02/22/HDU2191-%E6%82%BC%E5%BF%B5512%E6%B1%B6%E5%B7%9D%E5%A4%A7%E5%9C%B0%E9%9C%87%E9%81%87%E9%9A%BE%E5%90%8C%E8%83%9E%E2%80%94%E2%80%94%E7%8F%8D%E6%83%9C%E7%8E%B0%E5%9C%A8%EF%BC%8C%E6%84%9F%E6%81%A9%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://xtayex.gitee.io/2019/04/22/HDU2376-HDU5723/</loc>
     
     <lastmod>2019-06-07T02:24:24.697Z</lastmod>
     
@@ -569,13 +576,6 @@
   </url>
   
   <url>
-    <loc>https://xtayex.gitee.io/2019/02/18/HDU1864-%E6%9C%80%E5%A4%A7%E6%8A%A5%E9%94%80%E9%A2%9D/</loc>
-    
-    <lastmod>2019-06-07T02:24:24.681Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://xtayex.gitee.io/2019/02/27/HDU1301-Jungle-Roads/</loc>
     
     <lastmod>2019-06-07T02:24:24.681Z</lastmod>
@@ -584,6 +584,13 @@
   
   <url>
     <loc>https://xtayex.gitee.io/2019/03/21/HDU1811-Rank-of-Tetris/</loc>
+    
+    <lastmod>2019-06-07T02:24:24.681Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xtayex.gitee.io/2019/02/18/HDU1864-%E6%9C%80%E5%A4%A7%E6%8A%A5%E9%94%80%E9%A2%9D/</loc>
     
     <lastmod>2019-06-07T02:24:24.681Z</lastmod>
     
