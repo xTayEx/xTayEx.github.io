@@ -129,13 +129,13 @@
 
 
 
-<meta name="description" content="卢卡斯定理&amp;emsp;&amp;emsp;卢卡斯定理主要是用来求组合数取模，即C(n,m)%p。其适用范围是:组合数很大，但p又不是很大且p是素数的情况(10^6+3也算是“不很大”) 。卢卡斯定理可以表达为:">
+<meta name="description" content="卢卡斯定理   卢卡斯定理主要是用来求组合数取模，即C(n,m)%p。其适用范围是:组合数很大，但p又不是很大且p是素数的情况(10^6+3也算是“不很大”) 。卢卡斯定理可以表达为:">
 <meta name="keywords" content="ACM,C,C++,数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="卢卡斯定理与中国剩余定理">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/01/28/卢卡斯定理与中国剩余定理/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="卢卡斯定理&amp;emsp;&amp;emsp;卢卡斯定理主要是用来求组合数取模，即C(n,m)%p。其适用范围是:组合数很大，但p又不是很大且p是素数的情况(10^6+3也算是“不很大”) 。卢卡斯定理可以表达为:">
+<meta property="og:description" content="卢卡斯定理   卢卡斯定理主要是用来求组合数取模，即C(n,m)%p。其适用范围是:组合数很大，但p又不是很大且p是素数的情况(10^6+3也算是“不很大”) 。卢卡斯定理可以表达为:">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pic.superbed.cn/item/5c4ea00b5f3e509ed97ce0f6">
 <meta property="og:image" content="https://pic.superbed.cn/item/5c4ea0d75f3e509ed97ce5e1">
@@ -145,7 +145,7 @@
 <meta property="og:updated_time" content="2019-06-07T02:24:24.915Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="卢卡斯定理与中国剩余定理">
-<meta name="twitter:description" content="卢卡斯定理&amp;emsp;&amp;emsp;卢卡斯定理主要是用来求组合数取模，即C(n,m)%p。其适用范围是:组合数很大，但p又不是很大且p是素数的情况(10^6+3也算是“不很大”) 。卢卡斯定理可以表达为:">
+<meta name="twitter:description" content="卢卡斯定理   卢卡斯定理主要是用来求组合数取模，即C(n,m)%p。其适用范围是:组合数很大，但p又不是很大且p是素数的情况(10^6+3也算是“不很大”) 。卢卡斯定理可以表达为:">
 <meta name="twitter:image" content="https://pic.superbed.cn/item/5c4ea00b5f3e509ed97ce0f6">
 
 
@@ -472,7 +472,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  473
+                  469
                 </span>
               
 
@@ -509,13 +509,15 @@
       
 
       
-        <h4 id="卢卡斯定理"><a href="#卢卡斯定理" class="headerlink" title="卢卡斯定理"></a>卢卡斯定理</h4><p>&emsp;&emsp;卢卡斯定理主要是用来求组合数取模，即C(n,m)%p。其适用范围是:组合数很大，但p又不是很大且p是素数的情况(10^6+3也算是“不很大”) 。卢卡斯定理可以表达为:<br><a id="more"></a><br><img src="https://pic.superbed.cn/item/5c4ea00b5f3e509ed97ce0f6" alt></p>
-<p>在写代码时，可以用递归实现:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LL <span class="title">lucas</span><span class="params">(LL a,LL b,LL p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> !b?<span class="number">1</span>:lucas(a/p,b/p,p)*comb(a%p,b%p,p)%p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>为什么可以转化为lucas(a/p,b/p,p) * comb(a%p,b%p,p)%p这个递归呢？看这里👇<br><img src="https://pic.superbed.cn/item/5c4ea0d75f3e509ed97ce5e1" alt><br><img src="https://pic.superbed.cn/item/5c4ea0f25f3e509ed97ce666" alt></p>
-<p>因此，可以利用这样的一个递归实现。<br>在这里，comb()是求组合数取模的函数(适用于小组合数)，代码为<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">LL comb(LL n,LL m,LL p)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;m||m&lt;<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    LL up=<span class="number">1</span>;</span><br><span class="line">    LL down=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(LL <span class="built_in">i</span>=n-m+<span class="number">1</span>;<span class="built_in">i</span>&lt;=n;<span class="built_in">i</span>++)</span><br><span class="line">        up=(up*<span class="built_in">i</span>)<span class="comment">%p;</span></span><br><span class="line">    <span class="keyword">for</span>(LL <span class="built_in">i</span>=<span class="number">1</span>;<span class="built_in">i</span>&lt;=m;<span class="built_in">i</span>++)</span><br><span class="line">        down=(down*<span class="built_in">i</span>)<span class="comment">%p;</span></span><br><span class="line">    <span class="keyword">return</span> up*inv(down,p)<span class="comment">%p;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h4 id="卢卡斯定理">卢卡斯定理</h4>
+<p>  卢卡斯定理主要是用来求组合数取模，即C(n,m)%p。其适用范围是:组合数很大，但p又不是很大且p是素数的情况(10^6+3也算是“不很大”) 。卢卡斯定理可以表达为: <a id="more"></a> <img src="https://pic.superbed.cn/item/5c4ea00b5f3e509ed97ce0f6"></p>
+<p>在写代码时，可以用递归实现: <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LL <span class="title">lucas</span><span class="params">(LL a,LL b,LL p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> !b?<span class="number">1</span>:lucas(a/p,b/p,p)*comb(a%p,b%p,p)%p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>为什么可以转化为lucas(a/p,b/p,p) * comb(a%p,b%p,p)%p这个递归呢？看这里👇 <img src="https://pic.superbed.cn/item/5c4ea0d75f3e509ed97ce5e1"> <img src="https://pic.superbed.cn/item/5c4ea0f25f3e509ed97ce666"></p>
+<p>因此，可以利用这样的一个递归实现。 在这里，comb()是求组合数取模的函数(适用于小组合数)，代码为 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">LL comb(LL n,LL m,LL p)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;m||m&lt;<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    LL up=<span class="number">1</span>;</span><br><span class="line">    LL down=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(LL <span class="built_in">i</span>=n-m+<span class="number">1</span>;<span class="built_in">i</span>&lt;=n;<span class="built_in">i</span>++)</span><br><span class="line">        up=(up*<span class="built_in">i</span>)<span class="comment">%p;</span></span><br><span class="line">    <span class="keyword">for</span>(LL <span class="built_in">i</span>=<span class="number">1</span>;<span class="built_in">i</span>&lt;=m;<span class="built_in">i</span>++)</span><br><span class="line">        down=(down*<span class="built_in">i</span>)<span class="comment">%p;</span></span><br><span class="line">    <span class="keyword">return</span> up*inv(down,p)<span class="comment">%p;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>而inv()是求down的逆元的函数，原理是利用快速幂求a^(p-2)。</p>
-<h4 id="中国剩余定理"><a href="#中国剩余定理" class="headerlink" title="中国剩余定理"></a>中国剩余定理</h4><p>&emsp;&emsp;中国剩余定理又被称为孙子定理，它来自于一个耳熟能详的数学问题：今有物不知其数，三三数之剩二，五五数之剩三，七七数之剩二。问物几何？。转换为数学式子，即为以下这个一元线性同余方程组<br><img src="https://pic.superbed.cn/item/5c4ea2b05f3e509ed97cf145" alt><br>那么，要如何求解这个方程组呢？<br><img src="https://pic.superbed.cn/item/5c4ea3675f3e509ed97cf50c" alt><br>(我自己至今还是不太懂怎么求解OTZ)<br>因此，只需要求kM+∑(i=1,n)ai x ti x Mi即可</p>
-<p>代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LL <span class="title">china</span><span class="params">(<span class="keyword">int</span> k,LL a[],LL m[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LL M=<span class="number">1</span>;LL ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)</span><br><span class="line">        M*=m[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        LL tmp=M/m[i];        <span class="comment">//tmp==&gt;mi        </span></span><br><span class="line">        ans=(ans+mulq(tmp*inv(tmp,m[i]),a[i],M))%M;        <span class="comment">//ti==&gt;ti*mi=1 (mod mi)</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (ans+M)%M;            <span class="comment">//通解为kM+∑(i=0,k)(ai*ti*Mi) </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="中国剩余定理">中国剩余定理</h4>
+<p>  中国剩余定理又被称为孙子定理，它来自于一个耳熟能详的数学问题：今有物不知其数，三三数之剩二，五五数之剩三，七七数之剩二。问物几何？。转换为数学式子，即为以下这个一元线性同余方程组 <img src="https://pic.superbed.cn/item/5c4ea2b05f3e509ed97cf145"> 那么，要如何求解这个方程组呢？ <img src="https://pic.superbed.cn/item/5c4ea3675f3e509ed97cf50c"> (我自己至今还是不太懂怎么求解OTZ) 因此，只需要求kM+∑(i=1,n)ai x ti x Mi即可</p>
+<p>代码如下： <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LL <span class="title">china</span><span class="params">(<span class="keyword">int</span> k,LL a[],LL m[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LL M=<span class="number">1</span>;LL ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)</span><br><span class="line">        M*=m[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        LL tmp=M/m[i];        <span class="comment">//tmp==&gt;mi        </span></span><br><span class="line">        ans=(ans+mulq(tmp*inv(tmp,m[i]),a[i],M))%M;        <span class="comment">//ti==&gt;ti*mi=1 (mod mi)</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (ans+M)%M;            <span class="comment">//通解为kM+∑(i=0,k)(ai*ti*Mi) </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -793,7 +795,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1392,26 +1394,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

@@ -491,8 +491,9 @@
       
 
       
-        <p><img src="https://pic.downk.cc/item/5f924bd31cd1bbb86be6ec2b.jpg" alt><br><a id="more"></a></p>
-<h4 id="八个伟大思想"><a href="#八个伟大思想" class="headerlink" title="八个伟大思想"></a>八个伟大思想</h4><ul>
+        <p><img src="https://pic.downk.cc/item/5f924bd31cd1bbb86be6ec2b.jpg"> <a id="more"></a></p>
+<h4 id="八个伟大思想">八个伟大思想</h4>
+<ul>
 <li>面向摩尔定律的设计</li>
 <li>使用抽象简化设计</li>
 <li>加速大概率时间</li>
@@ -501,42 +502,36 @@
 <li>存储器层次</li>
 <li>通过冗余提高可靠性</li>
 </ul>
-<h4 id="集成电路的成本"><a href="#集成电路的成本" class="headerlink" title="集成电路的成本"></a>集成电路的成本</h4><ul>
-<li>$每芯片的价格=每晶圆的价格/(每晶圆的芯片数\times 成品率)$</li>
-<li>$每晶圆的芯片数\approx 晶圆面积/芯片面积$</li>
-<li>$成品率=1/(1+(单位面积的瑕疵数\times芯片面积/2))^2$（经验公式）</li>
-<li>芯片面积与缺陷率非线性相关<ul>
+<h4 id="集成电路的成本">集成电路的成本</h4>
+<ul>
+<li><span class="math inline">\(每芯片的价格=每晶圆的价格/(每晶圆的芯片数\times 成品率)\)</span></li>
+<li><span class="math inline">\(每晶圆的芯片数\approx 晶圆面积/芯片面积\)</span></li>
+<li><span class="math inline">\(成品率=1/(1+(单位面积的瑕疵数\times芯片面积/2))^2\)</span>（经验公式）</li>
+<li>芯片面积与缺陷率非线性相关
+<ul>
 <li>晶圆成本和面积是固定的</li>
 <li>缺陷率取决于制造过程</li>
 <li>芯片面积取决于结构和电路设计</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="响应时间和吞吐量"><a href="#响应时间和吞吐量" class="headerlink" title="响应时间和吞吐量"></a>响应时间和吞吐量</h4><ul>
+<h4 id="响应时间和吞吐量">响应时间和吞吐量</h4>
+<ul>
 <li><p>响应时间（也叫执行时间）</p>
-<p>计算机完成某任务所需的总时间</p>
-</li>
+<p>计算机完成某任务所需的总时间</p></li>
 <li><p>吞吐量（也叫带宽）</p>
-<p>单位时间段内完成的任务数</p>
-</li>
+<p>单位时间段内完成的任务数</p></li>
 </ul>
-<h4 id="时钟周期、时钟频率与CPI（计算题）"><a href="#时钟周期、时钟频率与CPI（计算题）" class="headerlink" title="时钟周期、时钟频率与CPI（计算题）"></a>时钟周期、时钟频率与CPI（计算题）</h4><ul>
-<li><p>时钟周期：从一个上升沿到下一个上升沿的时间</p>
-</li>
-<li><p>时钟频率=1/时钟周期</p>
-</li>
-<li><p>对于时钟频率，1ns的时钟周期对应1GHz的时钟频率，所以0.25ns的时钟周期对应4GHz的时钟频率</p>
-</li>
-<li><p>CPU时间=CPU时钟周期数×时钟周期=CPU时钟周期数×1/时钟频率</p>
-</li>
-<li><p>CPI：clocks per instruction，每条指令占用的平均时钟周期数</p>
-</li>
+<h4 id="时钟周期时钟频率与cpi计算题">时钟周期、时钟频率与CPI（计算题）</h4>
+<ul>
+<li><p>时钟周期：从一个上升沿到下一个上升沿的时间</p></li>
+<li><p>时钟频率=1/时钟周期</p></li>
+<li><p>对于时钟频率，1ns的时钟周期对应1GHz的时钟频率，所以0.25ns的时钟周期对应4GHz的时钟频率</p></li>
+<li><p>CPU时间=CPU时钟周期数×时钟周期=CPU时钟周期数×1/时钟频率</p></li>
+<li><p>CPI：clocks per instruction，每条指令占用的平均时钟周期数</p></li>
 <li><p>如果有n种不同类型指令，则</p>
-<p>总cpu时钟周期数=$\sum_{i=1}^n(CPI_i\times C_i)$</p>
-<p>加权平均CPI：CPU=$总CPU时钟周期数/指令数=\sum_{i=1}^n(CPI_i\times\frac{C_i}{指令数})$</p>
-</li>
-<li><p>能耗正比于：$1/2\times负载电容\times电压^2$</p>
-</li>
+<p>总cpu时钟周期数=<span class="math inline">\(\sum_{i=1}^n(CPI_i\times C_i)\)</span></p>
+<p>加权平均CPI：CPU=<span class="math inline">\(总CPU时钟周期数/指令数=\sum_{i=1}^n(CPI_i\times\frac{C_i}{指令数})\)</span></p></li>
+<li><p>能耗正比于：<span class="math inline">\(1/2\times负载电容\times电压^2\)</span></p></li>
 </ul>
 
       
@@ -762,7 +757,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#八个伟大思想"><span class="nav-number">1.</span> <span class="nav-text">八个伟大思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集成电路的成本"><span class="nav-number">2.</span> <span class="nav-text">集成电路的成本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应时间和吞吐量"><span class="nav-number">3.</span> <span class="nav-text">响应时间和吞吐量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时钟周期、时钟频率与CPI（计算题）"><span class="nav-number">4.</span> <span class="nav-text">时钟周期、时钟频率与CPI（计算题）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#八个伟大思想"><span class="nav-number">1.</span> <span class="nav-text">八个伟大思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集成电路的成本"><span class="nav-number">2.</span> <span class="nav-text">集成电路的成本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应时间和吞吐量"><span class="nav-number">3.</span> <span class="nav-text">响应时间和吞吐量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时钟周期时钟频率与cpi计算题"><span class="nav-number">4.</span> <span class="nav-text">时钟周期、时钟频率与CPI（计算题）</span></a></li></ol></div>
             
 
           </div>
@@ -809,7 +804,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1408,26 +1403,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

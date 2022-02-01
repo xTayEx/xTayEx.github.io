@@ -129,19 +129,19 @@
 
 
 
-<meta name="description" content="Big Number &amp;emsp;&amp;emsp;直接套用stirling数的公式即可。关于strling数，可参考下图">
+<meta name="description" content="Big Number   直接套用stirling数的公式即可。关于strling数，可参考下图">
 <meta name="keywords" content="ACM,C,C++,数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU1018 - Big Number">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/02/24/HDU1018-Big-Number/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="Big Number &amp;emsp;&amp;emsp;直接套用stirling数的公式即可。关于strling数，可参考下图">
+<meta property="og:description" content="Big Number   直接套用stirling数的公式即可。关于strling数，可参考下图">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pic.superbed.cn/item/5c72a85b3a213b0417767d95">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU1018 - Big Number">
-<meta name="twitter:description" content="Big Number &amp;emsp;&amp;emsp;直接套用stirling数的公式即可。关于strling数，可参考下图">
+<meta name="twitter:description" content="Big Number   直接套用stirling数的公式即可。关于strling数，可参考下图">
 <meta name="twitter:image" content="https://pic.superbed.cn/item/5c72a85b3a213b0417767d95">
 
 
@@ -468,7 +468,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  148
+                  146
                 </span>
               
 
@@ -506,8 +506,8 @@
 
       
         <p><a href="https://cn.vjudge.net/problem/HDU-1018" rel="external nofollow noopener noreferrer" target="_blank">Big Number</a></p>
-<p>&emsp;&emsp;直接套用stirling数的公式即可。关于strling数，可参考下图</p>
-<p><img src="https://pic.superbed.cn/item/5c72a85b3a213b0417767d95" alt><br><a id="more"></a><br>代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x7fffffff</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pi acos(-1.0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> e=<span class="number">2.718281828459</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line"><span class="comment">//    cout&lt;&lt;log10(103)&lt;&lt;endl;</span></span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">double</span> n;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        ll ans=<span class="number">0</span>;</span><br><span class="line">        ans=(<span class="keyword">int</span>)(<span class="built_in">floor</span>((<span class="built_in">log10</span>((<span class="number">2</span>*pi*n)))/<span class="number">2</span>+n*<span class="built_in">log10</span>(n/e))+<span class="number">1</span>);        <span class="comment">//stirling公式 </span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**/</span></span><br></pre></td></tr></table></figure></p>
+<p>  直接套用stirling数的公式即可。关于strling数，可参考下图</p>
+<p><img src="https://pic.superbed.cn/item/5c72a85b3a213b0417767d95"> <a id="more"></a> 代码如下： <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x7fffffff</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pi acos(-1.0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> e=<span class="number">2.718281828459</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line"><span class="comment">//    cout&lt;&lt;log10(103)&lt;&lt;endl;</span></span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">double</span> n;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        ll ans=<span class="number">0</span>;</span><br><span class="line">        ans=(<span class="keyword">int</span>)(<span class="built_in">floor</span>((<span class="built_in">log10</span>((<span class="number">2</span>*pi*n)))/<span class="number">2</span>+n*<span class="built_in">log10</span>(n/e))+<span class="number">1</span>);        <span class="comment">//stirling公式 </span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**/</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -760,7 +760,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1359,26 +1359,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

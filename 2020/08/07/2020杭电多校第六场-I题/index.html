@@ -477,7 +477,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  390
+                  398
                 </span>
               
 
@@ -514,13 +514,14 @@
       
 
       
-        <p><span style="color: grey;">没有封面图</span><br><a id="more"></a></p>
-<p>题意：对于给定的<script type="math/tex">b</script>进制数<script type="math/tex">y</script>，定义<script type="math/tex">f(y)</script>表示其<script type="math/tex">y</script>在<script type="math/tex">b</script>进制下的数位和。现在有这样的一个命题：对于任意的<script type="math/tex">b</script>进制数<script type="math/tex">y</script>和给定的<script type="math/tex">b</script>进制数<script type="math/tex">x</script>，如果<script type="math/tex">f(y)</script>整除<script type="math/tex">x</script>，则<script type="math/tex">y</script>也整除<script type="math/tex">x</script>。判断给定<script type="math/tex">b</script>和<script type="math/tex">x</script>下命题正确性。</p>
-<p>思路：结论是，当<script type="math/tex">b\equiv 1 \pmod x</script>时，命题成立。原因在于，对于<script type="math/tex">b</script>进制的数<script type="math/tex">y</script>，可以将其表示为<script type="math/tex">y=c_0*b^0+c_1*b^1+c_2*b^2+\dots+c_{n-2}*b^{n-2}+c_{n-1}*b^{n-1}</script>。可以发现，如果<script type="math/tex">b\equiv 1\pmod x</script>，那么由于有<script type="math/tex">A\equiv B \pmod p\Leftrightarrow f(A)\equiv f(B)\pmod x</script>，所以，在这种情况下，有</p>
-<script type="math/tex; mode=display">
+        <p><span style="color: grey;">没有封面图</span> <a id="more"></a></p>
+<p>题意：对于给定的<span class="math display">\[b\]</span>进制数<span class="math display">\[y\]</span>，定义<span class="math display">\[f(y)\]</span>表示其<span class="math display">\[y\]</span>在<span class="math display">\[b\]</span>进制下的数位和。现在有这样的一个命题：对于任意的<span class="math display">\[b\]</span>进制数<span class="math display">\[y\]</span>和给定的<span class="math display">\[b\]</span>进制数<span class="math display">\[x\]</span>，如果<span class="math display">\[f(y)\]</span>整除<span class="math display">\[x\]</span>，则<span class="math display">\[y\]</span>也整除<span class="math display">\[x\]</span>。判断给定<span class="math display">\[b\]</span>和<span class="math display">\[x\]</span>下命题正确性。</p>
+<p>思路：结论是，当<span class="math display">\[b\equiv 1 \pmod x\]</span>时，命题成立。原因在于，对于<span class="math display">\[b\]</span>进制的数<span class="math display">\[y\]</span>，可以将其表示为<span class="math display">\[y=c_0*b^0+c_1*b^1+c_2*b^2+\dots+c_{n-2}*b^{n-2}+c_{n-1}*b^{n-1}\]</span>。可以发现，如果<span class="math display">\[b\equiv 1\pmod x\]</span>，那么由于有<span class="math display">\[A\equiv B \pmod p\Leftrightarrow f(A)\equiv f(B)\pmod x\]</span>，所以，在这种情况下，有 <span class="math display">\[
 \begin{equation}
 c_0*b^0+c_1*b^1+c_2*b^2+\dots+c_{n-2}*b^{n-2}+c_{n-1}*b^{n-1}\equiv c_0+c_1+c_2+\dots+c_{n-2}+c_{n-1}\pmod x
-\end{equation}</script><p><script type="math/tex">c_0+c_1+c_2+\dots+c_{n-2}+c_{n-1}</script>就是题目中的<script type="math/tex">f(y)</script>。所以，结论成立。</p>
+\end{equation}
+\]</span></p>
+<p><span class="math display">\[c_0+c_1+c_2+\dots+c_{n-2}+c_{n-1}\]</span>就是题目中的<span class="math display">\[f(y)\]</span>。所以，结论成立。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a, b) memset((a), (b), sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug printf(<span class="meta-string">"debug\n"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lson lef, mid, rt &lt;&lt; 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rson mid + 1, rig, rt &lt;&lt; 1 | 1</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        ll b, x;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld %lld"</span>, &amp;b, &amp;x);</span><br><span class="line">        <span class="keyword">if</span> (b &lt; x) &#123;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"F"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (b % x == <span class="number">1L</span>L)</span><br><span class="line">                <span class="built_in">puts</span>(<span class="string">"T"</span>);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">puts</span>(<span class="string">"F"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -772,7 +773,7 @@ c_0*b^0+c_1*b^1+c_2*b^2+\dots+c_{n-2}*b^{n-2}+c_{n-1}*b^{n-1}\equiv c_0+c_1+c_2+
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1371,26 +1372,6 @@ c_0*b^0+c_1*b^1+c_2*b^2+\dots+c_{n-2}*b^{n-2}+c_{n-1}*b^{n-1}\equiv c_0+c_1+c_2+
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

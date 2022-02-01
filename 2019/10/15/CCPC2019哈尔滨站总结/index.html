@@ -506,64 +506,66 @@
       
 
       
-        <p><img src="https://ae01.alicdn.com/kf/Hc44a6b020fd5413ca3b54eea908034afn.jpg" alt></p>
+        <p><img src="https://ae01.alicdn.com/kf/Hc44a6b020fd5413ca3b54eea908034afn.jpg"></p>
 <a id="more"></a>
-<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>萌新的第一场区域赛，抱队友大腿拿了个铜，不至于打铁qwq。队友实在太强辣！</p>
-<h4 id="热身赛"><a href="#热身赛" class="headerlink" title="热身赛"></a>热身赛</h4><p>热身赛四道题，A，B都是傻逼题；C，D是牛客多校原题，然而我们并没有敲出来……C题原本的想法是枚举矩阵起点，然后单调栈维护纵向横向两个方向最远可以拓展的距离；后来听对面女队的小姐姐讨论，觉得可以尺取法搞搞，结果热身赛结束了都没弄出来😭。后悔没有好好补多校的题😭</p>
+<h4 id="前言">前言</h4>
+<p>萌新的第一场区域赛，抱队友大腿拿了个铜，不至于打铁qwq。队友实在太强辣！</p>
+<h4 id="热身赛">热身赛</h4>
+<p>热身赛四道题，A，B都是傻逼题；C，D是牛客多校原题，然而我们并没有敲出来......C题原本的想法是枚举矩阵起点，然后单调栈维护纵向横向两个方向最远可以拓展的距离；后来听对面女队的小姐姐讨论，觉得可以尺取法搞搞，结果热身赛结束了都没弄出来😭。后悔没有好好补多校的题😭</p>
 <p>热身赛草草结束，去东林恰了个晚饭，<del>东林的饭堂还挺好吃的</del></p>
-<h4 id="正赛"><a href="#正赛" class="headerlink" title="正赛"></a>正赛</h4><p>正赛一共过了下面四题</p>
-<div class="table-container">
+<h4 id="正赛">正赛</h4>
+<p>正赛一共过了下面四题</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>Problem</th>
 <th>Solution</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>F - Fixing Banners</td>
 <td>直接6!暴力枚举</td>
 </tr>
-<tr>
+<tr class="even">
 <td>I - Interesting Permutation</td>
-<td>牛逼队友找规律，我一脸懵逼……</td>
+<td>牛逼队友找规律，我一脸懵逼......</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>J - Justifying the Conjecture</td>
-<td>>=5的情况都有解，奇数分解成3 + x，偶数分解成2 + x</td>
+<td>&gt;=5的情况都有解，奇数分解成3 + x，偶数分解成2 + x</td>
 </tr>
-<tr>
+<tr class="even">
 <td>K - Keeping Rabbits</td>
 <td>无论经过多少天，概率分布都不会变化</td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>开场看题时沿用了我们队一直以来的策略，我从后面开始看题，zh学长从前面开始看题，pzc中间随便看。根据赛前训练的经验，签到题一般是倒数第二或第三题，再加上这次的倒数第一题是一道题面贼长的大模拟，于是看题时我没有从倒数第一题开始，而是直接选了最签到的 J，发现果然是水题，于是把题意喂给主代码手，10min内水过。</p>
 <p>往后又看到了K，于是把题意告诉学长，然后自己接着看题。看题过程中发现了F和I，觉得有搞头，然后去搞了搞F，喂给学长和代码手，过了。紧接着是学长敲K，也是一发过。开场签到感觉很顺利，<del>然后就开始自闭了</del></p>
-<p>签完前三题后，开始搞I 。题意是说给定一个$1$到$n$的排列$a_1,a_2,a_3,…,a_n$，对于两个序列<script type="math/tex">f_i=max\{a_1,a_2,a_3,...,a_i\}</script>，<script type="math/tex">g_i=min\{a_1,a_2,a_3,...,a_i\}</script>，定义$h_i=f_i-g_i$。现在给出一个$h$序列，问有多少个$1$到$n$的排列，可以生成这样的一个$h$序列。</p>
-<p>第一反应是dp，但队里的dp选手想不出要怎么d OTZ。过了一会后牛逼队友发现这东西可以找规律解决，结果打了个表对拍一下，结果发现规律好像推错了……于是继续自闭，直到差不多一点的时候，队友才把正确的规律搞了出来，然后搞搞搞，终于过了😭。对于这题我个人感觉挺惭愧的，可以说除了读题对拍意外没有其他贡献，<del>后期还挂机了</del>。I题过了之后，排名上升到了121，终于苟到铜牌了OTZ</p>
-<p>这时候还剩下一个半小时，感觉如果不把E过掉，很可能会打铁（不过事实证明还是能有铜的）。于是疯狂搞E，但最终还是很遗憾没有弄出来。赛后跟我校的另一支队了解了一下，得知他们将快读换成了A题题面上的快读就过了……过了……队友听到这都要哭了，<del>我也要哭了qwq</del></p>
+<p>签完前三题后，开始搞I 。题意是说给定一个<span class="math inline">\(1\)</span>到<span class="math inline">\(n\)</span>的排列<span class="math inline">\(a_1,a_2,a_3,...,a_n\)</span>，对于两个序列<span class="math display">\[f_i=max\{a_1,a_2,a_3,...,a_i\}\]</span>，<span class="math display">\[g_i=min\{a_1,a_2,a_3,...,a_i\}\]</span>，定义<span class="math inline">\(h_i=f_i-g_i\)</span>。现在给出一个<span class="math inline">\(h\)</span>序列，问有多少个<span class="math inline">\(1\)</span>到<span class="math inline">\(n\)</span>的排列，可以生成这样的一个<span class="math inline">\(h\)</span>序列。</p>
+<p>第一反应是dp，但队里的dp选手想不出要怎么d OTZ。过了一会后牛逼队友发现这东西可以找规律解决，结果打了个表对拍一下，结果发现规律好像推错了......于是继续自闭，直到差不多一点的时候，队友才把正确的规律搞了出来，然后搞搞搞，终于过了😭。对于这题我个人感觉挺惭愧的，可以说除了读题对拍意外没有其他贡献，<del>后期还挂机了</del>。I题过了之后，排名上升到了121，终于苟到铜牌了OTZ</p>
+<p>这时候还剩下一个半小时，感觉如果不把E过掉，很可能会打铁（不过事实证明还是能有铜的）。于是疯狂搞E，但最终还是很遗憾没有弄出来。赛后跟我校的另一支队了解了一下，得知他们将快读换成了A题题面上的快读就过了......过了......队友听到这都要哭了，<del>我也要哭了qwq</del></p>
 <p>第一场区域赛，没有打铁，我个人已经非常满意了。大致总结一下自身的问题，一就是精神不够集中，容易进入挂机状态。无论是平时训练还是现场赛都是如此。二就是时间的利用效率还不够高，比如说这次现场赛，后期卡E题的时候，我对这题几乎是0贡献，那这时为什么我不去搞搞那两道模拟题，想个大概的框架，然后把题意和自己的想法喂给擅长模拟题的队友呢？或许这样我们能A五题？</p>
 <p>就这样吧，这周银川站加油💪</p>
-<h4 id="一些题外话"><a href="#一些题外话" class="headerlink" title="一些题外话"></a>一些题外话</h4><p><img src="https://ae01.alicdn.com/kf/H7d0f28ea3f4c49c19ad981ce10d5ac0du.jpg" alt></p>
-<center>摄于深圳—哈尔滨的飞机上</center>
+<h4 id="一些题外话">一些题外话</h4>
+<p><img src="https://ae01.alicdn.com/kf/H7d0f28ea3f4c49c19ad981ce10d5ac0du.jpg"></p>
+<center>
+摄于深圳—哈尔滨的飞机上
+</center>
+<p><img src="https://ae01.alicdn.com/kf/Hb1000c4c83664acb8eda52e37b4c3bdce.png"></p>
+<center>
+东林里面居然还有个自然博物馆，我酸了qwq
+</center>
+<p><img src="https://ae01.alicdn.com/kf/H3d63cdbd1f44496ca159ea95fcf3795cR.jpg"></p>
+<center>
+哈尔滨特色锅包肉，然而并不喜欢甜食。。。
+</center>
+<p><img src="https://ae01.alicdn.com/kf/Hc44a6b020fd5413ca3b54eea908034afn.jpg"></p>
+<center>
+摄于哈尔滨太阳岛
+</center>
 
-
-
-<p><img src="https://ae01.alicdn.com/kf/Hb1000c4c83664acb8eda52e37b4c3bdce.png" alt></p>
-<center>东林里面居然还有个自然博物馆，我酸了qwq</center>
-
-
-
-
-
-<p><img src="https://ae01.alicdn.com/kf/H3d63cdbd1f44496ca159ea95fcf3795cR.jpg" alt></p>
-<center>哈尔滨特色锅包肉，然而并不喜欢甜食。。。</center>
-
-<p><img src="https://ae01.alicdn.com/kf/Hc44a6b020fd5413ca3b54eea908034afn.jpg" alt></p>
-<center>摄于哈尔滨太阳岛</center>
       
     </div>
     
@@ -838,7 +840,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1437,26 +1439,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

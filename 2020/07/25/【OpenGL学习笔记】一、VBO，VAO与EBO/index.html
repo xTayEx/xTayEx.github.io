@@ -491,24 +491,13 @@
       
 
       
-        <p><img src="https://pic.downk.cc/item/5f1b8a4e14195aa594516bd0.png" alt><br><a id="more"></a></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>VBO、VAO和EBO是OpenGL中三个很基础的概念，但一开始时总是分不清他们的区别与联系。</p>
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
-<li><p>VBO：顶点缓冲对象</p>
+        <p><img src="https://pic.downk.cc/item/5f1b8a4e14195aa594516bd0.png"> <a id="more"></a> ### 前言 VBO、VAO和EBO是OpenGL中三个很基础的概念，但一开始时总是分不清他们的区别与联系。 ### 正文 * VBO：顶点缓冲对象</p>
 <ul>
-<li><p>是在显卡存储空间中开辟的一块内存缓存区，用于存储顶点的各类属性（顶点坐标、顶点法向量、顶点颜色等）</p>
-</li>
-<li><p>渲染时，可以直接从VBO中取出顶点的各类属性数据</p>
-</li>
-<li><p>每个VBO都有其唯一标识ID</p>
-</li>
+<li><p>是在显卡存储空间中开辟的一块内存缓存区，用于存储顶点的各类属性（顶点坐标、顶点法向量、顶点颜色等）</p></li>
+<li><p>渲染时，可以直接从VBO中取出顶点的各类属性数据</p></li>
+<li><p>每个VBO都有其唯一标识ID</p></li>
 <li><p>使用glGenBuffers开辟VBO并分配id</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> VBO;</span><br><span class="line">glGenBuffers(<span class="number">1</span>,&amp;VBO);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> VBO;</span><br><span class="line">glGenBuffers(<span class="number">1</span>,&amp;VBO);</span><br></pre></td></tr></table></figure></li>
 <li><p>通过glBindBuffer将某种类型的顶点数据绑定到某个VBO上（可以暂时理解为告诉该VBO它要存储的数据的类型，当然这是不准确的，因为同一类型的顶点数据一次只能绑定一个VBO）。绑定的类型必须是以下几种中的一种</p>
 <ul>
 <li>GL_ARRAY_BUFFER</li>
@@ -516,11 +505,9 @@
 <li>GL_PIXEL_PACK_BUFFER</li>
 <li>GL_PIXEL_UNPACK_BUFFER</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> VBO;</span><br><span class="line">glGenBuffers(<span class="number">1</span>,&amp;VBO);</span><br><span class="line">glBindBuffer(GL_ARRAY_BUFFER,VBO);</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> VBO;</span><br><span class="line">glGenBuffers(<span class="number">1</span>,&amp;VBO);</span><br><span class="line">glBindBuffer(GL_ARRAY_BUFFER,VBO);</span><br></pre></td></tr></table></figure></li>
 <li><p>通过glBufferData将数据传送到绑定的VBO中</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glBufferData(GL_ARRAY_BUFFER,<span class="keyword">sizeof</span>(vertices),vertices,GL_STATIC_DRAW);</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glBufferData(GL_ARRAY_BUFFER,<span class="keyword">sizeof</span>(vertices),vertices,GL_STATIC_DRAW);</span><br></pre></td></tr></table></figure></li>
 <li><p>使用glVertexAttribPointer告知OpenGL如何处理某个VBO中的数据</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glVertexAttribPointer(<span class="number">0</span>,<span class="number">4</span>,GL_FLOAT,GL_FALSE,<span class="number">0</span>,(<span class="keyword">void</span>*)<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
 <ul>
@@ -530,31 +517,21 @@
 <li>第四个参数指定数据是否要被标准化</li>
 <li>第五个参数是步长，指定连续顶点属性组之间的间隔。比方说三个GL_FLOAT数据表示一个坐标点，那就把他们作为一个属性组，步长就是3*sizeof(float)</li>
 <li>第六个参数是数据起始位置距离缓冲区中起始位置的偏移量</li>
-</ul>
-</li>
+</ul></li>
 <li><p>使用glEnableVertexAttribArray开启glVertexAttribPointer。由于glVertexAttribPointer默认是关闭的，所以使用时要用顶点属性位置的值为参数，通过glEnableVertexAttribArray来开启这一功能</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glEnableVertexAttribArray(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glEnableVertexAttribArray(<span class="number">0</span>)</span><br></pre></td></tr></table></figure></li>
 <li><p>VAO：顶点数组对象</p>
 <ul>
-<li><p>保存了很多VBO的引用，相当于把很多VBO统一到一个对象中进行管理</p>
-</li>
+<li><p>保存了很多VBO的引用，相当于把很多VBO统一到一个对象中进行管理</p></li>
 <li><p>使用glGenVertexArrays得到一个VAO，并分配id</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glGenVertexArrays(<span class="number">1</span>,&amp;VAO);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用glBindVertexArray绑定VAO。绑定后，后面所有VBO的引用都会被保存在这一个VAO中。</p>
-</li>
-<li><p>VAO的存在意义是减少绑定的工作量。因为每次绘制某些之前都需要绑定顶点的所有信息到对应的VBO中。这样做未免有点太麻烦，尤其是数据量很大的情况下。使用VAO，可以把所有顶点信息都绑定到VBO后，再通过VAO把所有顶点信息绑定到一个对象上(VAO)，后面只需要绑定VAO这一个对象即可。</p>
-</li>
-</ul>
-</li>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glGenVertexArrays(<span class="number">1</span>,&amp;VAO);</span><br></pre></td></tr></table></figure></li>
+<li><p>使用glBindVertexArray绑定VAO。绑定后，后面所有VBO的引用都会被保存在这一个VAO中。</p></li>
+<li><p>VAO的存在意义是减少绑定的工作量。因为每次绘制某些之前都需要绑定顶点的所有信息到对应的VBO中。这样做未免有点太麻烦，尤其是数据量很大的情况下。使用VAO，可以把所有顶点信息都绑定到VBO后，再通过VAO把所有顶点信息绑定到一个对象上(VAO)，后面只需要绑定VAO这一个对象即可。</p></li>
+</ul></li>
 <li><p>EBO：索引缓存对象</p>
 <ul>
 <li>存储顶点的索引，避免因为某些点重复存储导致的空间浪费</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 
       
@@ -673,17 +650,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -775,22 +743,6 @@
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -831,7 +783,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1430,26 +1382,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

@@ -129,18 +129,18 @@
 
 
 
-<meta name="description" content="&amp;emsp;&amp;emsp;原理与快速幂相似，利用二进制将两个数的乘法运算转化为加法运算。具体代码如下:">
+<meta name="description" content="原理与快速幂相似，利用二进制将两个数的乘法运算转化为加法运算。具体代码如下:">
 <meta name="keywords" content="ACM,C,C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="快速乘算法">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/01/28/快速乘算法/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;原理与快速幂相似，利用二进制将两个数的乘法运算转化为加法运算。具体代码如下:">
+<meta property="og:description" content="原理与快速幂相似，利用二进制将两个数的乘法运算转化为加法运算。具体代码如下:">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速乘算法">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;原理与快速幂相似，利用二进制将两个数的乘法运算转化为加法运算。具体代码如下:">
+<meta name="twitter:description" content="原理与快速幂相似，利用二进制将两个数的乘法运算转化为加法运算。具体代码如下:">
 
 
 
@@ -466,7 +466,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  321
+                  315
                 </span>
               
 
@@ -503,11 +503,11 @@
       
 
       
-        <p>&emsp;&emsp;原理与快速幂相似，利用二进制将两个数的乘法运算转化为加法运算。具体代码如下:<br><a id="more"></a><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mul</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>)</span><br><span class="line">            ans+=a;</span><br><span class="line">        a+=a;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>加上取模的话是这样:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mul</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>)</span><br><span class="line">            ans=(ans+a)%p;</span><br><span class="line">        a=(a+a)%p;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;快速乘其实是利用了二进制与乘法分配律。以 2 x 7 为例，因为 7(10) = 111(2) = 100(2)+ 010(2) + 001(2) = 4(10)+2(10)+1(10)，也就是 2 x 7 = 2 x ( 4 + 2 + 1 ) = 8 + 4 + 2，从而将乘法转化为加法(对于计算机而言，算加法要比算乘法快得多) </p>
-<p>&emsp;&emsp;我们再将快速幂与快速乘对比一下:<br>快速幂:<br><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> fpow(<span class="built_in">int</span> a,<span class="built_in">int</span> b)</span><br><span class="line">&#123;    </span><br><span class="line">    <span class="built_in">int</span> ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>)</span><br><span class="line">            ans*=a;</span><br><span class="line">        a*=a;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>快速乘:<br><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> mul(<span class="built_in">int</span> a,<span class="built_in">int</span> b)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>)</span><br><span class="line">            ans+=a;</span><br><span class="line">        a+=a;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>  原理与快速幂相似，利用二进制将两个数的乘法运算转化为加法运算。具体代码如下: <a id="more"></a> <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mul</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>)</span><br><span class="line">            ans+=a;</span><br><span class="line">        a+=a;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>加上取模的话是这样: <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mul</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>)</span><br><span class="line">            ans=(ans+a)%p;</span><br><span class="line">        a=(a+a)%p;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  快速乘其实是利用了二进制与乘法分配律。以 2 x 7 为例，因为 7(10) = 111(2) = 100(2)+ 010(2) + 001(2) = 4(10)+2(10)+1(10)，也就是 2 x 7 = 2 x ( 4 + 2 + 1 ) = 8 + 4 + 2，从而将乘法转化为加法(对于计算机而言，算加法要比算乘法快得多)</p>
+<p>  我们再将快速幂与快速乘对比一下: 快速幂: <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> fpow(<span class="built_in">int</span> a,<span class="built_in">int</span> b)</span><br><span class="line">&#123;    </span><br><span class="line">    <span class="built_in">int</span> ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>)</span><br><span class="line">            ans*=a;</span><br><span class="line">        a*=a;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>快速乘: <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> mul(<span class="built_in">int</span> a,<span class="built_in">int</span> b)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>)</span><br><span class="line">            ans+=a;</span><br><span class="line">        a+=a;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>可以发现，两者之间的差别只有加号与乘号的差别。这是因为，乘法就是若干次加法，而求幂就是若干次乘法。</p>
 
       
@@ -759,7 +759,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1358,26 +1358,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

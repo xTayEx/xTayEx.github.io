@@ -129,18 +129,18 @@
 
 
 
-<meta name="description" content="饭卡 &amp;emsp;&amp;emsp;一道01背包的题目，特殊之处在于要先拿出5元用来买最贵的东西，剩下的钱即为背包，然后就是普通的01背包了。">
+<meta name="description" content="饭卡   一道01背包的题目，特殊之处在于要先拿出5元用来买最贵的东西，剩下的钱即为背包，然后就是普通的01背包了。">
 <meta name="keywords" content="ACM,C,C++,DP,01背包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU2546 - 饭卡">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/02/18/HDU2546-饭卡/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="饭卡 &amp;emsp;&amp;emsp;一道01背包的题目，特殊之处在于要先拿出5元用来买最贵的东西，剩下的钱即为背包，然后就是普通的01背包了。">
+<meta property="og:description" content="饭卡   一道01背包的题目，特殊之处在于要先拿出5元用来买最贵的东西，剩下的钱即为背包，然后就是普通的01背包了。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU2546 - 饭卡">
-<meta name="twitter:description" content="饭卡 &amp;emsp;&amp;emsp;一道01背包的题目，特殊之处在于要先拿出5元用来买最贵的东西，剩下的钱即为背包，然后就是普通的01背包了。">
+<meta name="twitter:description" content="饭卡   一道01背包的题目，特殊之处在于要先拿出5元用来买最贵的东西，剩下的钱即为背包，然后就是普通的01背包了。">
 
 
 
@@ -477,7 +477,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  213
+                  211
                 </span>
               
 
@@ -515,9 +515,9 @@
 
       
         <p><a href="https://cn.vjudge.net/problem/HDU-2546" rel="external nofollow noopener noreferrer" target="_blank">饭卡</a></p>
-<p>&emsp;&emsp;一道01背包的题目，特殊之处在于要先拿出5元用来买最贵的东西，剩下的钱即为背包，然后就是普通的01背包了。</p>
+<p>  一道01背包的题目，特殊之处在于要先拿出5元用来买最贵的东西，剩下的钱即为背包，然后就是普通的01背包了。</p>
 <a id="more"></a>
-<p>代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1005</span>;</span><br><span class="line"><span class="keyword">int</span> pri[maxn];</span><br><span class="line"><span class="keyword">int</span> dp[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)!=EOF&amp;&amp;n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(pri,<span class="number">0</span>,<span class="keyword">sizeof</span>(pri));</span><br><span class="line">        <span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;pri[i]);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m);</span><br><span class="line">        <span class="keyword">if</span>(m&lt;<span class="number">5</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,m);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> vtot=m<span class="number">-5</span>;</span><br><span class="line">        sort(pri+<span class="number">1</span>,pri+<span class="number">1</span>+n);        <span class="comment">//要余额最小，则需要先买便宜的，再买贵的 </span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=vtot;j&gt;=pri[i];j--)</span><br><span class="line">                dp[j]=<span class="built_in">max</span>(dp[j],dp[j-pri[i]]+pri[i]);</span><br><span class="line">        <span class="keyword">int</span> ans=m-pri[n]-dp[vtot];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代码如下： <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1005</span>;</span><br><span class="line"><span class="keyword">int</span> pri[maxn];</span><br><span class="line"><span class="keyword">int</span> dp[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)!=EOF&amp;&amp;n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(pri,<span class="number">0</span>,<span class="keyword">sizeof</span>(pri));</span><br><span class="line">        <span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;pri[i]);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m);</span><br><span class="line">        <span class="keyword">if</span>(m&lt;<span class="number">5</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,m);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> vtot=m<span class="number">-5</span>;</span><br><span class="line">        sort(pri+<span class="number">1</span>,pri+<span class="number">1</span>+n);        <span class="comment">//要余额最小，则需要先买便宜的，再买贵的 </span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=vtot;j&gt;=pri[i];j--)</span><br><span class="line">                dp[j]=<span class="built_in">max</span>(dp[j],dp[j-pri[i]]+pri[i]);</span><br><span class="line">        <span class="keyword">int</span> ans=m-pri[n]-dp[vtot];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -772,7 +772,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1371,26 +1371,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

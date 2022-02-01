@@ -129,18 +129,18 @@
 
 
 
-<meta name="description" content="Strange Way to Express Integers &amp;emsp;&amp;emsp;拓展中国剩余定理的模板题，但我并看不懂模板OTZ(过段时间会补上个人理解，先把代码放这)">
+<meta name="description" content="Strange Way to Express Integers   拓展中国剩余定理的模板题，但我并看不懂模板OTZ(过段时间会补上个人理解，先把代码放这)">
 <meta name="keywords" content="ACM,C,C++,数论,拓展中国剩余定理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="POJ2891 - Strange Way to Express Integers">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/03/02/POJ2891-Strange-Way-to-Express-Integers/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="Strange Way to Express Integers &amp;emsp;&amp;emsp;拓展中国剩余定理的模板题，但我并看不懂模板OTZ(过段时间会补上个人理解，先把代码放这)">
+<meta property="og:description" content="Strange Way to Express Integers   拓展中国剩余定理的模板题，但我并看不懂模板OTZ(过段时间会补上个人理解，先把代码放这)">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.837Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="POJ2891 - Strange Way to Express Integers">
-<meta name="twitter:description" content="Strange Way to Express Integers &amp;emsp;&amp;emsp;拓展中国剩余定理的模板题，但我并看不懂模板OTZ(过段时间会补上个人理解，先把代码放这)">
+<meta name="twitter:description" content="Strange Way to Express Integers   拓展中国剩余定理的模板题，但我并看不懂模板OTZ(过段时间会补上个人理解，先把代码放这)">
 
 
 
@@ -466,7 +466,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  279
+                  277
                 </span>
               
 
@@ -504,9 +504,10 @@
 
       
         <p><a href="https://cn.vjudge.net/problem/POJ-2891" rel="external nofollow noopener noreferrer" target="_blank">Strange Way to Express Integers</a></p>
-<p>&emsp;&emsp;拓展中国剩余定理的模板题，但我并看不懂模板OTZ(过段时间会补上个人理解，先把代码放这)</p>
+<p>  拓展中国剩余定理的模板题，但我并看不懂模板OTZ(过段时间会补上个人理解，先把代码放这)</p>
 <a id="more"></a>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="function">ll <span class="title">exgcd</span><span class="params">(ll a,ll b,ll&amp; x,ll&amp; y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!b)</span><br><span class="line">    &#123;</span><br><span class="line">        x=<span class="number">1</span>;y=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    ll r=exgcd(b,a%b,x,y);</span><br><span class="line">    ll tmp=x;</span><br><span class="line">    x=y;</span><br><span class="line">    y=tmp-(a/b)*y;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line">ll a[maxn],m[maxn];</span><br><span class="line"><span class="function">ll <span class="title">solve</span><span class="params">(ll n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll M=m[<span class="number">1</span>];</span><br><span class="line">    ll ans=a[<span class="number">1</span>];</span><br><span class="line">    ll x,y;ll r;ll tmp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        r=exgcd(M,m[i],x,y);</span><br><span class="line">        <span class="keyword">if</span>((a[i]-ans)%r)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        x*=(a[i]-ans)/r;</span><br><span class="line">        tmp=m[i]/r;</span><br><span class="line">        x=(x%tmp+tmp)%tmp;</span><br><span class="line">        ans=M*x+ans;</span><br><span class="line">        M=M/r*m[i];</span><br><span class="line">        ans%=M;</span><br><span class="line">    &#125;</span><br><span class="line">    ans=(ans%M+M)%M;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">    ll k;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;k)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;m[i]&gt;&gt;a[i];</span><br><span class="line">        ll ans=solve(k);</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -760,7 +761,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1359,26 +1360,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

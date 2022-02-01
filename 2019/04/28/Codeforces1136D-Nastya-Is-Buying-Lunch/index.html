@@ -129,19 +129,19 @@
 
 
 
-<meta name="description" content="Nastya Is Buying Lunch Photo from Pexels">
+<meta name="description" content="Nastya Is Buying Lunch Photo from Pexels">
 <meta name="keywords" content="ACM,思维,Codeforces">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces1136D - Nastya Is Buying Lunch">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/04/28/Codeforces1136D-Nastya-Is-Buying-Lunch/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="Nastya Is Buying Lunch Photo from Pexels">
+<meta property="og:description" content="Nastya Is Buying Lunch Photo from Pexels">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/HTB1lkBjXfxj_uVjSZFqq6yboFXao.jpg">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.614Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces1136D - Nastya Is Buying Lunch">
-<meta name="twitter:description" content="Nastya Is Buying Lunch Photo from Pexels">
+<meta name="twitter:description" content="Nastya Is Buying Lunch Photo from Pexels">
 <meta name="twitter:image" content="https://ae01.alicdn.com/kf/HTB1lkBjXfxj_uVjSZFqq6yboFXao.jpg">
 
 
@@ -506,14 +506,15 @@
 
       
         <p><a href="https://cn.vjudge.net/problem/CodeForces-1136D" rel="external nofollow noopener noreferrer" target="_blank">Nastya Is Buying Lunch</a></p>
-<p><img src="https://ae01.alicdn.com/kf/HTB1lkBjXfxj_uVjSZFqq6yboFXao.jpg" alt>Photo from Pexels</p>
+<p><img src="https://ae01.alicdn.com/kf/HTB1lkBjXfxj_uVjSZFqq6yboFXao.jpg">Photo from Pexels</p>
 <a id="more"></a>
-<p>题目大意是说有n个数1到n，它们按照一定的顺序排列。然后现在有m个数对$(u,v)$，意思是说，如果数字u排在数字v的前面(左边)，且两个数字相邻，那么两个数字就可以交换位置。问，对于排在最后的数字，通过这样的交换位置的操作，这个数字最多可以前进多少个位置(向左移动多少次)。</p>
-<p>emmmmmmm比赛时真的没想出来……<del>后期补题的时候也没想出来OTZ</del>，于是不得不去看题解hhhhh</p>
-<p>先说说我的想法:首先这题第一感觉是一道贪心题，那我们是否可以通过找到一个最长的“连续交换序列”来实现最后一个数尽可能多地向前移动呢？所谓的连续交换序列就是说，在这个序列里，前后两个交换操作是连续的，执行完前一个操作后恰好可以执行下一个操作…….emmmmmm事实证明这是个非常错误的想法，而且也不好实现</p>
-<p>所以正确的做法应该是，记录每一个数后面有多少个可以与他交换的数，用一个cnt数组来记录。对于一个数，如果最后一个数$x=que[i]$与这个数的距离，即$n-ans-i$($ans$是最后一个数目前所移动了的距离)刚好和$cnt[x]$相等，那就说明一定有一种操作可以将x换到这个数当前所在的位置,这是就ans++;如果不相等，那么更新以下cnt数组。非常巧妙的做法呢。</p>
+<p>题目大意是说有n个数1到n，它们按照一定的顺序排列。然后现在有m个数对<span class="math inline">\((u,v)\)</span>，意思是说，如果数字u排在数字v的前面(左边)，且两个数字相邻，那么两个数字就可以交换位置。问，对于排在最后的数字，通过这样的交换位置的操作，这个数字最多可以前进多少个位置(向左移动多少次)。</p>
+<p>emmmmmmm比赛时真的没想出来......<del>后期补题的时候也没想出来OTZ</del>，于是不得不去看题解hhhhh</p>
+<p>先说说我的想法:首先这题第一感觉是一道贪心题，那我们是否可以通过找到一个最长的“连续交换序列”来实现最后一个数尽可能多地向前移动呢？所谓的连续交换序列就是说，在这个序列里，前后两个交换操作是连续的，执行完前一个操作后恰好可以执行下一个操作.......emmmmmm事实证明这是个非常错误的想法，而且也不好实现</p>
+<p>所以正确的做法应该是，记录每一个数后面有多少个可以与他交换的数，用一个cnt数组来记录。对于一个数，如果最后一个数<span class="math inline">\(x=que[i]\)</span>与这个数的距离，即<span class="math inline">\(n-ans-i\)</span>(<span class="math inline">\(ans\)</span>是最后一个数目前所移动了的距离)刚好和<span class="math inline">\(cnt[x]\)</span>相等，那就说明一定有一种操作可以将x换到这个数当前所在的位置,这是就ans++;如果不相等，那么更新以下cnt数组。非常巧妙的做法呢。</p>
 <p>代码如下:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset((a),(b),sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug printf(<span class="meta-string">"debug\n"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">int</span> que[<span class="number">3</span>*maxn];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec[<span class="number">3</span>*maxn];</span><br><span class="line"><span class="keyword">int</span> cnt[<span class="number">3</span>*maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;mst(cnt,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;que[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> u,v;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;u&gt;&gt;v;</span><br><span class="line">        vec[v].push_back(u);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;vec[que[n]].<span class="built_in">size</span>();i++)</span><br><span class="line">        cnt[vec[que[n]][i]]++;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(cnt[que[i]]==n-ans-i)&#123;</span><br><span class="line">            ans++;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;vec[que[i]].<span class="built_in">size</span>();j++)</span><br><span class="line">                cnt[vec[que[i]][j]]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -763,7 +764,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1381,7 +1382,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/latest.min.js"></script>
   
 
 

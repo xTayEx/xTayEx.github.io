@@ -519,32 +519,24 @@
       
 
       
-        <p><img src="https://ae01.alicdn.com/kf/H628e81e21f2f4cd6994afcb0bc0d008ap.jpg" alt></p>
+        <p><img src="https://ae01.alicdn.com/kf/H628e81e21f2f4cd6994afcb0bc0d008ap.jpg"></p>
 <a id="more"></a>
-<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>装这个库的原因是因为昨天写题写得有点自闭，所以就去复习一下很久之前学过的numpy，打算调整一下思维。复习着复习着，就想C++下有没有像numpy这种这么好用的矩阵库呢？上某乎找了一下，果然有，便打算配一个玩玩<del>（一句话概括，原因就是想要找个合适的理由划水）</del></p>
-<h4 id="Armadill简介"><a href="#Armadill简介" class="headerlink" title="Armadill简介"></a>Armadill简介</h4><p>以下摘自官网</p>
+<h4 id="前言">前言</h4>
+<p>装这个库的原因是因为昨天写题写得有点自闭，所以就去复习一下很久之前学过的numpy，打算调整一下思维。复习着复习着，就想C++下有没有像numpy这种这么好用的矩阵库呢？上某乎找了一下，果然有，便打算配一个玩玩<del>（一句话概括，原因就是想要找个合适的理由划水）</del></p>
+<h4 id="armadill简介">Armadill简介</h4>
+<p>以下摘自官网</p>
 <blockquote>
 <ul>
-<li><p>Armadillo is a high quality linear algebra library (matrix maths) for the C++ language, aiming towards a good balance between speed and ease of use </p>
-</li>
-<li><p>Provides high-level syntax and <a href="http://arma.sourceforge.net/docs.html" rel="external nofollow noopener noreferrer" target="_blank">functionality</a> deliberately similar to Matlab </p>
-</li>
-<li><p>Useful for algorithm development directly in C++, or quick conversion of research code into production environments (eg. software &amp; hardware products) </p>
-</li>
-<li><p>Provides efficient classes for vectors, matrices and cubes (1st, 2nd and 3rd order tensors); dense and sparse matrices are supported </p>
-</li>
-<li><p>Integer, floating point and complex numbers are supported </p>
-</li>
-<li><p>Various matrix decompositions are provided through integration with <a href="http://www.netlib.org/lapack/" rel="external nofollow noopener noreferrer" target="_blank">LAPACK</a>, or one of its high performance drop-in replacements (eg. multi-threaded <a href="http://software.intel.com/en-us/intel-mkl/" rel="external nofollow noopener noreferrer" target="_blank">Intel MKL</a>, or <a href="https://github.com/xianyi/OpenBLAS/releases" rel="external nofollow noopener noreferrer" target="_blank">OpenBLAS</a>) </p>
-</li>
-<li><p>A sophisticated expression evaluator (based on template meta-programming) automatically combines several operations to increase speed and efficiency </p>
-</li>
-<li><p>Can automatically use OpenMP multi-threading (parallelisation) to speed up computationally expensive operations </p>
-</li>
-<li><p>Available under a <a href="http://arma.sourceforge.net/license.html" rel="external nofollow noopener noreferrer" target="_blank">permissive license</a>, useful for both open-source and proprietary (closed-source) software </p>
-</li>
-<li><p>Can be used for machine learning, pattern recognition, computer vision, signal processing, bioinformatics, statistics, finance, etc </p>
-</li>
+<li><p>Armadillo is a high quality linear algebra library (matrix maths) for the C++ language, aiming towards a good balance between speed and ease of use</p></li>
+<li><p>Provides high-level syntax and <a href="http://arma.sourceforge.net/docs.html" rel="external nofollow noopener noreferrer" target="_blank">functionality</a> deliberately similar to Matlab</p></li>
+<li><p>Useful for algorithm development directly in C++, or quick conversion of research code into production environments (eg. software &amp; hardware products)</p></li>
+<li><p>Provides efficient classes for vectors, matrices and cubes (1st, 2nd and 3rd order tensors); dense and sparse matrices are supported</p></li>
+<li><p>Integer, floating point and complex numbers are supported</p></li>
+<li><p>Various matrix decompositions are provided through integration with <a href="http://www.netlib.org/lapack/" rel="external nofollow noopener noreferrer" target="_blank">LAPACK</a>, or one of its high performance drop-in replacements (eg. multi-threaded <a href="http://software.intel.com/en-us/intel-mkl/" rel="external nofollow noopener noreferrer" target="_blank">Intel MKL</a>, or <a href="https://github.com/xianyi/OpenBLAS/releases" rel="external nofollow noopener noreferrer" target="_blank">OpenBLAS</a>)</p></li>
+<li><p>A sophisticated expression evaluator (based on template meta-programming) automatically combines several operations to increase speed and efficiency</p></li>
+<li><p>Can automatically use OpenMP multi-threading (parallelisation) to speed up computationally expensive operations</p></li>
+<li><p>Available under a <a href="http://arma.sourceforge.net/license.html" rel="external nofollow noopener noreferrer" target="_blank">permissive license</a>, useful for both open-source and proprietary (closed-source) software</p></li>
+<li><p>Can be used for machine learning, pattern recognition, computer vision, signal processing, bioinformatics, statistics, finance, etc</p></li>
 </ul>
 </blockquote>
 <p>翻译一下就是</p>
@@ -562,46 +554,52 @@
 </ul>
 <p><del>辣鸡英语水平，有些地方翻译得很生硬</del></p>
 <p><del>一句话概括就是这个库很nb</del></p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><h5 id="首先当然是去下载这个库"><a href="#首先当然是去下载这个库" class="headerlink" title="首先当然是去下载这个库"></a>首先当然是去下载这个库</h5><p>点击下面👇这个链接即可</p>
+<h4 id="安装">安装</h4>
+<h5 id="首先当然是去下载这个库">首先当然是去下载这个库</h5>
+<p>点击下面👇这个链接即可</p>
 <p><a href="http://arma.sourceforge.net/download.html" rel="external nofollow noopener noreferrer" target="_blank">Armadillo Download</a></p>
 <p>进去之后是这样的</p>
-<p><img src="https://ae01.alicdn.com/kf/H65ff87aeecba45f98168ccb69b43be582.jpg" alt></p>
+<p><img src="https://ae01.alicdn.com/kf/H65ff87aeecba45f98168ccb69b43be582.jpg"></p>
 <p>推荐下载Stable Version</p>
 <p>下载之后，将文件解压到任意目录。比方说我就把它解压到了D盘根目录下的Armadillo目录。</p>
 <p>打开文件夹，其中内容如下。</p>
-<p><img src="https://ae01.alicdn.com/kf/H2dfea56dc4234694a8fe40ae51bc7d3dx.jpg" alt></p>
-<h5 id="配置目录"><a href="#配置目录" class="headerlink" title="配置目录"></a>配置目录</h5><p>打开Visual Studio，我这里用的是2017的版本。新建一个项目，配置如下图</p>
-<p><img src="https://ae01.alicdn.com/kf/Hdf2647655d364e549a34f68f4f272312l.jpg" alt></p>
+<p><img src="https://ae01.alicdn.com/kf/H2dfea56dc4234694a8fe40ae51bc7d3dx.jpg"></p>
+<h5 id="配置目录">配置目录</h5>
+<p>打开Visual Studio，我这里用的是2017的版本。新建一个项目，配置如下图</p>
+<p><img src="https://ae01.alicdn.com/kf/Hdf2647655d364e549a34f68f4f272312l.jpg"></p>
 <p>进入项目后，在“调试”一栏找到项目属性，然后进行目录配置。具体配置过程如下：</p>
 <ul>
 <li><p>修改“配置”与“平台”</p>
 <p>在我这是要这样配置</p>
-<p><img src="https://ae01.alicdn.com/kf/H0c0177cf0f9143ceaa8daa4a82ca6bdcW.jpg" alt></p>
-</li>
+<p><img src="https://ae01.alicdn.com/kf/H0c0177cf0f9143ceaa8daa4a82ca6bdcW.jpg"></p></li>
 </ul>
-<div class="note warning"><p>注意！“平台”处不一定是像我这样选，网上有很多文章选的是x64，但由于我这里是建立了一个Win32项目，所以要选择Win32。</p></div>
-
+<div class="note warning">
+<p>
+注意！“平台”处不一定是像我这样选，网上有很多文章选的是x64，但由于我这里是建立了一个Win32项目，所以要选择Win32。
+</p>
+</div>
 <p>此处的设置很重要，错误的话可能会导致找不到头文件</p>
 <ul>
 <li><p>配置包含目录</p>
 <p>所谓包含目录就是头文件的目录。在“配置属性”中选择“VC++目录”，然后在“包含目录”一栏选择你的Armadillo的include目录。如下图。</p>
-<p><img src="https://ae01.alicdn.com/kf/Hb9c8bdce83b248b6b01db5caa1255144w.jpg" alt></p>
-</li>
+<p><img src="https://ae01.alicdn.com/kf/Hb9c8bdce83b248b6b01db5caa1255144w.jpg"></p></li>
 <li><p>配置附加依赖项</p>
-<p>选择“链接器”的“输入”，在“附加依赖项”一栏，添加Armadillo中example\lib_win64目录下的lapack_win64_MT.lib和blas_win64_MT.lib。</p>
-</li>
+<p>选择“链接器”的“输入”，在“附加依赖项”一栏，添加Armadillo中example_win64目录下的lapack_win64_MT.lib和blas_win64_MT.lib。</p></li>
 </ul>
-<div class="note warning"><p>注意！实际需要的并不一定是这两个lib，这两个都是win64的，如果你是win32的项目，请使用win32的lib文件！下载地址见附录</p></div>
-
-<h5 id="配置完成，开始使用吧！"><a href="#配置完成，开始使用吧！" class="headerlink" title="配置完成，开始使用吧！"></a>配置完成，开始使用吧！</h5><p>运行一下附带的example1.cpp</p>
-<p><img src="https://ae01.alicdn.com/kf/H5ef973a92ae94889938ff2ad18d34a95S.jpg" alt></p>
+<div class="note warning">
+<p>
+注意！实际需要的并不一定是这两个lib，这两个都是win64的，如果你是win32的项目，请使用win32的lib文件！下载地址见附录
+</p>
+</div>
+<h5 id="配置完成开始使用吧">配置完成，开始使用吧！</h5>
+<p>运行一下附带的example1.cpp</p>
+<p><img src="https://ae01.alicdn.com/kf/H5ef973a92ae94889938ff2ad18d34a95S.jpg"></p>
 <p>另外，还需要将labpack和blas对应的.dll文件放到编译生成的.exe所在目录处。否则.exe会无法运行。</p>
-<h4 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h4><ul>
+<h4 id="附录">附录</h4>
+<ul>
 <li><p>labpack和blas的下载地址，内含32位版和64位版</p>
-<p><a href="https://icl.cs.utk.edu/lapack-for-windows/lapack/" rel="external nofollow noopener noreferrer" target="_blank">Download labpack and blas</a></p>
-</li>
-<li><p><del>不要尝试用Devcpp配置任何第三方库</del></p>
-</li>
+<p><a href="https://icl.cs.utk.edu/lapack-for-windows/lapack/" rel="external nofollow noopener noreferrer" target="_blank">Download labpack and blas</a></p></li>
+<li><p><del>不要尝试用Devcpp配置任何第三方库</del></p></li>
 </ul>
 
       
@@ -831,7 +829,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Armadill简介"><span class="nav-number">2.</span> <span class="nav-text">Armadill简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#首先当然是去下载这个库"><span class="nav-number">3.1.</span> <span class="nav-text">首先当然是去下载这个库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置目录"><span class="nav-number">3.2.</span> <span class="nav-text">配置目录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置完成，开始使用吧！"><span class="nav-number">3.3.</span> <span class="nav-text">配置完成，开始使用吧！</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附录"><span class="nav-number">4.</span> <span class="nav-text">附录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#armadill简介"><span class="nav-number">2.</span> <span class="nav-text">Armadill简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#首先当然是去下载这个库"><span class="nav-number">3.1.</span> <span class="nav-text">首先当然是去下载这个库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置目录"><span class="nav-number">3.2.</span> <span class="nav-text">配置目录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置完成开始使用吧"><span class="nav-number">3.3.</span> <span class="nav-text">配置完成，开始使用吧！</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附录"><span class="nav-number">4.</span> <span class="nav-text">附录</span></a></li></ol></div>
             
 
           </div>
@@ -878,7 +876,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1477,26 +1475,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

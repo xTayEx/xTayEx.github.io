@@ -129,18 +129,18 @@
 
 
 
-<meta name="description" content="&amp;emsp;&amp;emsp;题目链接：HDOJ-3037 &amp;emsp;&amp;emsp;这道题关键之处在于式子的推导，只要把式子推导出来了，就可以直接套用Lucas的模板，从而求出答案。那么，公式要怎么求呢？ &amp;emsp;&amp;emsp;首先，问题要求的是从n棵树中收集不超过m个果实(原本以为是将不多于m个果实放到n棵树中……这题目表达有问题啊！)。也就是说，问题其实是求方程x1+x2+x3+···+xn=m的">
+<meta name="description" content="题目链接：HDOJ-3037   这道题关键之处在于式子的推导，只要把式子推导出来了，就可以直接套用Lucas的模板，从而求出答案。那么，公式要怎么求呢？   首先，问题要求的是从n棵树中收集不超过m个果实(原本以为是将不多于m个果实放到n棵树中......这题目表达有问题啊！)。也就是说，问题其实是求方程x1+x2+x3+···+xn=m的非负整数解的个数。那么我们要怎求呢？   首先，">
 <meta name="keywords" content="ACM,C,C++,数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU3037-Saving Beans(卢卡斯定理，组合数)">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/01/27/HDOJ3037-Saving-Beans-卢卡斯定理，组合数/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;题目链接：HDOJ-3037 &amp;emsp;&amp;emsp;这道题关键之处在于式子的推导，只要把式子推导出来了，就可以直接套用Lucas的模板，从而求出答案。那么，公式要怎么求呢？ &amp;emsp;&amp;emsp;首先，问题要求的是从n棵树中收集不超过m个果实(原本以为是将不多于m个果实放到n棵树中……这题目表达有问题啊！)。也就是说，问题其实是求方程x1+x2+x3+···+xn=m的">
+<meta property="og:description" content="题目链接：HDOJ-3037   这道题关键之处在于式子的推导，只要把式子推导出来了，就可以直接套用Lucas的模板，从而求出答案。那么，公式要怎么求呢？   首先，问题要求的是从n棵树中收集不超过m个果实(原本以为是将不多于m个果实放到n棵树中......这题目表达有问题啊！)。也就是说，问题其实是求方程x1+x2+x3+···+xn=m的非负整数解的个数。那么我们要怎求呢？   首先，">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.661Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU3037-Saving Beans(卢卡斯定理，组合数)">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;题目链接：HDOJ-3037 &amp;emsp;&amp;emsp;这道题关键之处在于式子的推导，只要把式子推导出来了，就可以直接套用Lucas的模板，从而求出答案。那么，公式要怎么求呢？ &amp;emsp;&amp;emsp;首先，问题要求的是从n棵树中收集不超过m个果实(原本以为是将不多于m个果实放到n棵树中……这题目表达有问题啊！)。也就是说，问题其实是求方程x1+x2+x3+···+xn=m的">
+<meta name="twitter:description" content="题目链接：HDOJ-3037   这道题关键之处在于式子的推导，只要把式子推导出来了，就可以直接套用Lucas的模板，从而求出答案。那么，公式要怎么求呢？   首先，问题要求的是从n棵树中收集不超过m个果实(原本以为是将不多于m个果实放到n棵树中......这题目表达有问题啊！)。也就是说，问题其实是求方程x1+x2+x3+···+xn=m的非负整数解的个数。那么我们要怎求呢？   首先，">
 
 
 
@@ -466,7 +466,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  607
+                  597
                 </span>
               
 
@@ -503,12 +503,13 @@
       
 
       
-        <p>&emsp;&emsp;题目链接：<a href="https://cn.vjudge.net/problem/HDU-3037" rel="external nofollow noopener noreferrer" target="_blank">HDOJ-3037</a></p>
-<p>&emsp;&emsp;这道题关键之处在于式子的推导，只要把式子推导出来了，就可以直接套用Lucas的模板，从而求出答案。那么，公式要怎么求呢？</p>
-<p>&emsp;&emsp;首先，问题要求的是从n棵树中收集不超过m个果实(原本以为是将不多于m个果实放到n棵树中……这题目表达有问题啊！)。也就是说，问题其实是求方程x1+x2+x3+···+xn=m的非负整数解的个数。那么我们要怎求呢？<br>&emsp;&emsp;首先，如果是求正整数解的个数，那我们可以直接用最简单的隔板法，即C(m-1,n-1);但这里求的是非负整数解，也就是说x1，x2，···,xn中的一个或多个可以为0。这种情况下，我们仍可以用隔板法来计算。方法是，将求非负整数解这一个问题转化为求正整数解，也就是将每一个x(x1,x2,···,xm)都加上1，构造一个新的方程y1+y2+···+yn=m(yi=xi+1)。显然，由于方程是线性的，故新方程的正整数解的个数等于原方程的非负整数解的个数。而新方程的解的个数为C((m+n)-1,n-1)=C((m+n)-1,m)。</p>
-<p>&emsp;&emsp;而我们要求的实际上是(∑(i=0,m)C(m+n-1,i))%p，根据公式C(n,k)=C(n-1,k-1)+C(n-1,k)(上取大，下加一),可得到(∑(i=0,m)C(m+n-1,i))%p=C(m+n,m)%p。又因为p为质数，故用Lucas即可。</p>
+        <p>  题目链接：<a href="https://cn.vjudge.net/problem/HDU-3037" rel="external nofollow noopener noreferrer" target="_blank">HDOJ-3037</a></p>
+<p>  这道题关键之处在于式子的推导，只要把式子推导出来了，就可以直接套用Lucas的模板，从而求出答案。那么，公式要怎么求呢？</p>
+<p>  首先，问题要求的是从n棵树中收集不超过m个果实(原本以为是将不多于m个果实放到n棵树中......这题目表达有问题啊！)。也就是说，问题其实是求方程x1+x2+x3+···+xn=m的非负整数解的个数。那么我们要怎求呢？   首先，如果是求正整数解的个数，那我们可以直接用最简单的隔板法，即C(m-1,n-1);但这里求的是非负整数解，也就是说x1，x2，···,xn中的一个或多个可以为0。这种情况下，我们仍可以用隔板法来计算。方法是，将求非负整数解这一个问题转化为求正整数解，也就是将每一个x(x1,x2,···,xm)都加上1，构造一个新的方程y1+y2+···+yn=m(yi=xi+1)。显然，由于方程是线性的，故新方程的正整数解的个数等于原方程的非负整数解的个数。而新方程的解的个数为C((m+n)-1,n-1)=C((m+n)-1,m)。</p>
+<p>  而我们要求的实际上是(∑(i=0,m)C(m+n-1,i))%p，根据公式C(n,k)=C(n-1,k-1)+C(n-1,k)(上取大，下加一),可得到(∑(i=0,m)C(m+n-1,i))%p=C(m+n,m)%p。又因为p为质数，故用Lucas即可。</p>
 <p>代码如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="function">ll <span class="title">powq</span><span class="params">(ll a,ll b,ll p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans=<span class="number">1</span>;a%=p;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>)</span><br><span class="line">            ans=(ans*a)%p;</span><br><span class="line">        a=(a*a)%p;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">inv</span><span class="params">(ll a,ll p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> powq(a,p<span class="number">-2</span>,p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">comb</span><span class="params">(ll n,ll m,ll p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;m)        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    ll up=<span class="number">1</span>;</span><br><span class="line">    ll down=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n-m+<span class="number">1</span>;i&lt;=n;i++)        up=(up*i)%p;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)        down=(down*i)%p;</span><br><span class="line">    <span class="keyword">return</span> up*inv(down,p)%p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">lucas</span><span class="params">(ll n,ll m,ll p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> !n?<span class="number">1</span>:lucas(n/p,m/p,p)*comb(n%p,m%p,p)%p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll m,n,p;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld %lld %lld"</span>,&amp;n,&amp;m,&amp;p);     </span><br><span class="line">        ll ans=lucas(n+m,n,p);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -760,7 +761,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1359,26 +1360,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

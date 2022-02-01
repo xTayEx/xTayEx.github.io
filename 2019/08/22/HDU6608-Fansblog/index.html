@@ -476,7 +476,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  551
+                  559
                 </span>
               
 
@@ -513,24 +513,24 @@
       
 
       
-        <p><img src="https://ae01.alicdn.com/kf/H527f9558b59e43299d761e5671297f57k.jpg" alt></p>
+        <p><img src="https://ae01.alicdn.com/kf/H527f9558b59e43299d761e5671297f57k.jpg"></p>
 <a id="more"></a>
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p><a href="https://cn.vjudge.net/problem/HDU-6608" rel="external nofollow noopener noreferrer" target="_blank">Fanblog</a></p>
-<p>题意就是给你一个素数$P$，让你找出一个最大的且小于$P$的素数$Q$，求$Q!\ mod\ P$。</p>
-<p>emmm数论题一向是弱势，这道题能做出来也是查了大佬博客上的一个结论（链接见附录），简单来说，若要求</p>
-<script type="math/tex; mode=display">
-Q!\ mod\ P</script><p>只需要求</p>
-<script type="math/tex; mode=display">
-(-1)^{Q+1}\times inv((P-1-Q)!,P)</script><p>$inv(a,p)$表示的是$a$对$p$的逆元</p>
-<p><del>又根据瞎猜结论</del>，$P$和$Q$之间的距离一定不会很大，所以可以直接暴力求$Q$以及$(P-1-Q)!$。套个拓展欧几里得就搞定了。</p>
+<h3 id="正文">正文</h3>
+<p><a href="https://cn.vjudge.net/problem/HDU-6608" rel="external nofollow noopener noreferrer" target="_blank">Fanblog</a></p>
+<p>题意就是给你一个素数<span class="math inline">\(P\)</span>，让你找出一个最大的且小于<span class="math inline">\(P\)</span>的素数<span class="math inline">\(Q\)</span>，求<span class="math inline">\(Q!\ mod\ P\)</span>。</p>
+<p>emmm数论题一向是弱势，这道题能做出来也是查了大佬博客上的一个结论（链接见附录），简单来说，若要求 <span class="math display">\[
+Q!\ mod\ P
+\]</span> 只需要求 <span class="math display">\[
+(-1)^{Q+1}\times inv((P-1-Q)!,P)
+\]</span> <span class="math inline">\(inv(a,p)\)</span>表示的是<span class="math inline">\(a\)</span>对<span class="math inline">\(p\)</span>的逆元</p>
+<p><del>又根据瞎猜结论</del>，<span class="math inline">\(P\)</span>和<span class="math inline">\(Q\)</span>之间的距离一定不会很大，所以可以直接暴力求<span class="math inline">\(Q\)</span>以及<span class="math inline">\((P-1-Q)!\)</span>。套个拓展欧几里得就搞定了。</p>
 <p>代码如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;utility&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset((a),(b),sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug printf(<span class="meta-string">"debug\n"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lson lef,mid,rt&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rson mid+1,rig,rt&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS std::ios::sync_with_stdio(false)</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">20005</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line">ll p,q;</span><br><span class="line"><span class="function">ll <span class="title">exgcd</span><span class="params">(ll a,ll b,ll&amp; x,ll&amp; y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a==<span class="number">0</span>&amp;&amp;b==<span class="number">0</span>)  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)&#123;</span><br><span class="line">        x=<span class="number">1</span>;y=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    ll d=exgcd(b,a%b,y,x);</span><br><span class="line">    y-=a/b*x;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">inv</span><span class="params">(ll a,ll pp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll x,y;</span><br><span class="line">    ll d=exgcd(a,pp,x,y);</span><br><span class="line">    <span class="keyword">if</span>(d==<span class="number">1</span>)    <span class="keyword">return</span> (x%pp+pp)%pp;</span><br><span class="line">    <span class="keyword">else</span>    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">chk</span><span class="params">(ll todo)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">2</span>;i*i&lt;=todo;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(todo%i==<span class="number">0</span>)   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">solve</span><span class="params">(ll todo)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(ll i=todo<span class="number">-1</span>;i&gt;=<span class="number">2</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(chk(i))  <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">frac</span><span class="params">(ll todo)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=todo;i++)</span><br><span class="line">        ans=ans%p*i%p;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">    <span class="keyword">int</span> t;<span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;p;</span><br><span class="line">        q=solve(p);</span><br><span class="line">        ll ans=((q+<span class="number">1</span>)&amp;<span class="number">1</span>?<span class="number">-1</span>:<span class="number">1</span>)*inv(frac(p<span class="number">-1</span>-q),p);</span><br><span class="line">        ans%p;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><ul>
+<h3 id="附录">附录</h3>
+<ul>
 <li><p>正文所提到的结论在此处</p>
-<p><a href="https://www.cnblogs.com/Judge/p/10755703.html#_label2" rel="external nofollow noopener noreferrer" target="_blank"><a href="https://www.cnblogs.com/Judge/p/10755703.html" rel="external nofollow noopener noreferrer" target="_blank">威尔逊定理小讲解</a></a></p>
-</li>
-<li><p>对于相邻两个素数的距离，最大可能为无穷大，但在题目数据范围内，这个距离不会很大。可参考以下文章：<a href="https://wenku.baidu.com/view/e5a209acdd3383c4bb4cd2c6.html" rel="external nofollow noopener noreferrer" target="_blank">任意相邻两个素数之间的最大距离公式</a></p>
-</li>
+<p><a href="https://www.cnblogs.com/Judge/p/10755703.html#_label2" rel="external nofollow noopener noreferrer" target="_blank">[威尔逊定理小讲解](https://www.cnblogs.com/Judge/p/10755703.html)</a></p></li>
+<li><p>对于相邻两个素数的距离，最大可能为无穷大，但在题目数据范围内，这个距离不会很大。可参考以下文章：<a href="https://wenku.baidu.com/view/e5a209acdd3383c4bb4cd2c6.html" rel="external nofollow noopener noreferrer" target="_blank">任意相邻两个素数之间的最大距离公式</a></p></li>
 </ul>
 
       
@@ -809,7 +809,7 @@ Q!\ mod\ P</script><p>只需要求</p>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1408,26 +1408,6 @@ Q!\ mod\ P</script><p>只需要求</p>
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

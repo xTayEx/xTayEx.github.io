@@ -506,6 +506,7 @@
         <p>代码如下👇</p>
 <a id="more"></a>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">int</span> x=<span class="number">0</span>;<span class="keyword">int</span> sign=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        ch=getchar();</span><br><span class="line">        <span class="keyword">if</span>(ch==<span class="string">'-'</span>)        sign=<span class="number">-1</span>;</span><br><span class="line">    &#125;<span class="keyword">while</span>(ch&gt;<span class="string">'9'</span>||ch&lt;<span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">while</span>(<span class="string">'0'</span>&lt;=ch&amp;&amp;ch&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        x=x*<span class="number">10</span>+(ch-<span class="string">'0'</span>);</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x*sign;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; </span><br><span class="line"><span class="function"><span class="keyword">inline</span> T <span class="title">read_Tp</span><span class="params">(T&amp; x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch;x=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> sign=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        ch=getchar();</span><br><span class="line">        <span class="keyword">if</span>(ch==<span class="string">'-'</span>)        sign=<span class="number">-1</span>;</span><br><span class="line">    &#125;<span class="keyword">while</span>(ch&gt;<span class="string">'9'</span>||ch&lt;<span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">while</span>(<span class="string">'0'</span>&lt;=ch&amp;&amp;ch&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        x=x*<span class="number">10</span>+(ch-<span class="string">'0'</span>);</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    x*=sign;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    a=read_Tp(a);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -755,7 +756,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1354,26 +1355,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

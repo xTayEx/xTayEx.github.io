@@ -129,18 +129,18 @@
 
 
 
-<meta name="description" content="Aizu - ALDS1_1_1_D (这貌似是个日本的oj？名字叫aizu有点奇怪呢hhhh)">
+<meta name="description" content="Aizu - ALDS1_1_1_D (这貌似是个日本的oj？名字叫aizu有点奇怪呢hhhh)">
 <meta name="keywords" content="ACM,C,C++,DP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Aizu - ALDS1_1_D-Maximum Profit（转化思想+DP）">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/02/13/Aizu-ALDS1-1-D-Maximum-Profit/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="Aizu - ALDS1_1_1_D (这貌似是个日本的oj？名字叫aizu有点奇怪呢hhhh)">
+<meta property="og:description" content="Aizu - ALDS1_1_1_D (这貌似是个日本的oj？名字叫aizu有点奇怪呢hhhh)">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.451Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Aizu - ALDS1_1_D-Maximum Profit（转化思想+DP）">
-<meta name="twitter:description" content="Aizu - ALDS1_1_1_D (这貌似是个日本的oj？名字叫aizu有点奇怪呢hhhh)">
+<meta name="twitter:description" content="Aizu - ALDS1_1_1_D (这貌似是个日本的oj？名字叫aizu有点奇怪呢hhhh)">
 
 
 
@@ -477,7 +477,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  324
+                  320
                 </span>
               
 
@@ -515,9 +515,9 @@
 
       
         <p><a href="https://cn.vjudge.net/problem/Aizu-ALDS1_1_D" rel="external nofollow noopener noreferrer" target="_blank">Aizu - ALDS1_1_1_D</a></p>
-<p>(这貌似是个日本的oj？名字叫aizu有点奇怪呢hhhh)<br><a id="more"></a></p>
-<p>&emsp;&emsp;这道题的思路是首先将相减转化为相加。我们可以在原数组的基础上再构造一个新的数组sub[],sub[]中存放的是R[i+1]-R[i]，因此，有以下式子成立：<br>(R[i+1]-R[i]) + (R[i+2]-R[i+1]) + ··· + (R[j-1]-R[j-2]) + (R[j] - R[j-1]) = sub[i+1] + sub[i+2] + ··· + sub[j-1] + sub[j] = R[j] - R[i]<br>&emsp;&emsp;这么一来，求差的最大值就转化为了求sub[]的连续子序列和的最大值，而这只需要用dp求即可。状态转移方程为dp[j] = max(dp[j-1] + sub[j],sub[j])。</p>
-<p>代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">200000</span>+<span class="number">5</span>;</span><br><span class="line">ll R[maxn];</span><br><span class="line">ll sub[maxn];</span><br><span class="line">ll dp[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">memset</span>(R,<span class="number">0</span>,<span class="keyword">sizeof</span>(R));</span><br><span class="line">    <span class="built_in">memset</span>(sub,<span class="number">0</span>,<span class="keyword">sizeof</span>(sub));</span><br><span class="line">    <span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)        <span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;R[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">        sub[i]=R[i+<span class="number">1</span>]-R[i];</span><br><span class="line">    dp[<span class="number">1</span>]=sub[<span class="number">1</span>];</span><br><span class="line">    ll ans=INT_MIN;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">        dp[i]=<span class="built_in">max</span>(dp[i<span class="number">-1</span>]+sub[i],sub[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">        <span class="keyword">if</span>(dp[i]&gt;ans)</span><br><span class="line">            ans=dp[i];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(这貌似是个日本的oj？名字叫aizu有点奇怪呢hhhh) <a id="more"></a></p>
+<p>  这道题的思路是首先将相减转化为相加。我们可以在原数组的基础上再构造一个新的数组sub[],sub[]中存放的是R[i+1]-R[i]，因此，有以下式子成立： (R[i+1]-R[i]) + (R[i+2]-R[i+1]) + ··· + (R[j-1]-R[j-2]) + (R[j] - R[j-1]) = sub[i+1] + sub[i+2] + ··· + sub[j-1] + sub[j] = R[j] - R[i]   这么一来，求差的最大值就转化为了求sub[]的连续子序列和的最大值，而这只需要用dp求即可。状态转移方程为dp[j] = max(dp[j-1] + sub[j],sub[j])。</p>
+<p>代码如下： <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">200000</span>+<span class="number">5</span>;</span><br><span class="line">ll R[maxn];</span><br><span class="line">ll sub[maxn];</span><br><span class="line">ll dp[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">memset</span>(R,<span class="number">0</span>,<span class="keyword">sizeof</span>(R));</span><br><span class="line">    <span class="built_in">memset</span>(sub,<span class="number">0</span>,<span class="keyword">sizeof</span>(sub));</span><br><span class="line">    <span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)        <span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;R[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">        sub[i]=R[i+<span class="number">1</span>]-R[i];</span><br><span class="line">    dp[<span class="number">1</span>]=sub[<span class="number">1</span>];</span><br><span class="line">    ll ans=INT_MIN;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">        dp[i]=<span class="built_in">max</span>(dp[i<span class="number">-1</span>]+sub[i],sub[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">        <span class="keyword">if</span>(dp[i]&gt;ans)</span><br><span class="line">            ans=dp[i];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -770,7 +770,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1369,26 +1369,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

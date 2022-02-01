@@ -129,20 +129,20 @@
 
 
 
-<meta name="description" content="不容易系列之(4)——考新郎 &amp;emsp;&amp;emsp;错排公式的应用。因为n个新郎中有m个“错排”了，所以先用C(n,m)求出从n个新郎中挑m个出来的方案数，再乘以错排数即可。 &amp;emsp;&amp;emsp;关于错排公式，可看这里：">
+<meta name="description" content="不容易系列之(4)——考新郎   错排公式的应用。因为n个新郎中有m个“错排”了，所以先用C(n,m)求出从n个新郎中挑m个出来的方案数，再乘以错排数即可。   关于错排公式，可看这里：">
 <meta name="keywords" content="ACM,C,C++,组合数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU2049 - 不容易系列之(4)——考新郎">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/02/24/HDU2049-不容易系列之-4-——考新郎/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="不容易系列之(4)——考新郎 &amp;emsp;&amp;emsp;错排公式的应用。因为n个新郎中有m个“错排”了，所以先用C(n,m)求出从n个新郎中挑m个出来的方案数，再乘以错排数即可。 &amp;emsp;&amp;emsp;关于错排公式，可看这里：">
+<meta property="og:description" content="不容易系列之(4)——考新郎   错排公式的应用。因为n个新郎中有m个“错排”了，所以先用C(n,m)求出从n个新郎中挑m个出来的方案数，再乘以错排数即可。   关于错排公式，可看这里：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pic.superbed.cn/item/5c72aa803a213b0417769896">
 <meta property="og:image" content="https://pic.superbed.cn/item/5c72aaa23a213b0417769b58">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU2049 - 不容易系列之(4)——考新郎">
-<meta name="twitter:description" content="不容易系列之(4)——考新郎 &amp;emsp;&amp;emsp;错排公式的应用。因为n个新郎中有m个“错排”了，所以先用C(n,m)求出从n个新郎中挑m个出来的方案数，再乘以错排数即可。 &amp;emsp;&amp;emsp;关于错排公式，可看这里：">
+<meta name="twitter:description" content="不容易系列之(4)——考新郎   错排公式的应用。因为n个新郎中有m个“错排”了，所以先用C(n,m)求出从n个新郎中挑m个出来的方案数，再乘以错排数即可。   关于错排公式，可看这里：">
 <meta name="twitter:image" content="https://pic.superbed.cn/item/5c72aa803a213b0417769896">
 
 
@@ -469,7 +469,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  243
+                  239
                 </span>
               
 
@@ -507,11 +507,11 @@
 
       
         <p><a href="https://cn.vjudge.net/problem/HDU-2049" rel="external nofollow noopener noreferrer" target="_blank">不容易系列之(4)——考新郎</a></p>
-<p>&emsp;&emsp;错排公式的应用。因为n个新郎中有m个“错排”了，所以先用C(n,m)求出从n个新郎中挑m个出来的方案数，再乘以错排数即可。</p>
-<p>&emsp;&emsp;关于错排公式，可看这里：</p>
-<p><img src="https://pic.superbed.cn/item/5c72aa803a213b0417769896" alt></p>
-<p><img src="https://pic.superbed.cn/item/5c72aaa23a213b0417769b58" alt><br><a id="more"></a></p>
-<p>代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x7fffffff</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1e6</span>+<span class="number">5</span>;</span><br><span class="line">ll combi[<span class="number">25</span>];</span><br><span class="line">ll d[<span class="number">25</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">make_com</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    combi[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        combi[i]=combi[i<span class="number">-1</span>]*(n-i+<span class="number">1</span>)/i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">make_mistake</span><span class="params">(<span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    d[<span class="number">1</span>]=<span class="number">0</span>,d[<span class="number">2</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=m;i++)</span><br><span class="line">        d[i]=(i<span class="number">-1</span>)*(d[i<span class="number">-1</span>]+d[i<span class="number">-2</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;    </span><br><span class="line">        mst(combi,<span class="number">0</span>);mst(d,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> n,m;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">        make_com(n);make_mistake(m);</span><br><span class="line">        ll ans=combi[m]*d[m];</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  错排公式的应用。因为n个新郎中有m个“错排”了，所以先用C(n,m)求出从n个新郎中挑m个出来的方案数，再乘以错排数即可。</p>
+<p>  关于错排公式，可看这里：</p>
+<p><img src="https://pic.superbed.cn/item/5c72aa803a213b0417769896"></p>
+<p><img src="https://pic.superbed.cn/item/5c72aaa23a213b0417769b58"> <a id="more"></a></p>
+<p>代码如下： <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x7fffffff</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1e6</span>+<span class="number">5</span>;</span><br><span class="line">ll combi[<span class="number">25</span>];</span><br><span class="line">ll d[<span class="number">25</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">make_com</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    combi[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        combi[i]=combi[i<span class="number">-1</span>]*(n-i+<span class="number">1</span>)/i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">make_mistake</span><span class="params">(<span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    d[<span class="number">1</span>]=<span class="number">0</span>,d[<span class="number">2</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=m;i++)</span><br><span class="line">        d[i]=(i<span class="number">-1</span>)*(d[i<span class="number">-1</span>]+d[i<span class="number">-2</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;    </span><br><span class="line">        mst(combi,<span class="number">0</span>);mst(d,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> n,m;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">        make_com(n);make_mistake(m);</span><br><span class="line">        ll ans=combi[m]*d[m];</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -764,7 +764,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1363,26 +1363,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

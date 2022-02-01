@@ -492,8 +492,8 @@
       
 
       
-        <p>RT，如何在不用循环、不用判断、不用三目运算符的条件下，实现三个数字的排序？代码如下<br><a id="more"></a><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b,c;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;a,&amp;b,&amp;c); </span><br><span class="line">    <span class="keyword">int</span> d=a*(a&lt;b)+b*(b&lt;=a);        <span class="comment">//求出a，b中的最小值，d即为这个最小值 </span></span><br><span class="line">    <span class="keyword">int</span> e=d*(d&lt;c)+c*(c&lt;=d);        <span class="comment">//求出三个中的最小; </span></span><br><span class="line">    d=(a+b-d)*(a+b-d&gt;c)+c*(c&gt;=a+b-d);    </span><br><span class="line">    <span class="comment">//d是a，b中的最小值，故a+b-d为a，b中的最大值，再通过上面这条式子选出a+b-d与c两者之间的较大值，即可得到三个数中的最大值</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>,e,a+b+c-e-d,d);        </span><br><span class="line">    <span class="comment">//e，d分别为最小值和最大值，三个数的总和减去最大值和最小值即得中间值</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>想法来自：诸君有哪些有关排序的奇技淫巧？ - rsa的回答 - 知乎<br><a href="https://www.zhihu.com/question/269128251/answer/345732846" rel="external nofollow noopener noreferrer" target="_blank">https://www.zhihu.com/question/269128251/answer/345732846</a></p>
+        <p>RT，如何在不用循环、不用判断、不用三目运算符的条件下，实现三个数字的排序？代码如下 <a id="more"></a> <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b,c;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;a,&amp;b,&amp;c); </span><br><span class="line">    <span class="keyword">int</span> d=a*(a&lt;b)+b*(b&lt;=a);        <span class="comment">//求出a，b中的最小值，d即为这个最小值 </span></span><br><span class="line">    <span class="keyword">int</span> e=d*(d&lt;c)+c*(c&lt;=d);        <span class="comment">//求出三个中的最小; </span></span><br><span class="line">    d=(a+b-d)*(a+b-d&gt;c)+c*(c&gt;=a+b-d);    </span><br><span class="line">    <span class="comment">//d是a，b中的最小值，故a+b-d为a，b中的最大值，再通过上面这条式子选出a+b-d与c两者之间的较大值，即可得到三个数中的最大值</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>,e,a+b+c-e-d,d);        </span><br><span class="line">    <span class="comment">//e，d分别为最小值和最大值，三个数的总和减去最大值和最小值即得中间值</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>想法来自：诸君有哪些有关排序的奇技淫巧？ - rsa的回答 - 知乎 https://www.zhihu.com/question/269128251/answer/345732846</p>
 
       
     </div>
@@ -744,7 +744,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1343,26 +1343,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

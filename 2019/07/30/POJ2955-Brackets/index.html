@@ -516,17 +516,18 @@
       
 
       
-        <p><img src="https://ae01.alicdn.com/kf/Ha88250073cd84aa58e53c0aa2f48effdV.jpg" alt></p>
-<p>From <strong>Google Earth</strong><br><a id="more"></a></p>
-<p><a href="POJ - 2955">Brackets</a></p>
-<p>题目大意是说，对于一个给定的括号序列$S$，找出其最长的子序列，该子序列应该是括号匹配的，输出其长度。</p>
+        <p><img src="https://ae01.alicdn.com/kf/Ha88250073cd84aa58e53c0aa2f48effdV.jpg"></p>
+<p>From <strong>Google Earth</strong> <a id="more"></a></p>
+<p><a href="POJ%20-%202955">Brackets</a></p>
+<p>题目大意是说，对于一个给定的括号序列<span class="math inline">\(S\)</span>，找出其最长的子序列，该子序列应该是括号匹配的，输出其长度。</p>
 <p>大概是最基础的区间dp了。</p>
-<p>$dp[i][j]$表示的是在区间$[i,j]$内，最长的满足要求的子序列的长度。如果$S_i$与$S_j$配对，则有</p>
-<script type="math/tex; mode=display">
-dp[i][j]=max(dp[i][j],dp[i+1][j-1]+2)</script><p>但这样得到的$dp[i][j]$并不一定是最大的。以第二个样例为例：</p>
-<p>对于区间$[1,6]$，$S_1$和$S_6$是配对的，所以有$dp[1][6]=max(dp[1][6],dp[2][5]+2)$，而$dp[2][5]$为2，如果只是从$dp[2][5]+2$转移过来，就会忽略掉$S_1S_2$以及$S_5S_6$这两对配对括号。故我们还需要枚举区间$[i,j]$内的断点$k$，从$dp[i][k]+dp[k+1][j]$转移得到$dp[i][j]$。</p>
+<p><span class="math inline">\(dp[i][j]\)</span>表示的是在区间<span class="math inline">\([i,j]\)</span>内，最长的满足要求的子序列的长度。如果<span class="math inline">\(S_i\)</span>与<span class="math inline">\(S_j\)</span>配对，则有 <span class="math display">\[
+dp[i][j]=max(dp[i][j],dp[i+1][j-1]+2)
+\]</span> 但这样得到的<span class="math inline">\(dp[i][j]\)</span>并不一定是最大的。以第二个样例为例：</p>
+<p>对于区间<span class="math inline">\([1,6]\)</span>，<span class="math inline">\(S_1\)</span>和<span class="math inline">\(S_6\)</span>是配对的，所以有<span class="math inline">\(dp[1][6]=max(dp[1][6],dp[2][5]+2)\)</span>，而<span class="math inline">\(dp[2][5]\)</span>为2，如果只是从<span class="math inline">\(dp[2][5]+2\)</span>转移过来，就会忽略掉<span class="math inline">\(S_1S_2\)</span>以及<span class="math inline">\(S_5S_6\)</span>这两对配对括号。故我们还需要枚举区间<span class="math inline">\([i,j]\)</span>内的断点<span class="math inline">\(k\)</span>，从<span class="math inline">\(dp[i][k]+dp[k+1][j]\)</span>转移得到<span class="math inline">\(dp[i][j]\)</span>。</p>
 <p>代码如下:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;utility&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset((a),(b),sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug printf(<span class="meta-string">"debug\n"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS std::ios::sync_with_stdio(false)</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">105</span>][<span class="number">105</span>];</span><br><span class="line"><span class="keyword">char</span> str[<span class="number">105</span>]; </span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">char</span> ca,<span class="keyword">char</span> cb)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>((ca==<span class="string">'('</span>&amp;&amp;cb==<span class="string">')'</span>)||(ca==<span class="string">'['</span>&amp;&amp;cb==<span class="string">']'</span>))    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str+<span class="number">1</span>)!=EOF)&#123;</span><br><span class="line">        <span class="keyword">if</span>(str[<span class="number">1</span>]==<span class="string">'e'</span>)    <span class="keyword">break</span>;</span><br><span class="line">        mst(dp,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> len=<span class="built_in">strlen</span>(str+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=len;i++)</span><br><span class="line">            dp[i][i]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=len<span class="number">-1</span>;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;=len;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(check(str[i],str[j]))&#123;</span><br><span class="line">                    dp[i][j]=<span class="built_in">max</span>(dp[i][j],dp[i+<span class="number">1</span>][j<span class="number">-1</span>]+<span class="number">2</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=i;k&lt;j;k++)</span><br><span class="line">                    dp[i][j]=<span class="built_in">max</span>(dp[i][j],dp[i][k]+dp[k+<span class="number">1</span>][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[<span class="number">1</span>][len]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -778,7 +779,7 @@ dp[i][j]=max(dp[i][j],dp[i+1][j-1]+2)</script><p>但这样得到的$dp[i][j]$并
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1377,26 +1378,6 @@ dp[i][j]=max(dp[i][j],dp[i+1][j-1]+2)</script><p>但这样得到的$dp[i][j]$并
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

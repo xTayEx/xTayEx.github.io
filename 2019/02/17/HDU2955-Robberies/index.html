@@ -129,18 +129,18 @@
 
 
 
-<meta name="description" content="Robberies &amp;emsp;&amp;emsp;依然是01背包，但这次的有点特殊。特殊之处在于，背包的总体积是可以获得的钱的最大值( 如果是以概率为背包也不能枚举啊23333 )，然后用动态规划求得获得该钱数被抓的最大概率( 如果在最大概率的情况下都不会被抓，那就肯定不会被抓 )。">
+<meta name="description" content="Robberies   依然是01背包，但这次的有点特殊。特殊之处在于，背包的总体积是可以获得的钱的最大值( 如果是以概率为背包也不能枚举啊23333 )，然后用动态规划求得获得该钱数被抓的最大概率( 如果在最大概率的情况下都不会被抓，那就肯定不会被抓 )。">
 <meta name="keywords" content="ACM,C,C++,DP,01背包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU2955 - Robberies">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/02/17/HDU2955-Robberies/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="Robberies &amp;emsp;&amp;emsp;依然是01背包，但这次的有点特殊。特殊之处在于，背包的总体积是可以获得的钱的最大值( 如果是以概率为背包也不能枚举啊23333 )，然后用动态规划求得获得该钱数被抓的最大概率( 如果在最大概率的情况下都不会被抓，那就肯定不会被抓 )。">
+<meta property="og:description" content="Robberies   依然是01背包，但这次的有点特殊。特殊之处在于，背包的总体积是可以获得的钱的最大值( 如果是以概率为背包也不能枚举啊23333 )，然后用动态规划求得获得该钱数被抓的最大概率( 如果在最大概率的情况下都不会被抓，那就肯定不会被抓 )。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU2955 - Robberies">
-<meta name="twitter:description" content="Robberies &amp;emsp;&amp;emsp;依然是01背包，但这次的有点特殊。特殊之处在于，背包的总体积是可以获得的钱的最大值( 如果是以概率为背包也不能枚举啊23333 )，然后用动态规划求得获得该钱数被抓的最大概率( 如果在最大概率的情况下都不会被抓，那就肯定不会被抓 )。">
+<meta name="twitter:description" content="Robberies   依然是01背包，但这次的有点特殊。特殊之处在于，背包的总体积是可以获得的钱的最大值( 如果是以概率为背包也不能枚举啊23333 )，然后用动态规划求得获得该钱数被抓的最大概率( 如果在最大概率的情况下都不会被抓，那就肯定不会被抓 )。">
 
 
 
@@ -477,7 +477,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  302
+                  300
                 </span>
               
 
@@ -515,9 +515,9 @@
 
       
         <p><a href="https://cn.vjudge.net/problem/HDU-2955" rel="external nofollow noopener noreferrer" target="_blank">Robberies</a></p>
-<p>&emsp;&emsp;依然是01背包，但这次的有点特殊。特殊之处在于，背包的总体积是可以获得的钱的最大值( 如果是以概率为背包也不能枚举啊23333 )，然后用动态规划求得获得该钱数被抓的最大概率( 如果在最大概率的情况下都不会被抓，那就肯定不会被抓 )。</p>
+<p>  依然是01背包，但这次的有点特殊。特殊之处在于，背包的总体积是可以获得的钱的最大值( 如果是以概率为背包也不能枚举啊23333 )，然后用动态规划求得获得该钱数被抓的最大概率( 如果在最大概率的情况下都不会被抓，那就肯定不会被抓 )。</p>
 <a id="more"></a>
-<p>代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> m[<span class="number">105</span>];</span><br><span class="line"><span class="keyword">double</span> p[<span class="number">105</span>];</span><br><span class="line"><span class="keyword">double</span> dp[<span class="number">10000</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;    </span><br><span class="line">        mst(dp,<span class="number">0</span>);mst(m,<span class="number">0</span>);mst(p,<span class="number">0</span>);</span><br><span class="line">        dp[<span class="number">0</span>]=<span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">int</span> n;<span class="keyword">double</span> ptot;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;ptot&gt;&gt;n;</span><br><span class="line">        <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        &#123;    </span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;m[i]&gt;&gt;p[i];</span><br><span class="line">            sum+=m[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=sum;j&gt;=m[i];j--)</span><br><span class="line">                dp[j]=<span class="built_in">max</span>(dp[j],dp[j-m[i]]*(<span class="number">1.0</span>-p[i]));</span><br><span class="line">      <span class="comment">//这里先求不会被抓的概率然后用1减去这个概率，就是被抓的概率(高中数学)</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=sum;j&gt;=<span class="number">0</span>;j--)</span><br><span class="line">        &#123;    </span><br><span class="line">            <span class="keyword">double</span> ans=<span class="number">1.0</span>-dp[j];</span><br><span class="line">            <span class="keyword">if</span>(ptot-ans&gt;<span class="number">1e-9</span>)&#123;</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;j&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;        </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代码如下： <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> m[<span class="number">105</span>];</span><br><span class="line"><span class="keyword">double</span> p[<span class="number">105</span>];</span><br><span class="line"><span class="keyword">double</span> dp[<span class="number">10000</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;    </span><br><span class="line">        mst(dp,<span class="number">0</span>);mst(m,<span class="number">0</span>);mst(p,<span class="number">0</span>);</span><br><span class="line">        dp[<span class="number">0</span>]=<span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">int</span> n;<span class="keyword">double</span> ptot;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;ptot&gt;&gt;n;</span><br><span class="line">        <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        &#123;    </span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;m[i]&gt;&gt;p[i];</span><br><span class="line">            sum+=m[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=sum;j&gt;=m[i];j--)</span><br><span class="line">                dp[j]=<span class="built_in">max</span>(dp[j],dp[j-m[i]]*(<span class="number">1.0</span>-p[i]));</span><br><span class="line">      <span class="comment">//这里先求不会被抓的概率然后用1减去这个概率，就是被抓的概率(高中数学)</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=sum;j&gt;=<span class="number">0</span>;j--)</span><br><span class="line">        &#123;    </span><br><span class="line">            <span class="keyword">double</span> ans=<span class="number">1.0</span>-dp[j];</span><br><span class="line">            <span class="keyword">if</span>(ptot-ans&gt;<span class="number">1e-9</span>)&#123;</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;j&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;        </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -772,7 +772,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1371,26 +1371,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

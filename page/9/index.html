@@ -475,7 +475,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  312
+                  306
                 </span>
               
 
@@ -515,8 +515,8 @@
         
           
           P1417 烹调方案
-&emsp;&emsp;依然是01背包。这道题跟之前HDU的那道merchant很像，都是要先算一个不等式，再根据这个不等式进行排序，然后再进行01背包。具体而言，是要解下面这个不等式：
-&emsp;a1 - (t0 + c1) x b1 + a2 - (t0 + c1 + c
+  依然是01背包。这道题跟之前HDU的那道merchant很像，都是要先算一个不等式，再根据这个不等式进行排序，然后再进行01背包。具体而言，是要解下面这个不等式：
+ a1 - (t0 + c1) x b1 + a2 - (t0 + c1 + c2) x b2 &gt; 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -689,7 +689,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  189
+                  187
                 </span>
               
 
@@ -728,7 +728,7 @@
       
         
           <p><a href="https://www.luogu.org/problemnew/show/P1855" rel="external nofollow noopener noreferrer" target="_blank">P1855 榨取kkksc03</a></p>
-<p>&emsp;&emsp;一道01背包模板题，但多了一个维度。</p>
+<p>  一道01背包模板题，但多了一个维度。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/19/洛谷P1855-榨取kkksc03/#more" rel="contents">
@@ -1099,7 +1099,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  387
+                  383
                 </span>
               
 
@@ -1139,8 +1139,8 @@
         
           
           Proud Merchant
-&emsp;&emsp;这道题最难搞的地方在于如何处理“小于qi时不能买”这一要求。苦思冥想许久，依然不知如何解决，于是只好去看题解……
-&emsp;&emsp;这道题的做法是首先将“商人”按照q-p排序，然后再进行01背包。为什么是按照q-p排序呢？假设有两件物品A,
+  这道题最难搞的地方在于如何处理“小于qi时不能买”这一要求。苦思冥想许久，依然不知如何解决，于是只好去看题解......
+  这道题的做法是首先将“商人”按照q-p排序，然后再进行01背包。为什么是按照q-p排序呢？假设有两件物品A,B,他们对应的p,q分别是p
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1313,7 +1313,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  325
+                  323
                 </span>
               
 
@@ -1352,7 +1352,7 @@
       
         
           <p><a href="https://cn.vjudge.net/problem/HDU-1864" rel="external nofollow noopener noreferrer" target="_blank">最大报销额</a></p>
-<p>&emsp;&emsp;这道题有两个需要注意的地方：一是题目说的“每项”其实是“每类”，也就是A类,B类和C类，而不是每个物品……(这题目表述有问题啊！)；二是在计算时要将所有的数据扩大100倍然后再转为int，计算出最后结果后再缩小为原来的倍率，否则无法用钱数来做背包(浮点数无法作为数组下标)。</p>
+<p>  这道题有两个需要注意的地方：一是题目说的“每项”其实是“每类”，也就是A类,B类和C类，而不是每个物品......(这题目表述有问题啊！)；二是在计算时要将所有的数据扩大100倍然后再转为int，计算出最后结果后再缩小为原来的倍率，否则无法用钱数来做背包(浮点数无法作为数组下标)。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/18/HDU1864-最大报销额/#more" rel="contents">
@@ -1524,7 +1524,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  213
+                  211
                 </span>
               
 
@@ -1563,7 +1563,7 @@
       
         
           <p><a href="https://cn.vjudge.net/problem/HDU-2546" rel="external nofollow noopener noreferrer" target="_blank">饭卡</a></p>
-<p>&emsp;&emsp;一道01背包的题目，特殊之处在于要先拿出5元用来买最贵的东西，剩下的钱即为背包，然后就是普通的01背包了。</p>
+<p>  一道01背包的题目，特殊之处在于要先拿出5元用来买最贵的东西，剩下的钱即为背包，然后就是普通的01背包了。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/18/HDU2546-饭卡/#more" rel="contents">
@@ -1735,7 +1735,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  241
+                  239
                 </span>
               
 
@@ -1774,7 +1774,7 @@
       
         
           <p><a href="https://cn.vjudge.net/problem/POJ-1384" rel="external nofollow noopener noreferrer" target="_blank">Piggy Bank</a></p>
-<p>&emsp;&emsp;完全背包的经典问题，只要把状态转移方程的max改为min，同时将dp[0]设为0，其余则设为INF即可( 因为要求是否能装满 )</p>
+<p>  完全背包的经典问题，只要把状态转移方程的max改为min，同时将dp[0]设为0，其余则设为INF即可( 因为要求是否能装满 )</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/17/POJ1384-Piggy-Bank/#more" rel="contents">
@@ -1946,7 +1946,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  328
+                  326
                 </span>
               
 
@@ -1986,7 +1986,7 @@
         
           
           Big Event in HDU
-&emsp;&emsp;这道题是让我们将设备根据价值尽可能地平均分成两半，其实就是把设备的价值总和平分成两个部分，然后以此为背包，将这个背包尽可能填满。因为这里的“体积”和“价值”都是设备的价值，所以其实就是求价值的最大值。题目还要求输出时，大的在前面，小的在后面，
+  这道题是让我们将设备根据价值尽可能地平均分成两半，其实就是把设备的价值总和平分成两个部分，然后以此为背包，将这个背包尽可能填满。因为这里的“体积”和“价值”都是设备的价值，所以其实就是求价值的最大值。题目还要求输出时，大的在前面，小的在后面，这可以利用整除的特
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2159,7 +2159,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  133
+                  131
                 </span>
               
 
@@ -2198,7 +2198,7 @@
       
         
           <p><a href="https://cn.vjudge.net/problem/POJ-3624" rel="external nofollow noopener noreferrer" target="_blank">Charm Bracelet</a></p>
-<p>&emsp;&emsp;一道01背包模板题，套模板即可。</p>
+<p>  一道01背包模板题，套模板即可。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/17/POJ3624-Charm-Bracelet/#more" rel="contents">
@@ -2370,7 +2370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  302
+                  300
                 </span>
               
 
@@ -2409,7 +2409,7 @@
       
         
           <p><a href="https://cn.vjudge.net/problem/HDU-2955" rel="external nofollow noopener noreferrer" target="_blank">Robberies</a></p>
-<p>&emsp;&emsp;依然是01背包，但这次的有点特殊。特殊之处在于，背包的总体积是可以获得的钱的最大值( 如果是以概率为背包也不能枚举啊23333 )，然后用动态规划求得获得该钱数被抓的最大概率( 如果在最大概率的情况下都不会被抓，那就肯定不会被抓 )。</p>
+<p>  依然是01背包，但这次的有点特殊。特殊之处在于，背包的总体积是可以获得的钱的最大值( 如果是以概率为背包也不能枚举啊23333 )，然后用动态规划求得获得该钱数被抓的最大概率( 如果在最大概率的情况下都不会被抓，那就肯定不会被抓 )。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/17/HDU2955-Robberies/#more" rel="contents">
@@ -2616,7 +2616,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -3230,7 +3230,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/latest.min.js"></script>
   
 
 

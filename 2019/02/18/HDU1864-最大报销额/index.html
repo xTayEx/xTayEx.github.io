@@ -129,18 +129,18 @@
 
 
 
-<meta name="description" content="最大报销额 &amp;emsp;&amp;emsp;这道题有两个需要注意的地方：一是题目说的“每项”其实是“每类”，也就是A类,B类和C类，而不是每个物品……(这题目表述有问题啊！)；二是在计算时要将所有的数据扩大100倍然后再转为int，计算出最后结果后再缩小为原来的倍率，否则无法用钱数来做背包(浮点数无法作为数组下标)。">
+<meta name="description" content="最大报销额   这道题有两个需要注意的地方：一是题目说的“每项”其实是“每类”，也就是A类,B类和C类，而不是每个物品......(这题目表述有问题啊！)；二是在计算时要将所有的数据扩大100倍然后再转为int，计算出最后结果后再缩小为原来的倍率，否则无法用钱数来做背包(浮点数无法作为数组下标)。">
 <meta name="keywords" content="ACM,C,C++,DP,01背包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU1864 - 最大报销额">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/02/18/HDU1864-最大报销额/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="最大报销额 &amp;emsp;&amp;emsp;这道题有两个需要注意的地方：一是题目说的“每项”其实是“每类”，也就是A类,B类和C类，而不是每个物品……(这题目表述有问题啊！)；二是在计算时要将所有的数据扩大100倍然后再转为int，计算出最后结果后再缩小为原来的倍率，否则无法用钱数来做背包(浮点数无法作为数组下标)。">
+<meta property="og:description" content="最大报销额   这道题有两个需要注意的地方：一是题目说的“每项”其实是“每类”，也就是A类,B类和C类，而不是每个物品......(这题目表述有问题啊！)；二是在计算时要将所有的数据扩大100倍然后再转为int，计算出最后结果后再缩小为原来的倍率，否则无法用钱数来做背包(浮点数无法作为数组下标)。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU1864 - 最大报销额">
-<meta name="twitter:description" content="最大报销额 &amp;emsp;&amp;emsp;这道题有两个需要注意的地方：一是题目说的“每项”其实是“每类”，也就是A类,B类和C类，而不是每个物品……(这题目表述有问题啊！)；二是在计算时要将所有的数据扩大100倍然后再转为int，计算出最后结果后再缩小为原来的倍率，否则无法用钱数来做背包(浮点数无法作为数组下标)。">
+<meta name="twitter:description" content="最大报销额   这道题有两个需要注意的地方：一是题目说的“每项”其实是“每类”，也就是A类,B类和C类，而不是每个物品......(这题目表述有问题啊！)；二是在计算时要将所有的数据扩大100倍然后再转为int，计算出最后结果后再缩小为原来的倍率，否则无法用钱数来做背包(浮点数无法作为数组下标)。">
 
 
 
@@ -477,7 +477,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  325
+                  323
                 </span>
               
 
@@ -515,10 +515,11 @@
 
       
         <p><a href="https://cn.vjudge.net/problem/HDU-1864" rel="external nofollow noopener noreferrer" target="_blank">最大报销额</a></p>
-<p>&emsp;&emsp;这道题有两个需要注意的地方：一是题目说的“每项”其实是“每类”，也就是A类,B类和C类，而不是每个物品……(这题目表述有问题啊！)；二是在计算时要将所有的数据扩大100倍然后再转为int，计算出最后结果后再缩小为原来的倍率，否则无法用钱数来做背包(浮点数无法作为数组下标)。</p>
+<p>  这道题有两个需要注意的地方：一是题目说的“每项”其实是“每类”，也就是A类,B类和C类，而不是每个物品......(这题目表述有问题啊！)；二是在计算时要将所有的数据扩大100倍然后再转为int，计算出最后结果后再缩小为原来的倍率，否则无法用钱数来做背包(浮点数无法作为数组下标)。</p>
 <a id="more"></a>
 <p>代码如下:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">double</span> dp[<span class="number">3000005</span>];</span><br><span class="line"><span class="keyword">int</span> m[<span class="number">35</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> q;<span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;q&gt;&gt;n)</span><br><span class="line">    &#123;    </span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>)        <span class="keyword">break</span>;</span><br><span class="line">        q*=<span class="number">100</span>;</span><br><span class="line">        <span class="keyword">int</span> qtmp=(<span class="keyword">int</span>)q;</span><br><span class="line">        <span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));<span class="built_in">memset</span>(m,<span class="number">0</span>,<span class="keyword">sizeof</span>(m));</span><br><span class="line">        <span class="keyword">bool</span> flag;<span class="keyword">int</span> idx=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        &#123;    </span><br><span class="line">            <span class="keyword">double</span> sum=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">char</span> ch;<span class="keyword">double</span> a,b,c,tmp;</span><br><span class="line">            <span class="keyword">int</span> num;</span><br><span class="line">            flag=<span class="number">1</span>;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;num;getchar();</span><br><span class="line">            a=b=c=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(num--)</span><br><span class="line">            &#123;    </span><br><span class="line">                tmp=<span class="number">0</span>;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%c:%lf"</span>,&amp;ch,&amp;tmp);<span class="keyword">char</span> c=getchar();</span><br><span class="line">                tmp*=<span class="number">100</span>;</span><br><span class="line">                <span class="keyword">if</span>(ch==<span class="string">'A'</span>)</span><br><span class="line">                    a+=tmp;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(ch==<span class="string">'B'</span>)</span><br><span class="line">                    b+=tmp;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(ch==<span class="string">'C'</span>)</span><br><span class="line">                    c+=tmp;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    flag=<span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span>(flag)</span><br><span class="line">                    sum+=tmp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(sum&gt;<span class="number">100000</span>||a&gt;<span class="number">60000</span>||b&gt;<span class="number">60000</span>||c&gt;<span class="number">60000</span>)</span><br><span class="line">                flag=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(flag)</span><br><span class="line">                m[idx++]=(<span class="keyword">int</span>)sum;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=idx;i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=qtmp;j&gt;=m[i];j--)</span><br><span class="line">                dp[j]=<span class="built_in">max</span>(dp[j],dp[j-m[i]]+m[i]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>,dp[qtmp]/<span class="number">100.0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -772,7 +773,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1371,26 +1372,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

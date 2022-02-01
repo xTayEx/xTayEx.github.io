@@ -129,18 +129,18 @@
 
 
 
-<meta name="description" content="Jungle Roads 套用Kruskal或Prim的模板即可。这里我用的时Kruskal。">
+<meta name="description" content="Jungle Roads 套用Kruskal或Prim的模板即可。这里我用的时Kruskal。">
 <meta name="keywords" content="ACM,C,C++,Kruskal,图论,最小生成树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU1301 - Jungle Roads">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/02/27/HDU1301-Jungle-Roads/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="Jungle Roads 套用Kruskal或Prim的模板即可。这里我用的时Kruskal。">
+<meta property="og:description" content="Jungle Roads 套用Kruskal或Prim的模板即可。这里我用的时Kruskal。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU1301 - Jungle Roads">
-<meta name="twitter:description" content="Jungle Roads 套用Kruskal或Prim的模板即可。这里我用的时Kruskal。">
+<meta name="twitter:description" content="Jungle Roads 套用Kruskal或Prim的模板即可。这里我用的时Kruskal。">
 
 
 
@@ -519,6 +519,7 @@
 <a id="more"></a>
 <p>代码如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> from,to,cost; </span><br><span class="line">&#125;edge;</span><br><span class="line">edge arr[<span class="number">100</span>];</span><br><span class="line"><span class="keyword">int</span> pre[<span class="number">100</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> cnt;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(edge e1,edge e2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> e1.cost&lt;e2.cost;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        pre[i]=i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findr</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==pre[x])</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> pre[x]=findr(pre[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">kruskal</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> rsl=<span class="number">0</span>;<span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;cnt;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> fx=findr(arr[i].from);</span><br><span class="line">        <span class="keyword">int</span> fy=findr(arr[i].to);</span><br><span class="line">        <span class="keyword">if</span>(fx!=fy)</span><br><span class="line">        &#123;</span><br><span class="line">            pre[fx]=fy;</span><br><span class="line">            rsl+=arr[i].cost;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> rsl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n&amp;&amp;n)</span><br><span class="line">    &#123;    </span><br><span class="line">        cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)</span><br><span class="line">        &#123;        </span><br><span class="line">            <span class="keyword">char</span> ch,ch1;</span><br><span class="line">            <span class="keyword">int</span> k,aacm;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;ch&gt;&gt;k;</span><br><span class="line">            getchar();</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k;j++)</span><br><span class="line">            &#123;    </span><br><span class="line">                edge tmp;</span><br><span class="line">                <span class="built_in">cin</span>&gt;&gt;ch1&gt;&gt;aacm;</span><br><span class="line">                getchar();</span><br><span class="line">                tmp.from=ch-<span class="string">'A'</span>+<span class="number">1</span>;</span><br><span class="line">                tmp.to=ch1-<span class="string">'A'</span>+<span class="number">1</span>;</span><br><span class="line">                tmp.cost=aacm;</span><br><span class="line">                arr[cnt++]=tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(arr,arr+cnt,cmp);</span><br><span class="line">        <span class="keyword">int</span> ans=kruskal();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -774,7 +775,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1373,26 +1374,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

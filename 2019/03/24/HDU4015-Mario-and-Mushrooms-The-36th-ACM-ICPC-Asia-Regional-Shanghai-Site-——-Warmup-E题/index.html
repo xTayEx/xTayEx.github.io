@@ -129,18 +129,18 @@
 
 
 
-<meta name="description" content="Mario and Mushrooms 一道数学题，和pzc推了差不多一小时的式子，结果还是错了OTZ，遂看题解然后发现这题其实就是直接把Raney引理套一套就行了(Raney引理又是什么神仙？？？) Raney引理:  设整数序列A={Ai,i=1,2,…,N}，且部分和为Sk=A1+,…,+Ak，序列中的所有的数字之和为Sn=1；则在A的N个循环表示中，有且仅有一个序列B，满足B的任意部分和S">
+<meta name="description" content="Mario and Mushrooms 一道数学题，和pzc推了差不多一小时的式子，结果还是错了OTZ，遂看题解 然后发现这题其实就是直接把Raney引理套一套就行了(Raney引理又是什么神仙？？？) Raney引理:  设整数序列A={Ai,i=1,2,…,N}，且部分和为Sk=A1+,…,+Ak，序列中的所有的数字之和为Sn=1；则在A的N个循环表示中，有且仅有一个序列B，满足B的任">
 <meta name="keywords" content="ACM,C,C++,组合数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU4015 - Mario and Mushrooms( The 36th ACM&#x2F;ICPC Asia Regional Shanghai Site —— Warmup E题)">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/03/24/HDU4015-Mario-and-Mushrooms-The-36th-ACM-ICPC-Asia-Regional-Shanghai-Site-——-Warmup-E题/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="Mario and Mushrooms 一道数学题，和pzc推了差不多一小时的式子，结果还是错了OTZ，遂看题解然后发现这题其实就是直接把Raney引理套一套就行了(Raney引理又是什么神仙？？？) Raney引理:  设整数序列A={Ai,i=1,2,…,N}，且部分和为Sk=A1+,…,+Ak，序列中的所有的数字之和为Sn=1；则在A的N个循环表示中，有且仅有一个序列B，满足B的任意部分和S">
+<meta property="og:description" content="Mario and Mushrooms 一道数学题，和pzc推了差不多一小时的式子，结果还是错了OTZ，遂看题解 然后发现这题其实就是直接把Raney引理套一套就行了(Raney引理又是什么神仙？？？) Raney引理:  设整数序列A={Ai,i=1,2,…,N}，且部分和为Sk=A1+,…,+Ak，序列中的所有的数字之和为Sn=1；则在A的N个循环表示中，有且仅有一个序列B，满足B的任">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU4015 - Mario and Mushrooms( The 36th ACM&#x2F;ICPC Asia Regional Shanghai Site —— Warmup E题)">
-<meta name="twitter:description" content="Mario and Mushrooms 一道数学题，和pzc推了差不多一小时的式子，结果还是错了OTZ，遂看题解然后发现这题其实就是直接把Raney引理套一套就行了(Raney引理又是什么神仙？？？) Raney引理:  设整数序列A={Ai,i=1,2,…,N}，且部分和为Sk=A1+,…,+Ak，序列中的所有的数字之和为Sn=1；则在A的N个循环表示中，有且仅有一个序列B，满足B的任意部分和S">
+<meta name="twitter:description" content="Mario and Mushrooms 一道数学题，和pzc推了差不多一小时的式子，结果还是错了OTZ，遂看题解 然后发现这题其实就是直接把Raney引理套一套就行了(Raney引理又是什么神仙？？？) Raney引理:  设整数序列A={Ai,i=1,2,…,N}，且部分和为Sk=A1+,…,+Ak，序列中的所有的数字之和为Sn=1；则在A的N个循环表示中，有且仅有一个序列B，满足B的任">
 
 
 
@@ -504,17 +504,19 @@
 
       
         <p><a href="https://cn.vjudge.net/problem/HDU-4015" rel="external nofollow noopener noreferrer" target="_blank">Mario and Mushrooms</a></p>
-<p>一道数学题，和pzc推了差不多一小时的式子，结果还是错了OTZ，<del>遂看题解</del><br>然后发现这题其实就是直接把Raney引理套一套就行了<del>(Raney引理又是什么神仙？？？)</del></p>
+<p>一道数学题，和pzc推了差不多一小时的式子，结果还是错了OTZ，<del>遂看题解</del> 然后发现这题其实就是直接把Raney引理套一套就行了<del>(Raney引理又是什么神仙？？？)</del></p>
 <p>Raney引理:</p>
 <blockquote>
 <p>设整数序列A={Ai,i=1,2,…,N}，且部分和为Sk=A1+,…,+Ak，序列中的所有的数字之和为Sn=1；则在A的N个循环表示中，有且仅有一个序列B，满足B的任意部分和Si均大于零。</p>
 </blockquote>
-<p>一篇文章:<br><a href="https://blog.csdn.net/a363514083/article/details/6760409?locationNum=15" rel="external nofollow noopener noreferrer" target="_blank">HDOJ4105和raney引理</a></p>
+<p>一篇文章: <a href="https://blog.csdn.net/a363514083/article/details/6760409?locationNum=15" rel="external nofollow noopener noreferrer" target="_blank">HDOJ4105和raney引理</a></p>
 <p><del>所以当时为什么不直接打表</del></p>
 <p>代码如下:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug printf(<span class="meta-string">"debug\n"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">int</span> kase=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">double</span> m,k;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;m&gt;&gt;k;</span><br><span class="line">        <span class="keyword">double</span> ans=<span class="number">1</span>/(m*k+k+<span class="number">1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: %.8lf\n"</span>,++kase,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>附:自己推出来的错误式子，留个纪念</p>
-<p>\begin{equation}<br>\frac{\frac{k(k+1)m}{2}}{C_{km+1+k}^{k}}<br>\end{equation}</p>
+<p><span class="math display">\[\begin{equation}
+\frac{\frac{k(k+1)m}{2}}{C_{km+1+k}^{k}}
+\end{equation}\]</span></p>
 
       
     </div>
@@ -767,7 +769,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1385,7 +1387,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/latest.min.js"></script>
   
 
 

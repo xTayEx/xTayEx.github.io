@@ -129,18 +129,18 @@
 
 
 
-<meta name="description" content="Piggy Bank &amp;emsp;&amp;emsp;完全背包的经典问题，只要把状态转移方程的max改为min，同时将dp[0]设为0，其余则设为INF即可( 因为要求是否能装满 )">
+<meta name="description" content="Piggy Bank   完全背包的经典问题，只要把状态转移方程的max改为min，同时将dp[0]设为0，其余则设为INF即可( 因为要求是否能装满 )">
 <meta name="keywords" content="ACM,C,C++,DP,完全背包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="POJ1384 - Piggy Bank">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/02/17/POJ1384-Piggy-Bank/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="Piggy Bank &amp;emsp;&amp;emsp;完全背包的经典问题，只要把状态转移方程的max改为min，同时将dp[0]设为0，其余则设为INF即可( 因为要求是否能装满 )">
+<meta property="og:description" content="Piggy Bank   完全背包的经典问题，只要把状态转移方程的max改为min，同时将dp[0]设为0，其余则设为INF即可( 因为要求是否能装满 )">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="POJ1384 - Piggy Bank">
-<meta name="twitter:description" content="Piggy Bank &amp;emsp;&amp;emsp;完全背包的经典问题，只要把状态转移方程的max改为min，同时将dp[0]设为0，其余则设为INF即可( 因为要求是否能装满 )">
+<meta name="twitter:description" content="Piggy Bank   完全背包的经典问题，只要把状态转移方程的max改为min，同时将dp[0]设为0，其余则设为INF即可( 因为要求是否能装满 )">
 
 
 
@@ -477,7 +477,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  241
+                  239
                 </span>
               
 
@@ -515,9 +515,9 @@
 
       
         <p><a href="https://cn.vjudge.net/problem/POJ-1384" rel="external nofollow noopener noreferrer" target="_blank">Piggy Bank</a></p>
-<p>&emsp;&emsp;完全背包的经典问题，只要把状态转移方程的max改为min，同时将dp[0]设为0，其余则设为INF即可( 因为要求是否能装满 )</p>
+<p>  完全背包的经典问题，只要把状态转移方程的max改为min，同时将dp[0]设为0，其余则设为INF即可( 因为要求是否能装满 )</p>
 <a id="more"></a>
-<p>代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3fffffff</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> val[<span class="number">510</span>];</span><br><span class="line"><span class="keyword">int</span> w[<span class="number">510</span>];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">10010</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10010</span>;i++)</span><br><span class="line">        dp[i]=INF;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;    </span><br><span class="line">        init();dp[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        mst(val,<span class="number">0</span>);mst(w,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> empty,with_coin;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;empty&gt;&gt;with_coin;</span><br><span class="line">        <span class="keyword">int</span> vtot=with_coin-empty;</span><br><span class="line">        <span class="keyword">int</span> n;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;val[i]&gt;&gt;w[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=w[i];j&lt;=vtot;j++)</span><br><span class="line">                dp[j]=<span class="built_in">min</span>(dp[j],dp[j-w[i]]+val[i]);</span><br><span class="line">        <span class="keyword">if</span>(dp[vtot]==INF)</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"This is impossible."</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"The minimum amount of money in the piggy-bank is "</span>&lt;&lt;dp[vtot]&lt;&lt;<span class="string">"."</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代码如下： <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3fffffff</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> val[<span class="number">510</span>];</span><br><span class="line"><span class="keyword">int</span> w[<span class="number">510</span>];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">10010</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10010</span>;i++)</span><br><span class="line">        dp[i]=INF;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;    </span><br><span class="line">        init();dp[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        mst(val,<span class="number">0</span>);mst(w,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> empty,with_coin;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;empty&gt;&gt;with_coin;</span><br><span class="line">        <span class="keyword">int</span> vtot=with_coin-empty;</span><br><span class="line">        <span class="keyword">int</span> n;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;val[i]&gt;&gt;w[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=w[i];j&lt;=vtot;j++)</span><br><span class="line">                dp[j]=<span class="built_in">min</span>(dp[j],dp[j-w[i]]+val[i]);</span><br><span class="line">        <span class="keyword">if</span>(dp[vtot]==INF)</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"This is impossible."</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"The minimum amount of money in the piggy-bank is "</span>&lt;&lt;dp[vtot]&lt;&lt;<span class="string">"."</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -772,7 +772,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1371,26 +1371,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

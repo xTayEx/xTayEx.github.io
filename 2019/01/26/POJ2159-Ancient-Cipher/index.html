@@ -466,7 +466,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  553
+                  539
                 </span>
               
 
@@ -503,59 +503,55 @@
       
 
       
-        <p>题目链接：<a href="http://poj.org/problem?id=2159" rel="external nofollow noopener noreferrer" target="_blank">Ancient Cipher</a><br><a id="more"></a><br>代码如下：</p>
+        <p>题目链接：<a href="http://poj.org/problem?id=2159" rel="external nofollow noopener noreferrer" target="_blank">Ancient Cipher</a> <a id="more"></a> 代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">char</span> ori[<span class="number">105</span>];</span><br><span class="line"><span class="keyword">char</span> sec[<span class="number">105</span>];</span><br><span class="line"><span class="keyword">int</span> na[<span class="number">30</span>],nb[<span class="number">30</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">    <span class="keyword">int</span> len1,len2;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> flag;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%s %s"</span>,sec,ori)!=EOF)</span><br><span class="line">    &#123;    </span><br><span class="line">        flag=<span class="number">1</span>;</span><br><span class="line">        len1=<span class="built_in">strlen</span>(ori);</span><br><span class="line">        len2=<span class="built_in">strlen</span>(sec);</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len1;i++)</span><br><span class="line">            na[ori[i]-<span class="string">'A'</span>]++;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len2;i++)</span><br><span class="line">            nb[sec[i]-<span class="string">'A'</span>]++;</span><br><span class="line">        sort(na,na+<span class="number">26</span>);sort(nb,nb+<span class="number">26</span>);</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">30</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(na[i]!=nb[i])</span><br><span class="line">            &#123;</span><br><span class="line">                flag=<span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"NO\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"YES\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这题是真的坑！因为题目并没有说置换密码一定就是将某个单词的下一个单词用来置换这一个单词，它完全有可能是乱来的！比如说A-C,B-E,C-D,D-F,E-G,F-H,然后从I开始，后面的字母又按照“用下一个字母置换该字母”的方法来置换当前字母。应该注意到的是，无论是题目中的那种加密方式（置换、排列），都无法改变字母的出现频度。因此，只需要比较输入的两个字符串的字母出现频度即可。这里的所说的“比较字母出现频度”，并不是说比较某一个字母在第一个字符串中的出现频度以及在第二个字符串中的出现频度；而是比较“是不是都有某个字母出现了若干次”，比如说，假如字符串A的字母出现频度列表为</p>
-<div class="table-container">
+<p>       这题是真的坑！因为题目并没有说置换密码一定就是将某个单词的下一个单词用来置换这一个单词，它完全有可能是乱来的！比如说A-C,B-E,C-D,D-F,E-G,F-H,然后从I开始，后面的字母又按照“用下一个字母置换该字母”的方法来置换当前字母。应该注意到的是，无论是题目中的那种加密方式（置换、排列），都无法改变字母的出现频度。因此，只需要比较输入的两个字符串的字母出现频度即可。这里的所说的“比较字母出现频度”，并不是说比较某一个字母在第一个字符串中的出现频度以及在第二个字符串中的出现频度；而是比较“是不是都有某个字母出现了若干次”，比如说，假如字符串A的字母出现频度列表为</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>字母</th>
 <th>频度</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>D</td>
 <td>2次</td>
 </tr>
-<tr>
+<tr class="even">
 <td>E</td>
 <td>3次</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>R</td>
 <td>8次</td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>而另一个字符串B的字母出现频度列表为</p>
-<div class="table-container">
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>字母</th>
 <th>频度</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Q</td>
 <td>2次</td>
 </tr>
-<tr>
+<tr class="even">
 <td>U</td>
 <td>3次</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>P</td>
 <td>8次</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;那这两个字符串也是相互匹配的！为什么？因为我不知道置换加密的规则到底是怎样的，但我知道它是一一对应的，也就是说不会改变字母出现频度的。有可能它的规则就是D-Q，E-U，R-P，这样也是可能的！所以说只需要比较两个字符串的字母出现频度即可</p>
+<p>       那这两个字符串也是相互匹配的！为什么？因为我不知道置换加密的规则到底是怎样的，但我知道它是一一对应的，也就是说不会改变字母出现频度的。有可能它的规则就是D-Q，E-U，R-P，这样也是可能的！所以说只需要比较两个字符串的字母出现频度即可</p>
 
       
     </div>
@@ -806,7 +802,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1405,26 +1401,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

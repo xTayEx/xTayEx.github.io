@@ -502,9 +502,11 @@
       
 
       
-        <p><img src="https://pic.downk.cc/item/5f00278014195aa594787856.png" alt><br><a id="more"></a></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>昨晚看了以下许久没有访问的博客，发现最近一篇博客居然是今年3月份的一份AGC题解。还记得大一的时候，写博客的热情高涨，恨不得日更三篇；上了大二之后，一方面是各方面的压力变大了，另一方面是自己在这方面越来越懒，<del>于是出现了四个月没写过一篇文章的情况</del>。这学期上多媒体课程，期末大作业和刘总一起做了一个基于手势识别的人机交互小程序，就拿来<del>水一水</del>吧</p>
-<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>看标题就知道，这是一个通过识别手势来完成一些电脑操作的东西。因为是一个桌面应用，同时为了界面好看（好看是第一生产力.jpg），我们选择了electron。首先是用python+Tensorflow训练一个CNN用于手势识别，并导出该模型为json格式；然后，我们在electron中使用opencv.js处理图像，并把上一步训练得到的json格式模型导入到Tensorflow.js中做手势识别；最后，借助robot.js来实现操控电脑。</p>
+        <p><img src="https://pic.downk.cc/item/5f00278014195aa594787856.png"> <a id="more"></a></p>
+<h3 id="前言">前言</h3>
+<p>昨晚看了以下许久没有访问的博客，发现最近一篇博客居然是今年3月份的一份AGC题解。还记得大一的时候，写博客的热情高涨，恨不得日更三篇；上了大二之后，一方面是各方面的压力变大了，另一方面是自己在这方面越来越懒，<del>于是出现了四个月没写过一篇文章的情况</del>。这学期上多媒体课程，期末大作业和刘总一起做了一个基于手势识别的人机交互小程序，就拿来<del>水一水</del>吧</p>
+<h3 id="介绍">介绍</h3>
+<p>看标题就知道，这是一个通过识别手势来完成一些电脑操作的东西。因为是一个桌面应用，同时为了界面好看（好看是第一生产力.jpg），我们选择了electron。首先是用python+Tensorflow训练一个CNN用于手势识别，并导出该模型为json格式；然后，我们在electron中使用opencv.js处理图像，并把上一步训练得到的json格式模型导入到Tensorflow.js中做手势识别；最后，借助robot.js来实现操控电脑。</p>
 <p>放一下结构图</p>
 <p><img src="https://pic.downk.cc/item/5f00239914195aa594769dc9.jpg"></p>
 <p>之所以要分离出前端和服务端，是因为robot.js要塞进electron里面比较麻烦，尝试了好几次之后都没有成功，于是索性不把他放到electron里面。这样一来，避免了配置上的麻烦，而且结构更清晰，代码写起来也更方便。</p>
@@ -516,178 +518,199 @@
 <li>关闭当前窗口</li>
 <li>上、下、左、右四个方向键</li>
 </ul>
-<h3 id="模型搭建"><a href="#模型搭建" class="headerlink" title="模型搭建"></a>模型搭建</h3><p>这一步主要就是采集训练样本，然后使用Opencv处理图像，最后扔进Tensorflow里训练。</p>
+<h3 id="模型搭建">模型搭建</h3>
+<p>这一步主要就是采集训练样本，然后使用Opencv处理图像，最后扔进Tensorflow里训练。</p>
 <p>先说一下采集训练样本以及处理图像这两部分。通过Opencv调用摄像头，每0.1秒截取一次图像，然后用Opencv处理这一图像。所做的处理包括：</p>
 <ul>
 <li><p>获取ROI（感兴趣区域）</p>
 <p>其实就是从原图像上截取一个指定区域。</p>
-<p><center><img src="https://pic.downk.cc/item/5f00061014195aa5946a4677.png" style="zoom:50%;"></center><br><center>处理前</center><br><center><img src="https://pic.downk.cc/item/5f00064814195aa5946a5c36.png" style="zoom: 67%;"></center><br><center>处理后</center><br>代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getRoi</span><span class="params">(frame, x0, y0, width, height)</span>:</span></span><br><span class="line">    roi = frame[y0:y0 + height, x0:x0 + width]</span><br><span class="line">    cv.imshow(<span class="string">'roi'</span>, roi)</span><br><span class="line">    <span class="keyword">return</span> roi</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
+<center>
+<p><img src="https://pic.downk.cc/item/5f00061014195aa5946a4677.png" style="zoom:50%;"></p>
+</center>
+<center>
+<p>处理前</p>
+</center>
+<center>
+<p><img src="https://pic.downk.cc/item/5f00064814195aa5946a5c36.png" style="zoom: 67%;"></p>
+</center>
+<center>
+<p>处理后</p>
+</center>
+<p>代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getRoi</span><span class="params">(frame, x0, y0, width, height)</span>:</span></span><br><span class="line">    roi = frame[y0:y0 + height, x0:x0 + width]</span><br><span class="line">    cv.imshow(<span class="string">'roi'</span>, roi)</span><br><span class="line">    <span class="keyword">return</span> roi</span><br></pre></td></tr></table></figure></li>
 <li><p>使用Otsu法（大津法）进行肤色检测</p>
 <p>大致原理是通过遮罩的方法，计算按位与运算，从而过滤掉那些我们不关心的像素。代码如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getSkin</span><span class="params">(frame)</span>:</span></span><br><span class="line">    ycrcb = cv.cvtColor(frame, cv.COLOR_BGR2YCR_CB)</span><br><span class="line">    y, cr, cb = cv.split(ycrcb)</span><br><span class="line">    cr_ = cv.GaussianBlur(cr, (<span class="number">5</span>, <span class="number">5</span>), <span class="number">0</span>) <span class="comment"># 高斯模糊</span></span><br><span class="line">   _, skin = cv.threshold(cr_, <span class="number">0</span>, <span class="number">255</span>, cv.THRESH_BINARY | cv.THRESH_OTSU) <span class="comment"># otsu二值化 </span></span><br><span class="line">    ret = cv.bitwise_and(frame, frame, mask=skin)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
-<center><img src="https://pic.downk.cc/item/5f00064814195aa5946a5c36.png" style="zoom:50%;"></center>
-<center>处理前</center>
-<center><img src="https://pic.downk.cc/item/5f000a5c14195aa5946bfd10.png" style="zoom:50%;"></center>
-<center>处理后</center>
-</li>
+<center>
+<p><img src="https://pic.downk.cc/item/5f00064814195aa5946a5c36.png" style="zoom:50%;"></p>
+</center>
+<center>
+<p>处理前</p>
+</center>
+<center>
+<p><img src="https://pic.downk.cc/item/5f000a5c14195aa5946bfd10.png" style="zoom:50%;"></p>
+</center>
+<center>
+<p>处理后</p>
+</center></li>
 <li><p>提取轮廓并计算傅里叶算子</p>
 <p>提取轮廓可以用opencv中的findContour。计算傅里叶算子可以理解为提取特征。</p>
-<center><img src="https://pic.downk.cc/item/5f000a5c14195aa5946bfd10.png" style="zoom:50%;"></center>
-<center>处理前</center>
- <center><img src="https://pic.downk.cc/item/5f000ad514195aa5946c30ba.png" style="zoom:50%;"></center>
-
-<center>处理后</center>
-
+<center>
+<p><img src="https://pic.downk.cc/item/5f000a5c14195aa5946bfd10.png" style="zoom:50%;"></p>
+</center>
+<center>
+<p>处理前</p>
+</center>
+<center>
+<p><img src="https://pic.downk.cc/item/5f000ad514195aa5946c30ba.png" style="zoom:50%;"></p>
+</center>
+<center>
+<p>处理后</p>
+</center>
 <p>代码如下：</p>
 <p>提取轮廓</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findContour</span><span class="params">(Laplacian)</span>:</span></span><br><span class="line">    h = cv.findContours(Laplacian, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)</span><br><span class="line">    contour = h[<span class="number">0</span>]</span><br><span class="line">    contour = sorted(contour, key=cv.contourArea, reverse=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">return</span> contour</span><br></pre></td></tr></table></figure>
-</li>
+<p>计算傅里叶算子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">trucate</span><span class="params">(des)</span>:</span></span><br><span class="line">    ret = np.fft.fftshift(des)</span><br><span class="line">    centerIdx = int(len(ret) / <span class="number">2</span>)</span><br><span class="line">    low, high = centerIdx - int(MIN_DESCRIPTOR / <span class="number">2</span>), centerIdx + int(MIN_DESCRIPTOR / <span class="number">2</span>)</span><br><span class="line">    ret = ret[low:high]</span><br><span class="line">    ret = np.fft.ifftshift(ret)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fourier</span><span class="params">(frame)</span>:</span></span><br><span class="line">    gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)</span><br><span class="line">    dst = cv.Laplacian(gray, cv.CV_16S, ksize=<span class="number">3</span>)</span><br><span class="line">    Laplacian = cv.convertScaleAbs(dst)</span><br><span class="line">    contour = findContour(Laplacian)</span><br><span class="line">    contourArray = contour[<span class="number">0</span>][:, <span class="number">0</span>, :]</span><br><span class="line">    retbg = np.ones(dst.shape, np.uint8)</span><br><span class="line">    ret = cv.drawContours(retbg, contour[<span class="number">0</span>], <span class="number">-1</span>, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>), <span class="number">1</span>)</span><br><span class="line">    contourComplex = np.empty(contourArray.shape[:<span class="number">-1</span>], dtype=complex)</span><br><span class="line">    contourComplex.real = contourArray[:, <span class="number">0</span>]</span><br><span class="line">    contourComplex.imag = contourArray[:, <span class="number">1</span>]</span><br><span class="line">    fourierResult = np.fft.fft(contourComplex)</span><br><span class="line">    desInUse = trucate(fourierResult)</span><br><span class="line">    <span class="keyword">return</span> ret, desInUse</span><br></pre></td></tr></table></figure>
+<p>根据傅里叶算子重构：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reconstruct</span><span class="params">(img, desInUse)</span>:</span></span><br><span class="line">    contour_reconstruct = np.fft.ifft(descirptor_in_use)</span><br><span class="line">    contour_reconstruct = np.array([contour_reconstruct.real, contour_reconstruct.imag])</span><br><span class="line">    contour_reconstruct = np.transpose(contour_reconstruct)</span><br><span class="line">    contour_reconstruct = np.expand_dims(contour_reconstruct, axis=<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">if</span> contour_reconstruct.min() &lt; <span class="number">0</span>:</span><br><span class="line">        contour_reconstruct -= contour_reconstruct.min()</span><br><span class="line">    contour_reconstruct *= img.shape[<span class="number">0</span>] / contour_reconstruct.max()</span><br><span class="line">    contour_reconstruct = contour_reconstruct.astype(np.int32, copy=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    black_np = np.ones(img.shape, np.uint8)  <span class="comment"># 创建黑色幕布</span></span><br><span class="line">    black = cv2.drawContours(black_np, contour_reconstruct, <span class="number">-1</span>, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>), <span class="number">1</span>)  <span class="comment"># 绘制白色轮廓</span></span><br><span class="line">    cv2.imshow(<span class="string">'contour_reconstruct'</span>, black)</span><br><span class="line">    <span class="keyword">return</span> black</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>  计算傅里叶算子：</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">trucate</span><span class="params">(des)</span>:</span></span><br><span class="line">    ret = np.fft.fftshift(des)</span><br><span class="line">    centerIdx = int(len(ret) / <span class="number">2</span>)</span><br><span class="line">    low, high = centerIdx - int(MIN_DESCRIPTOR / <span class="number">2</span>), centerIdx + int(MIN_DESCRIPTOR / <span class="number">2</span>)</span><br><span class="line">    ret = ret[low:high]</span><br><span class="line">    ret = np.fft.ifftshift(ret)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fourier</span><span class="params">(frame)</span>:</span></span><br><span class="line">    gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)</span><br><span class="line">    dst = cv.Laplacian(gray, cv.CV_16S, ksize=<span class="number">3</span>)</span><br><span class="line">    Laplacian = cv.convertScaleAbs(dst)</span><br><span class="line">    contour = findContour(Laplacian)</span><br><span class="line">    contourArray = contour[<span class="number">0</span>][:, <span class="number">0</span>, :]</span><br><span class="line">    retbg = np.ones(dst.shape, np.uint8)</span><br><span class="line">    ret = cv.drawContours(retbg, contour[<span class="number">0</span>], <span class="number">-1</span>, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>), <span class="number">1</span>)</span><br><span class="line">    contourComplex = np.empty(contourArray.shape[:<span class="number">-1</span>], dtype=complex)</span><br><span class="line">    contourComplex.real = contourArray[:, <span class="number">0</span>]</span><br><span class="line">    contourComplex.imag = contourArray[:, <span class="number">1</span>]</span><br><span class="line">    fourierResult = np.fft.fft(contourComplex)</span><br><span class="line">    desInUse = trucate(fourierResult)</span><br><span class="line">    <span class="keyword">return</span> ret, desInUse</span><br></pre></td></tr></table></figure>
-<p>  根据傅里叶算子重构：</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reconstruct</span><span class="params">(img, desInUse)</span>:</span></span><br><span class="line">    contour_reconstruct = np.fft.ifft(descirptor_in_use)</span><br><span class="line">    contour_reconstruct = np.array([contour_reconstruct.real, contour_reconstruct.imag])</span><br><span class="line">    contour_reconstruct = np.transpose(contour_reconstruct)</span><br><span class="line">    contour_reconstruct = np.expand_dims(contour_reconstruct, axis=<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">if</span> contour_reconstruct.min() &lt; <span class="number">0</span>:</span><br><span class="line">        contour_reconstruct -= contour_reconstruct.min()</span><br><span class="line">    contour_reconstruct *= img.shape[<span class="number">0</span>] / contour_reconstruct.max()</span><br><span class="line">    contour_reconstruct = contour_reconstruct.astype(np.int32, copy=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    black_np = np.ones(img.shape, np.uint8)  <span class="comment"># 创建黑色幕布</span></span><br><span class="line">    black = cv2.drawContours(black_np, contour_reconstruct, <span class="number">-1</span>, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>), <span class="number">1</span>)  <span class="comment"># 绘制白色轮廓</span></span><br><span class="line">    cv2.imshow(<span class="string">'contour_reconstruct'</span>, black)</span><br><span class="line">    <span class="keyword">return</span> black</span><br></pre></td></tr></table></figure>
 <p>完成上面这些步骤后，就可以得到原始的训练样本了。</p>
 <p>接着还要处理得到测试集与训练集。这里做的事情包括:</p>
 <ul>
 <li><p>改变原始图片尺寸</p>
-<p>将尺寸从$300\times 300$改成$128\times 128$。</p>
-</li>
+<p>将尺寸从<span class="math inline">\(300\times 300\)</span>改成<span class="math inline">\(128\times 128\)</span>。</p></li>
 <li><p>归一化</p>
-<p>将图片中每个像素的值除以255。</p>
-</li>
-<li><p>划分测试集与训练集</p>
-</li>
+<p>将图片中每个像素的值除以255。</p></li>
+<li><p>划分测试集与训练集</p></li>
 </ul>
 <p>最后搭建CNN并训练了。CNN的结构如下：</p>
-<div class="table-container">
 <table>
 <thead>
-<tr>
-<th style="text-align:center">Layer</th>
-<th style="text-align:center">Width</th>
-<th style="text-align:center">Height</th>
-<th style="text-align:center">Filter</th>
-<th style="text-align:center">Kernel Size</th>
+<tr class="header">
+<th style="text-align: center;">Layer</th>
+<th style="text-align: center;">Width</th>
+<th style="text-align: center;">Height</th>
+<th style="text-align: center;">Filter</th>
+<th style="text-align: center;">Kernel Size</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">Input</td>
-<td style="text-align:center">128</td>
-<td style="text-align:center">128</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<tr class="odd">
+<td style="text-align: center;">Input</td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
-<tr>
-<td style="text-align:center">Convolution</td>
-<td style="text-align:center">128</td>
-<td style="text-align:center">128</td>
-<td style="text-align:center">32</td>
-<td style="text-align:center">3×3</td>
+<tr class="even">
+<td style="text-align: center;">Convolution</td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">3×3</td>
 </tr>
-<tr>
-<td style="text-align:center">Max Pooling</td>
-<td style="text-align:center">64</td>
-<td style="text-align:center">64</td>
-<td style="text-align:center">32</td>
-<td style="text-align:center">2×2</td>
+<tr class="odd">
+<td style="text-align: center;">Max Pooling</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">2×2</td>
 </tr>
-<tr>
-<td style="text-align:center">Convolution</td>
-<td style="text-align:center">64</td>
-<td style="text-align:center">64</td>
-<td style="text-align:center">64</td>
-<td style="text-align:center">3×3</td>
+<tr class="even">
+<td style="text-align: center;">Convolution</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">3×3</td>
 </tr>
-<tr>
-<td style="text-align:center">Max Pooling</td>
-<td style="text-align:center">32</td>
-<td style="text-align:center">32</td>
-<td style="text-align:center">64</td>
-<td style="text-align:center">2×2</td>
+<tr class="odd">
+<td style="text-align: center;">Max Pooling</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">2×2</td>
 </tr>
-<tr>
-<td style="text-align:center">Convolution</td>
-<td style="text-align:center">32</td>
-<td style="text-align:center">32</td>
-<td style="text-align:center">128</td>
-<td style="text-align:center">3×3</td>
+<tr class="even">
+<td style="text-align: center;">Convolution</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">3×3</td>
 </tr>
-<tr>
-<td style="text-align:center">Max Pooling</td>
-<td style="text-align:center">16</td>
-<td style="text-align:center">16</td>
-<td style="text-align:center">128</td>
-<td style="text-align:center">2×2</td>
+<tr class="odd">
+<td style="text-align: center;">Max Pooling</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">2×2</td>
 </tr>
-<tr>
-<td style="text-align:center">Flatten</td>
-<td style="text-align:center">32768</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<tr class="even">
+<td style="text-align: center;">Flatten</td>
+<td style="text-align: center;">32768</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
-<tr>
-<td style="text-align:center">Dense</td>
-<td style="text-align:center">64</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<tr class="odd">
+<td style="text-align: center;">Dense</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
-<tr>
-<td style="text-align:center">Dropout</td>
-<td style="text-align:center">64</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<tr class="even">
+<td style="text-align: center;">Dropout</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
-<tr>
-<td style="text-align:center">Dense</td>
-<td style="text-align:center">9</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<tr class="odd">
+<td style="text-align: center;">Dense</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>最终训练结果：</p>
-<p><img src="https://pic.downk.cc/item/5f00128a14195aa5946f60ad.jpg" alt></p>
+<p><img src="https://pic.downk.cc/item/5f00128a14195aa5946f60ad.jpg"></p>
 <p>效果还不错（至少目前来说）</p>
-<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>前端部分做的事情除了展示界面，还包括以下这些：</p>
+<h3 id="前端">前端</h3>
+<p>前端部分做的事情除了展示界面，还包括以下这些：</p>
 <ul>
 <li><p>采集手势</p>
 <p>调用摄像头并读取图像帧。代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMedia</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> constraints = &#123;</span><br><span class="line">    video: &#123;</span><br><span class="line">      width: <span class="number">400</span>, </span><br><span class="line">      height: <span class="number">400</span>, </span><br><span class="line">      facingMode: <span class="string">'user'</span>,</span><br><span class="line">      mirrored: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    audio: <span class="literal">false</span>,</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">let</span> promise = navigator.mediaDevices.getUserMedia(constraints);</span><br><span class="line">  promise.then(<span class="function"><span class="keyword">function</span> (<span class="params">MediaStream</span>) </span>&#123;</span><br><span class="line">    video.srcObject = MediaStream;</span><br><span class="line">    video.play();</span><br><span class="line">  &#125;).catch(<span class="function"><span class="keyword">function</span> (<span class="params">PermissionDeniedError</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(PermissionDeniedError);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMedia</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> constraints = &#123;</span><br><span class="line">    video: &#123;</span><br><span class="line">      width: <span class="number">400</span>, </span><br><span class="line">      height: <span class="number">400</span>, </span><br><span class="line">      facingMode: <span class="string">'user'</span>,</span><br><span class="line">      mirrored: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    audio: <span class="literal">false</span>,</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">let</span> promise = navigator.mediaDevices.getUserMedia(constraints);</span><br><span class="line">  promise.then(<span class="function"><span class="keyword">function</span> (<span class="params">MediaStream</span>) </span>&#123;</span><br><span class="line">    video.srcObject = MediaStream;</span><br><span class="line">    video.play();</span><br><span class="line">  &#125;).catch(<span class="function"><span class="keyword">function</span> (<span class="params">PermissionDeniedError</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(PermissionDeniedError);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>数据处理</p>
-<p>  其实就是把在Opencv里的东西在Opencv.js上再实现一遍</p>
-</li>
+<p>其实就是把在Opencv里的东西在Opencv.js上再实现一遍</p></li>
 <li><p>模型预测</p>
-<p>将处理后的图像帧数据转换为Tensorflow.js输入所对应的格式后，将其输入上述已经训练好的模型中，获得预测值</p>
-</li>
+<p>将处理后的图像帧数据转换为Tensorflow.js输入所对应的格式后，将其输入上述已经训练好的模型中，获得预测值</p></li>
 <li><p>手势判断与输出</p>
-<p>根据模型预测输出的Tensor判断手势类型，且根据“阈值溢出机制”判断是否向服务器发送手势。什么是“阈值溢出机制”呢？实际上就是，单位时间内，如果某个手势的出现频率超过一个阈值$\lambda(&gt;0.5)$，则认为这一手势就是当前手势。</p>
-</li>
+<p>根据模型预测输出的Tensor判断手势类型，且根据“阈值溢出机制”判断是否向服务器发送手势。什么是“阈值溢出机制”呢？实际上就是，单位时间内，如果某个手势的出现频率超过一个阈值<span class="math inline">\(\lambda(&gt;0.5)\)</span>，则认为这一手势就是当前手势。</p></li>
 </ul>
-<h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><p>这一部分通过TCP协议获取前端的手势识别结果，并根据这一结果，通过调用robot.js来完成相应操作。</p>
+<h3 id="服务端">服务端</h3>
+<p>这一部分通过TCP协议获取前端的手势识别结果，并根据这一结果，通过调用robot.js来完成相应操作。</p>
 <p>服务端代码：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>)</span><br><span class="line"><span class="keyword">const</span> robot = <span class="built_in">require</span>(<span class="string">'robotjs'</span>)</span><br><span class="line"><span class="keyword">let</span> controlable = <span class="literal">false</span><span class="comment">//解锁</span></span><br><span class="line"><span class="keyword">let</span> directable = <span class="literal">false</span><span class="comment">//开启上下左右键</span></span><br><span class="line"><span class="keyword">let</span> key_set = []</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clear_key</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; key_set.length; index++) &#123;</span><br><span class="line">    robot.keyToggle(key_set[index], <span class="string">'up'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  key_set = []</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">minimize</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'minimize'</span>)</span><br><span class="line">  pre_gesture = <span class="number">7</span>;</span><br><span class="line">  robot.keyToggle(<span class="string">'command'</span>, <span class="string">'down'</span>)</span><br><span class="line">  robot.keyTap(<span class="string">'D'</span>)</span><br><span class="line">  robot.keyToggle(<span class="string">'command'</span>, <span class="string">'up'</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">closeWindow</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'closeWin'</span>)</span><br><span class="line">  pre_gesture = <span class="number">4</span>;</span><br><span class="line">  robot.keyToggle(<span class="string">'alt'</span>, <span class="string">'down'</span>)</span><br><span class="line">  robot.keyTap(<span class="string">'f4'</span>)</span><br><span class="line">  robot.keyToggle(<span class="string">'alt'</span>, <span class="string">'up'</span>)</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">altTab</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'altTab'</span>)</span><br><span class="line">  pre_gesture = <span class="number">8</span>;</span><br><span class="line">  robot.keyToggle(<span class="string">'alt'</span>, <span class="string">'down'</span>)</span><br><span class="line">  key_set.push(<span class="string">'alt'</span>)</span><br><span class="line">  robot.keyTap(<span class="string">'tab'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">re_altTab</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'re_altTab'</span>)</span><br><span class="line">  pre_gesture = <span class="number">9</span>;</span><br><span class="line">  robot.keyToggle(<span class="string">'alt'</span>, <span class="string">'down'</span>)</span><br><span class="line">  key_set.push(<span class="string">'alt'</span>)</span><br><span class="line">  robot.keyToggle(<span class="string">'shift'</span>, <span class="string">'down'</span>)</span><br><span class="line">  key_set.push(<span class="string">'shift'</span>)</span><br><span class="line">  robot.keyTap(<span class="string">'tab'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">audioMute</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'audio_mute'</span>)</span><br><span class="line">  robot.keyTap(<span class="string">'audio_mute'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> pre_gesture;</span><br><span class="line"><span class="keyword">const</span> server = net.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">sock</span>) </span>&#123;</span><br><span class="line">  sock.on(<span class="string">'close'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'close socket'</span>)</span><br><span class="line">    server.close()</span><br><span class="line">  &#125;)</span><br><span class="line">  sock.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'ok!'</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(data.toString())</span><br><span class="line">    <span class="keyword">let</span> stringifyData = data.toString()</span><br><span class="line">    <span class="keyword">if</span> (stringifyData === <span class="string">'5'</span>) &#123;</span><br><span class="line">      directable = <span class="literal">false</span>;</span><br><span class="line">      <span class="keyword">if</span> (controlable) &#123;</span><br><span class="line">        controlable = <span class="literal">false</span>;</span><br><span class="line">        clear_key();</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        controlable = <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      pre_gesture = stringifyData;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (controlable) &#123;</span><br><span class="line">      <span class="keyword">if</span> (directable) &#123;</span><br><span class="line">        <span class="keyword">if</span> (stringifyData === <span class="string">'1'</span>) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'up'</span>)</span><br><span class="line">          robot.keyTap(<span class="string">'up'</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (stringifyData === <span class="string">'7'</span>) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'down'</span>)</span><br><span class="line">          robot.keyTap(<span class="string">'down'</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (stringifyData === <span class="string">'8'</span>) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'right'</span>)</span><br><span class="line">          robot.keyTap(<span class="string">'right'</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (stringifyData === <span class="string">'9'</span>) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'left'</span>)</span><br><span class="line">          robot.keyTap(<span class="string">'left'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (stringifyData != pre_gesture) &#123;</span><br><span class="line">          clear_key()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (stringifyData === <span class="string">'6'</span>) &#123;</span><br><span class="line">          audioMute()</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (stringifyData === <span class="string">'7'</span>) &#123;</span><br><span class="line">          minimize()</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (stringifyData === <span class="string">'4'</span>) &#123;</span><br><span class="line">          directable = <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (stringifyData === <span class="string">'2'</span>) &#123;</span><br><span class="line">          closeWindow()</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (stringifyData === <span class="string">'9'</span>) &#123;</span><br><span class="line">          re_altTab()</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (stringifyData === <span class="string">'8'</span>) &#123;</span><br><span class="line">          altTab()</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">'listening'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'start listening'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'listen error'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">'close'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'stop listening'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.listen(&#123;</span><br><span class="line">  port: <span class="number">6080</span>,</span><br><span class="line">  host: <span class="string">'127.0.0.1'</span>,</span><br><span class="line">  exclusive: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>electron的主进程中连接服务端并发送手势识别结果</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sockConfig = &#123;</span><br><span class="line">  port: <span class="number">6080</span>,</span><br><span class="line">  host: <span class="string">'127.0.0.1'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> sock = net.connect(sockConfig, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'connected to server!'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">sock.on(<span class="string">'connect'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'connect success'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendGesture</span>(<span class="params">ges</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> ges2string = ges.toString()</span><br><span class="line">  <span class="built_in">console</span>.log(ges2string)</span><br><span class="line">  sock.write(ges2string)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="最终实现效果"><a href="#最终实现效果" class="headerlink" title="最终实现效果"></a>最终实现效果</h2><p><img src="https://pic.downk.cc/item/5f00185114195aa59471b6bb.png"></p>
-<center>为了避免误操作，一开始是上锁状态，无法操作</center>
-
+<h2 id="最终实现效果">最终实现效果</h2>
+<p><img src="https://pic.downk.cc/item/5f00185114195aa59471b6bb.png"></p>
+<center>
+为了避免误操作，一开始是上锁状态，无法操作
+</center>
 <p><img src="https://pic.downk.cc/item/5f00188214195aa59471cc29.png"></p>
-<center>手势5解锁</center>
-
+<center>
+手势5解锁
+</center>
 <p><img src="https://pic.downk.cc/item/5f0018a814195aa59471daeb.png"></p>
-<center>无法识别手势，需要调整手势</center>
+<center>
+无法识别手势，需要调整手势
+</center>
+
       
     </div>
     
@@ -970,7 +993,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1569,26 +1592,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

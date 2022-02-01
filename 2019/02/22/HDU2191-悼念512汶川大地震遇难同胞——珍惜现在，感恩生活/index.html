@@ -129,18 +129,18 @@
 
 
 
-<meta name="description" content="悼念512汶川大地震遇难同胞——珍惜现在，感恩生活 &amp;emsp;&amp;emsp;直接套用多重背包模板即可">
+<meta name="description" content="悼念512汶川大地震遇难同胞——珍惜现在，感恩生活   直接套用多重背包模板即可">
 <meta name="keywords" content="ACM,C,C++,DP,多重背包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU2191 - 悼念512汶川大地震遇难同胞——珍惜现在，感恩生活">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/02/22/HDU2191-悼念512汶川大地震遇难同胞——珍惜现在，感恩生活/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="悼念512汶川大地震遇难同胞——珍惜现在，感恩生活 &amp;emsp;&amp;emsp;直接套用多重背包模板即可">
+<meta property="og:description" content="悼念512汶川大地震遇难同胞——珍惜现在，感恩生活   直接套用多重背包模板即可">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU2191 - 悼念512汶川大地震遇难同胞——珍惜现在，感恩生活">
-<meta name="twitter:description" content="悼念512汶川大地震遇难同胞——珍惜现在，感恩生活 &amp;emsp;&amp;emsp;直接套用多重背包模板即可">
+<meta name="twitter:description" content="悼念512汶川大地震遇难同胞——珍惜现在，感恩生活   直接套用多重背包模板即可">
 
 
 
@@ -477,7 +477,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  271
+                  269
                 </span>
               
 
@@ -515,9 +515,10 @@
 
       
         <p><a href="https://cn.vjudge.net/problem/HDU-2191" rel="external nofollow noopener noreferrer" target="_blank">悼念512汶川大地震遇难同胞——珍惜现在，感恩生活</a></p>
-<p>&emsp;&emsp;直接套用多重背包模板即可</p>
+<p>  直接套用多重背包模板即可</p>
 <a id="more"></a>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1e4</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">int</span> v[<span class="number">105</span>],val[<span class="number">105</span>],k[<span class="number">105</span>];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">105</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">zero_one</span><span class="params">(<span class="keyword">int</span> cost,<span class="keyword">int</span> val,<span class="keyword">int</span> vtot)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=vtot;j&gt;=cost;j--)</span><br><span class="line">        dp[j]=<span class="built_in">max</span>(dp[j],dp[j-cost]+val);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">complete</span><span class="params">(<span class="keyword">int</span> cost,<span class="keyword">int</span> val,<span class="keyword">int</span> vtot)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=cost;j&lt;=vtot;j++)</span><br><span class="line">        dp[j]=<span class="built_in">max</span>(dp[j],dp[j-cost]+val);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">multiple</span><span class="params">(<span class="keyword">int</span> cost,<span class="keyword">int</span> val,<span class="keyword">int</span> num,<span class="keyword">int</span> vtot)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(cost*num&gt;=vtot)</span><br><span class="line">    &#123;</span><br><span class="line">        complete(cost,val,vtot);</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(k&lt;num)</span><br><span class="line">    &#123;</span><br><span class="line">        zero_one(k*cost,k*val,vtot);</span><br><span class="line">        num-=k;</span><br><span class="line">        k&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    zero_one(num*cost,num*val,vtot);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;    </span><br><span class="line">        mst(dp,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> n,m;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;v[i]&gt;&gt;val[i]&gt;&gt;k[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">            multiple(v[i],val[i],k[i],n);</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;dp[n]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -771,7 +772,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1370,26 +1371,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

@@ -129,18 +129,18 @@
 
 
 
-<meta name="description" content="P1417 烹调方案 &amp;emsp;&amp;emsp;依然是01背包。这道题跟之前HDU的那道merchant很像，都是要先算一个不等式，再根据这个不等式进行排序，然后再进行01背包。具体而言，是要解下面这个不等式： &amp;emsp;a1 - (t0 + c1) x b1 + a2 - (t0 + c1 + c2) x b2 &amp;gt; a2 - (t0 + c2) x b2 +a1 - (t0 + c1 +">
+<meta name="description" content="P1417 烹调方案   依然是01背包。这道题跟之前HDU的那道merchant很像，都是要先算一个不等式，再根据这个不等式进行排序，然后再进行01背包。具体而言，是要解下面这个不等式：  a1 - (t0 + c1) x b1 + a2 - (t0 + c1 + c2) x b2 &amp;gt; a2 - (t0 + c2) x b2 +a1 - (t0 + c1 + c2) x b1 ==&amp;">
 <meta name="keywords" content="ACM,C,C++,DP,01背包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="洛谷P1417 烹调方案">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/02/19/洛谷P1417-烹调方案/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="P1417 烹调方案 &amp;emsp;&amp;emsp;依然是01背包。这道题跟之前HDU的那道merchant很像，都是要先算一个不等式，再根据这个不等式进行排序，然后再进行01背包。具体而言，是要解下面这个不等式： &amp;emsp;a1 - (t0 + c1) x b1 + a2 - (t0 + c1 + c2) x b2 &amp;gt; a2 - (t0 + c2) x b2 +a1 - (t0 + c1 +">
+<meta property="og:description" content="P1417 烹调方案   依然是01背包。这道题跟之前HDU的那道merchant很像，都是要先算一个不等式，再根据这个不等式进行排序，然后再进行01背包。具体而言，是要解下面这个不等式：  a1 - (t0 + c1) x b1 + a2 - (t0 + c1 + c2) x b2 &amp;gt; a2 - (t0 + c2) x b2 +a1 - (t0 + c1 + c2) x b1 ==&amp;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.915Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="洛谷P1417 烹调方案">
-<meta name="twitter:description" content="P1417 烹调方案 &amp;emsp;&amp;emsp;依然是01背包。这道题跟之前HDU的那道merchant很像，都是要先算一个不等式，再根据这个不等式进行排序，然后再进行01背包。具体而言，是要解下面这个不等式： &amp;emsp;a1 - (t0 + c1) x b1 + a2 - (t0 + c1 + c2) x b2 &amp;gt; a2 - (t0 + c2) x b2 +a1 - (t0 + c1 +">
+<meta name="twitter:description" content="P1417 烹调方案   依然是01背包。这道题跟之前HDU的那道merchant很像，都是要先算一个不等式，再根据这个不等式进行排序，然后再进行01背包。具体而言，是要解下面这个不等式：  a1 - (t0 + c1) x b1 + a2 - (t0 + c1 + c2) x b2 &amp;gt; a2 - (t0 + c2) x b2 +a1 - (t0 + c1 + c2) x b1 ==&amp;">
 
 
 
@@ -477,7 +477,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  312
+                  306
                 </span>
               
 
@@ -515,10 +515,10 @@
 
       
         <p><a href="https://www.luogu.org/problemnew/show/P1417" rel="external nofollow noopener noreferrer" target="_blank">P1417 烹调方案</a></p>
-<p>&emsp;&emsp;依然是01背包。这道题跟之前HDU的那道merchant很像，都是要先算一个不等式，再根据这个不等式进行排序，然后再进行01背包。具体而言，是要解下面这个不等式：</p>
-<p>&emsp;a1 - (t0 + c1) x b1 + a2 - (t0 + c1 + c2) x b2 &gt; a2 - (t0 + c2) x b2 +a1 - (t0 + c1 + c2) x b1</p>
-<p>==&gt;&emsp;&emsp;&emsp;b2 c1 &lt; b1 c2</p>
-<p>具体代码如下:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">food</span>&#123;</span></span><br><span class="line">    ll a,b,c;</span><br><span class="line">&#125;;</span><br><span class="line">food arr[<span class="number">55</span>];</span><br><span class="line">ll dp[maxn];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(food fa,food fb)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (fb.b)*(fa.c)&lt;(fa.b)*(fb.c);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll t,n;</span><br><span class="line">    mst(dp,<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++)        <span class="built_in">cin</span>&gt;&gt;arr[i].a;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++)        <span class="built_in">cin</span>&gt;&gt;arr[i].b;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++)        <span class="built_in">cin</span>&gt;&gt;arr[i].c;</span><br><span class="line">    sort(arr,arr+n,cmp);</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(ll j=t;j&gt;=arr[i].c;j--)&#123;</span><br><span class="line">            ll val=(arr[i].a)-(arr[i].b)*j;</span><br><span class="line">            dp[j]=<span class="built_in">max</span>(dp[j],dp[j-arr[i].c]+val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">0</span>;j&lt;=t;j++)</span><br><span class="line">        ans=<span class="built_in">max</span>(ans,dp[j]);</span><br><span class="line"><span class="comment">//    ans=dp[t];</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>  依然是01背包。这道题跟之前HDU的那道merchant很像，都是要先算一个不等式，再根据这个不等式进行排序，然后再进行01背包。具体而言，是要解下面这个不等式：</p>
+<p> a1 - (t0 + c1) x b1 + a2 - (t0 + c1 + c2) x b2 &gt; a2 - (t0 + c2) x b2 +a1 - (t0 + c1 + c2) x b1</p>
+<p>==&gt;   b2 c1 &lt; b1 c2</p>
+<p>具体代码如下: <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">food</span>&#123;</span></span><br><span class="line">    ll a,b,c;</span><br><span class="line">&#125;;</span><br><span class="line">food arr[<span class="number">55</span>];</span><br><span class="line">ll dp[maxn];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(food fa,food fb)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (fb.b)*(fa.c)&lt;(fa.b)*(fb.c);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll t,n;</span><br><span class="line">    mst(dp,<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++)        <span class="built_in">cin</span>&gt;&gt;arr[i].a;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++)        <span class="built_in">cin</span>&gt;&gt;arr[i].b;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++)        <span class="built_in">cin</span>&gt;&gt;arr[i].c;</span><br><span class="line">    sort(arr,arr+n,cmp);</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(ll j=t;j&gt;=arr[i].c;j--)&#123;</span><br><span class="line">            ll val=(arr[i].a)-(arr[i].b)*j;</span><br><span class="line">            dp[j]=<span class="built_in">max</span>(dp[j],dp[j-arr[i].c]+val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">0</span>;j&lt;=t;j++)</span><br><span class="line">        ans=<span class="built_in">max</span>(ans,dp[j]);</span><br><span class="line"><span class="comment">//    ans=dp[t];</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -773,7 +773,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1372,26 +1372,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

@@ -471,22 +471,22 @@
       
 
       
-        <p><img src="https://pic.downk.cc/item/5f29068a14195aa594529081.jpg" alt><br><a id="more"></a></p>
+        <p><img src="https://pic.downk.cc/item/5f29068a14195aa594529081.jpg"> <a id="more"></a></p>
 <p>看代码的时候遇到了下面这样一段：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateSkeleton</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 文字节点</span></span><br><span class="line">  ;[...document.querySelectorAll(<span class="string">'*'</span>)]</span><br><span class="line">    .filter(</span><br><span class="line">      (node) =&gt;</span><br><span class="line">        ![<span class="string">'script'</span>, <span class="string">'style'</span>, <span class="string">'html'</span>, <span class="string">'body'</span>, <span class="string">'head'</span>, <span class="string">'title'</span>].includes(</span><br><span class="line">          node.tagName.toLowerCase()</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">    .map(<span class="function">(<span class="params">node</span>) =&gt;</span> [...node.childNodes].filter(<span class="function">(<span class="params">node</span>) =&gt;</span> node <span class="keyword">instanceof</span> Text))</span><br><span class="line">    .flat(<span class="literal">Infinity</span>)</span><br><span class="line">    .forEach(<span class="function">(<span class="params">node</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> span = <span class="built_in">document</span>.createElement(<span class="string">'span'</span>)</span><br><span class="line">      node.parentNode.insertBefore(span, node)</span><br><span class="line">      span.appendChild(node)</span><br><span class="line">      span.style = <span class="string">`</span></span><br><span class="line"><span class="string">        background: #f2f2f2;</span></span><br><span class="line"><span class="string">        color: transparent !important;</span></span><br><span class="line"><span class="string">      `</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>(代码链接：<a href="https://zhuanlan.zhihu.com/p/166009071" rel="external nofollow noopener noreferrer" target="_blank">https://zhuanlan.zhihu.com/p/166009071</a>)</p>
-<p>发现有“…”这样的语法。查了一下文档，原来这是js中的展开语法。MDN上的定义为:</p>
+<p>(代码链接：https://zhuanlan.zhihu.com/p/166009071)</p>
+<p>发现有“...”这样的语法。查了一下文档，原来这是js中的展开语法。MDN上的定义为:</p>
 <blockquote>
 <p><strong>展开语法(Spread syntax),</strong> 可以在函数调用/数组构造时, 将数组表达式或者string在语法层面展开；还可以在构造字面量对象时, 将对象表达式按key-value的方式展开。</p>
 </blockquote>
 <p>以上面代码中的</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">...document.querySelectorAll(<span class="string">'*'</span>)</span><br></pre></td></tr></table></figure>
 <p>为例，在chrome中的运行结果是：</p>
-<p><img src="https://pic.downk.cc/item/5f29032d14195aa59450fba2.jpg" alt></p>
-<p>在这里，…把一个nodelist展开来，作为Array的构造参数。</p>
+<p><img src="https://pic.downk.cc/item/5f29032d14195aa59450fba2.jpg"></p>
+<p>在这里，...把一个nodelist展开来，作为Array的构造参数。</p>
 <p>再看一个在String中应用的一个例子</p>
-<p><img src="https://pic.downk.cc/item/5f29040c14195aa5945151b3.jpg" alt></p>
-<p>不难明白，“…“的作用其实就是把nodelist，string等可迭代的东西展开来。</p>
+<p><img src="https://pic.downk.cc/item/5f29040c14195aa5945151b3.jpg"></p>
+<p>不难明白，“...“的作用其实就是把nodelist，string等可迭代的东西展开来。</p>
 
       
     </div>
@@ -727,7 +727,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1326,26 +1326,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

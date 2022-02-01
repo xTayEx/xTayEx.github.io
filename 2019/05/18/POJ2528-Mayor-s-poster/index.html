@@ -516,13 +516,13 @@
       
 
       
-        <p><img src="https://ae01.alicdn.com/kf/HTB1HHj9bLWG3KVjSZFgq6zTspXaO.jpg" alt></p>
-<p>Photo by Kellie Churchman from Pexels<br><a id="more"></a></p>
-<p><a href="https://cn.vjudge.net/problem/POJ-2528" rel="external nofollow noopener noreferrer" target="_blank">Mayor’s poster</a></p>
+        <p><img src="https://ae01.alicdn.com/kf/HTB1HHj9bLWG3KVjSZFgq6zTspXaO.jpg"></p>
+<p>Photo by Kellie Churchman from Pexels <a id="more"></a></p>
+<p><a href="https://cn.vjudge.net/problem/POJ-2528" rel="external nofollow noopener noreferrer" target="_blank">Mayor's poster</a></p>
 <p>题意说的是，有一面非常非常长的墙，现在要向这面墙上贴上若干张宽度不等的海报，问贴完后有多少张海报能看得到(也就是有多少张海报没有被完全覆盖)。</p>
 <p>抽象一下问题就是，有一段无限长的线段，现在要对线段上的某一段染色，问经过若干次染色后，线段上一共有多少种颜色。</p>
-<p>因为涉及到了区间修改(贴海报),所以很自然想到用线段树去维护。一开始我的想法是写个线段树去维护墙壁上的海报，“贴海报”对应将某个区间上的值设置为当前要贴的海报对应的id，然后再搞个查询区间和的操作，通过区间和来判断当前要贴的海报的状态(一共三种状态：1.完全不会覆盖当前区间已经存在的海报，此时对应区间和为0；2.会部分覆盖当前区间已经存在的海报；3.会完全覆盖当前区间已经存在的海报)……但这样做其实很不好实现，最明显的问题就是要怎么判断会完全覆盖这种情况？还有就是如果当前区间存在不止一张海报，那又怎么搞？</p>
-<p>然后后来发现完全不用这么麻烦OTZ，直接搞个set操作(将当前区间的值设为某一个特定的id)，然后query的时候看一下当前区间有没有被贴海报，同时如果有被贴海报的话，海报对应的id是否已经被访问过了(这里要另外用个vis数组维护一下)，同时满足上面这两个条件的话，就说明有一张海报能被看见，所以ans++……</p>
+<p>因为涉及到了区间修改(贴海报),所以很自然想到用线段树去维护。一开始我的想法是写个线段树去维护墙壁上的海报，“贴海报”对应将某个区间上的值设置为当前要贴的海报对应的id，然后再搞个查询区间和的操作，通过区间和来判断当前要贴的海报的状态(一共三种状态：1.完全不会覆盖当前区间已经存在的海报，此时对应区间和为0；2.会部分覆盖当前区间已经存在的海报；3.会完全覆盖当前区间已经存在的海报)......但这样做其实很不好实现，最明显的问题就是要怎么判断会完全覆盖这种情况？还有就是如果当前区间存在不止一张海报，那又怎么搞？</p>
+<p>然后后来发现完全不用这么麻烦OTZ，直接搞个set操作(将当前区间的值设为某一个特定的id)，然后query的时候看一下当前区间有没有被贴海报，同时如果有被贴海报的话，海报对应的id是否已经被访问过了(这里要另外用个vis数组维护一下)，同时满足上面这两个条件的话，就说明有一张海报能被看见，所以ans++......</p>
 <p>然后还有就是要做一下离散化，因为本题数据范围很大，直接搞的话感觉是要MLE的。这里再简单说一下离散化，毕竟这是蒟蒻第二次做有关离散化的题OTZ，就当作是一个笔记。</p>
 <p>所谓的离散化，就是将一个范围很大的数，转化为数据范围更小的数，从而大大减少内存使用。使用离散化的其中一个场景是，有时候序列中的数的范围很大，且不是连续的，但我们只关心这些数字之间的相对大小，不关心它们的具体数值。这时就可以使用离散化处理，将它们映射到一组连续且数据范围小得多的数字上。离散化的大致步骤是</p>
 <ul>
@@ -530,57 +530,62 @@
 <li>去重，这里使用的是C++的unique()函数。这个函数的功能是对于一段连续的数，只保留它们中的第一个，比方说2，2，2，4，5，6，2，使用unique()后，会变成2，4，5，6，2，最后一个2因为不是连续的，所以不会被删除。因此，在使用unique()去重时，必须要保证序列是有序的，这个用sort()处理一下即可</li>
 <li>去重完毕后，使用lower_bound将原序列中的数映射到一个更小的数字上。</li>
 </ul>
-<p>以这道题的样例为例子：<br>1 4<br>2 6<br>8 10<br>3 4<br>7 10<br>这是五张海报的左右端点。我们首先对它们进行排序和去重。处理后可以得到这样的一个序列：</p>
-<center>1,2,3,4,6,7,8,10</center>
-
+<p>以这道题的样例为例子： 1 4 2 6 8 10 3 4 7 10 这是五张海报的左右端点。我们首先对它们进行排序和去重。处理后可以得到这样的一个序列：</p>
+<center>
+1,2,3,4,6,7,8,10
+</center>
 <p>我们现在将这些只进行映射，具体来说就是：</p>
-<div class="table-container">
 <table>
 <thead>
-<tr>
-<th style="text-align:center">原数值</th>
-<th style="text-align:center">映射值</th>
+<tr class="header">
+<th style="text-align: center;">原数值</th>
+<th style="text-align: center;">映射值</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
 </tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">2</td>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
 </tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">3</td>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
 </tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">4</td>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
 </tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">5</td>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">5</td>
 </tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">6</td>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">6</td>
 </tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">7</td>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">7</td>
 </tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:center">8</td>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">8</td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>关于映射，再举一个例子：对于序列1、1000、100000000，我们可以将他们映射到1、2、3上，这样一来，就能将数据范围大大减小。</p>
-<p><div class="note info"><p>看了下题解，发现这道题不能这么简单的离散化，但这题的数据比较弱，所以依然能AC...emmmm，蒟蒻不懂OTZ</p></div><br>具体AC代码如下：</p>
+<div class="note info">
+<p>
+看了下题解，发现这道题不能这么简单的离散化，但这题的数据比较弱，所以依然能AC...emmmm，蒟蒻不懂OTZ
+</p>
+</div>
+<p>具体AC代码如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset((a),(b),sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug printf(<span class="meta-string">"debug\n"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lson lef,mid,rt&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rson mid+1,rig,rt&lt;&lt;1|1</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">10005</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">int</span> vis[<span class="number">10000</span>+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">int</span> lazy[maxn&lt;&lt;<span class="number">3</span>];        <span class="comment">//这里最好开大一点，仅仅是四倍空间的话会WA</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> lef;</span><br><span class="line">    <span class="keyword">int</span> rig;</span><br><span class="line">&#125;;</span><br><span class="line">node ps[<span class="number">20000</span>+<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pushdown</span><span class="params">(<span class="keyword">int</span> rt)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(lazy[rt]!=<span class="number">0</span>)&#123;</span><br><span class="line">        lazy[rt&lt;&lt;<span class="number">1</span>]=lazy[rt&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]=lazy[rt];</span><br><span class="line">        lazy[rt]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> toL,<span class="keyword">int</span> toR,<span class="keyword">int</span> todo,<span class="keyword">int</span> lef,<span class="keyword">int</span> rig,<span class="keyword">int</span> rt)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(toL&lt;=lef&amp;&amp;toR&gt;=rig)&#123;</span><br><span class="line">        lazy[rt]=todo;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    pushdown(rt);</span><br><span class="line">    <span class="keyword">int</span> mid=lef+(rig-lef)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(toL&lt;=mid)</span><br><span class="line">        update(toL,toR,todo,lson);</span><br><span class="line">    <span class="keyword">if</span>(toR&gt;mid)</span><br><span class="line">        update(toL,toR,todo,rson);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> lef,<span class="keyword">int</span> rig,<span class="keyword">int</span> rt)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(lazy[rt])&#123;</span><br><span class="line">        <span class="keyword">if</span>(!vis[lazy[rt]])&#123;</span><br><span class="line">            ans++;</span><br><span class="line">            vis[lazy[rt]]=<span class="number">1</span>;    <span class="comment">//防止同一张海报重复统计</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(lef==rig)</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    pushdown(rt);</span><br><span class="line">    <span class="keyword">int</span> mid=lef+(rig-lef)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(lef&lt;=mid)</span><br><span class="line">        query(lson);</span><br><span class="line">    <span class="keyword">if</span>(rig&gt;mid)</span><br><span class="line">        query(rson);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> lsh[maxn&lt;&lt;<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">int</span> idx=<span class="number">0</span>;</span><br><span class="line">        mst(lsh,<span class="number">0</span>);</span><br><span class="line">        mst(lazy,<span class="number">0</span>);mst(vis,<span class="number">0</span>);</span><br><span class="line">        ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n;<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;ps[i].lef,&amp;ps[i].rig);</span><br><span class="line">            lsh[idx++]=ps[i].lef;lsh[idx++]=ps[i].rig;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(lsh,lsh+idx);</span><br><span class="line">        <span class="keyword">int</span> cnt=unique(lsh,lsh+idx)-lsh;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> L=lower_bound(lsh,lsh+cnt,ps[i].lef)-lsh+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> R=lower_bound(lsh,lsh+cnt,ps[i].rig)-lsh+<span class="number">1</span>;</span><br><span class="line">            update(L,R,i+<span class="number">1</span>,<span class="number">1</span>,cnt+<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        query(<span class="number">1</span>,cnt+<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -834,7 +839,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1433,26 +1438,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

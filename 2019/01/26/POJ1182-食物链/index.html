@@ -477,7 +477,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  767
+                  746
                 </span>
               
 
@@ -514,9 +514,9 @@
       
 
       
-        <p>题目链接：<a href="http://poj.org/problem?id=1182" rel="external nofollow noopener noreferrer" target="_blank">1182-食物链</a><br><a id="more"></a><br>代码如下：</p>
+        <p>题目链接：<a href="http://poj.org/problem?id=1182" rel="external nofollow noopener noreferrer" target="_blank">1182-食物链</a> <a id="more"></a> 代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> pre[<span class="number">50010</span>];</span><br><span class="line"><span class="keyword">int</span> rankrr[<span class="number">50010</span>];</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">50000</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findr</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> r;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    t=pre[x];</span><br><span class="line">    <span class="keyword">if</span>(pre[x]==x)        <span class="keyword">return</span> pre[x];</span><br><span class="line">    r=findr(pre[x]);        <span class="comment">//递归查找根节点 </span></span><br><span class="line">    pre[x]=r;                <span class="comment">//路径压缩 </span></span><br><span class="line">    rankrr[x]=(rankrr[x]+rankrr[t])%<span class="number">3</span>;        <span class="comment">//改变子节点的权值</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"find......done\n"</span>); </span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"merge......done\n"</span>);</span><br><span class="line">    <span class="keyword">int</span> rx,ry;</span><br><span class="line">    rx=findr(x);</span><br><span class="line">    ry=findr(y);</span><br><span class="line">    pre[rx]=ry;</span><br><span class="line">    rankrr[rx]=(rankrr[y]-rankrr[x]+<span class="number">3</span>+d)%<span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fake=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> n,k;</span><br><span class="line">    <span class="keyword">int</span> x,y,d;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;k);</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=maxn;i++)&#123;</span><br><span class="line">        pre[i]=i;</span><br><span class="line">        rankrr[i]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(k--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;d,&amp;x,&amp;y);</span><br><span class="line">        <span class="keyword">if</span>((x&gt;n||y&gt;n)||(d==<span class="number">2</span>&amp;&amp;x==y))&#123;</span><br><span class="line">            fake++;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"fake++\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> fx=findr(x);</span><br><span class="line">            <span class="keyword">int</span> fy=findr(y);</span><br><span class="line">            <span class="keyword">if</span>(fx!=fy)&#123;</span><br><span class="line">                merge(x,y,d<span class="number">-1</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>((rankrr[x]-rankrr[y]+<span class="number">3</span>)%<span class="number">3</span>!=d<span class="number">-1</span>)&#123;</span><br><span class="line">                    fake++;</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">"fake++\n"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,fake);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先这道题要弄明白的是题目中的“当前的话与前面的某些真的话冲突，就是假话”到底是什么意思。事实上，第一句话肯定是真的，因为假如第一句话是假的，那我们就没有可以判断第二句话真假的依据了。接下来要做的其实只是判断当前的话与上面的话是否冲突。要注意的是，如果当前描述下，x与pre[x]无确定的关系，即fx!=fy，则将当前说法看作是正确的来进行merge。如果有确定的关系，再根据(rankr[x]-rankr[y]+3)%3与d-1的关系来判断对错。如果两者不相等，则为错；否则，对。<br>那么，如何进行集合的划分呢？在这道题里，集合的划分依据不是是否为同类，而是“是否能确定两者之间的关系”。（“ 注意，这里不是根据x与father[x]是否是同类来划分。而是根据“x与father[x]能否确定两者之间的关系”来划分，若能确定x与father[x]的关系，则它们同属一个集合”，摘自题解）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在判断的时候，如果输入的两只动物不是附属于同一个根节点，及不能确定两者的关系，就进行merge，merge的时候还要更新被并入的那个集合（即新的子树）的根节点的权值（即他与新的根节点的关系）。再合并的时候，我们只需要进行根节点的权值更新，被并入的集合的子节点的权值通过findr（）顺带更新（这也是带权并查集的精髓和难点）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这道题中，并查集并不是要体现层级关系。同一棵树中的各个节点之间其实只是平等的几何元素关系，而没有上下级关系（或者说上下级关系对这道题而言没用）</p>
+<p>       首先这道题要弄明白的是题目中的“当前的话与前面的某些真的话冲突，就是假话”到底是什么意思。事实上，第一句话肯定是真的，因为假如第一句话是假的，那我们就没有可以判断第二句话真假的依据了。接下来要做的其实只是判断当前的话与上面的话是否冲突。要注意的是，如果当前描述下，x与pre[x]无确定的关系，即fx!=fy，则将当前说法看作是正确的来进行merge。如果有确定的关系，再根据(rankr[x]-rankr[y]+3)%3与d-1的关系来判断对错。如果两者不相等，则为错；否则，对。 那么，如何进行集合的划分呢？在这道题里，集合的划分依据不是是否为同类，而是“是否能确定两者之间的关系”。（“ 注意，这里不是根据x与father[x]是否是同类来划分。而是根据“x与father[x]能否确定两者之间的关系”来划分，若能确定x与father[x]的关系，则它们同属一个集合”，摘自题解）        在判断的时候，如果输入的两只动物不是附属于同一个根节点，及不能确定两者的关系，就进行merge，merge的时候还要更新被并入的那个集合（即新的子树）的根节点的权值（即他与新的根节点的关系）。再合并的时候，我们只需要进行根节点的权值更新，被并入的集合的子节点的权值通过findr（）顺带更新（这也是带权并查集的精髓和难点）        在这道题中，并查集并不是要体现层级关系。同一棵树中的各个节点之间其实只是平等的几何元素关系，而没有上下级关系（或者说上下级关系对这道题而言没用）</p>
 
       
     </div>
@@ -771,7 +771,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1370,26 +1370,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

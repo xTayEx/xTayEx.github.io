@@ -129,18 +129,18 @@
 
 
 
-<meta name="description" content="Divisors &amp;emsp;&amp;emsp;题意是说算一个区间内的因子数最大的数。网上题解大都是用的dfs，但我又不想写dfs······然后看了一下，区间长度最长才1e4，用质因数分解求出区间内每一个数的因子数然后用最朴素的方法找出答案应该也能过吧······事实证明真的可以，而且只用了40ms 2333333。 &amp;emsp;&amp;emsp;这里做个笔记，所谓质因数分解求因子数，指的是，对于一个数x,">
+<meta name="description" content="Divisors   题意是说算一个区间内的因子数最大的数。网上题解大都是用的dfs，但我又不想写dfs······然后看了一下，区间长度最长才1e4，用质因数分解求出区间内每一个数的因子数然后用最朴素的方法找出答案应该也能过吧······事实证明真的可以，而且只用了40ms 2333333。   这里做个笔记，所谓质因数分解求因子数，指的是，对于一个数x,必定存在以下式子:">
 <meta name="keywords" content="ACM,C,C++,数论,求因子个数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UVA294 - Divisors">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/03/02/UVA294-Divisors/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="Divisors &amp;emsp;&amp;emsp;题意是说算一个区间内的因子数最大的数。网上题解大都是用的dfs，但我又不想写dfs······然后看了一下，区间长度最长才1e4，用质因数分解求出区间内每一个数的因子数然后用最朴素的方法找出答案应该也能过吧······事实证明真的可以，而且只用了40ms 2333333。 &amp;emsp;&amp;emsp;这里做个笔记，所谓质因数分解求因子数，指的是，对于一个数x,">
+<meta property="og:description" content="Divisors   题意是说算一个区间内的因子数最大的数。网上题解大都是用的dfs，但我又不想写dfs······然后看了一下，区间长度最长才1e4，用质因数分解求出区间内每一个数的因子数然后用最朴素的方法找出答案应该也能过吧······事实证明真的可以，而且只用了40ms 2333333。   这里做个笔记，所谓质因数分解求因子数，指的是，对于一个数x,必定存在以下式子:">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UVA294 - Divisors">
-<meta name="twitter:description" content="Divisors &amp;emsp;&amp;emsp;题意是说算一个区间内的因子数最大的数。网上题解大都是用的dfs，但我又不想写dfs······然后看了一下，区间长度最长才1e4，用质因数分解求出区间内每一个数的因子数然后用最朴素的方法找出答案应该也能过吧······事实证明真的可以，而且只用了40ms 2333333。 &amp;emsp;&amp;emsp;这里做个笔记，所谓质因数分解求因子数，指的是，对于一个数x,">
+<meta name="twitter:description" content="Divisors   题意是说算一个区间内的因子数最大的数。网上题解大都是用的dfs，但我又不想写dfs······然后看了一下，区间长度最长才1e4，用质因数分解求出区间内每一个数的因子数然后用最朴素的方法找出答案应该也能过吧······事实证明真的可以，而且只用了40ms 2333333。   这里做个笔记，所谓质因数分解求因子数，指的是，对于一个数x,必定存在以下式子:">
 
 
 
@@ -466,7 +466,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  426
+                  418
                 </span>
               
 
@@ -504,14 +504,17 @@
 
       
         <p><a href="https://cn.vjudge.net/problem/UVA-294" rel="external nofollow noopener noreferrer" target="_blank">Divisors</a></p>
-<p>&emsp;&emsp;题意是说算一个区间内的因子数最大的数。网上题解大都是用的dfs，但我又不想写dfs······然后看了一下，区间长度最长才1e4，用质因数分解求出区间内每一个数的因子数然后用最朴素的方法找出答案应该也能过吧······事实证明真的可以，而且只用了40ms 2333333。</p>
-<p>&emsp;&emsp;这里做个笔记，所谓质因数分解求因子数，指的是，对于一个数x,必定存在以下式子:</p>
+<p>  题意是说算一个区间内的因子数最大的数。网上题解大都是用的dfs，但我又不想写dfs······然后看了一下，区间长度最长才1e4，用质因数分解求出区间内每一个数的因子数然后用最朴素的方法找出答案应该也能过吧······事实证明真的可以，而且只用了40ms 2333333。</p>
+<p>  这里做个笔记，所谓质因数分解求因子数，指的是，对于一个数x,必定存在以下式子:</p>
 <pre><code>        x = (a1^p1)*(a2^p2)*(a3^p3)*(a4^p4)*···*(an^pn)(其中,a1,a2,···，an均为质数)
-</code></pre><p>&emsp;&emsp;那么,x的因子个数则为:</p>
+        </code></pre>
+<p>  那么,x的因子个数则为:</p>
 <pre><code>                    sum(x) = (1+p1)*(1+p2)*(1+p3)*(1+p4)*···*(1+pn)
-</code></pre><p>&emsp;&emsp;比如说，对于12，有12 = (2^2) * (3^1) , 所以sum(12) = (1+2) * (1+1) = 6</p>
+                    </code></pre>
+<p>  比如说，对于12，有12 = (2^2) * (3^1) , 所以sum(12) = (1+2) * (1+1) = 6</p>
 <p>此题的代码如下:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get_cnt</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==<span class="number">1</span>)        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x==<span class="number">2</span>)        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    ll ans=<span class="number">1</span>;ll cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">2</span>;i*i&lt;=x;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x%i==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            x/=i;</span><br><span class="line">        &#125;</span><br><span class="line">        ans*=(<span class="number">1</span>+cnt);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x&gt;<span class="number">1</span>?<span class="number">2</span>*ans:ans;</span><br><span class="line">&#125;</span><br><span class="line">ll maxi,pos;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_ans</span><span class="params">(ll lef,ll rig)</span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">    maxi=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll i=lef;i&lt;=rig;i++)</span><br><span class="line">    &#123;    </span><br><span class="line">        ll tmp=get_cnt(i);</span><br><span class="line">        <span class="keyword">if</span>(tmp&gt;maxi)&#123;</span><br><span class="line">            maxi=tmp;</span><br><span class="line">            pos=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        ll lef,rig;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;lef&gt;&gt;rig;</span><br><span class="line">        get_ans(lef,rig);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Between %lld and %lld, %lld has a maximum of %lld divisors.\n"</span>,lef,rig,pos,maxi);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Between 1 and 10, 6 has a maximum of 4 divisors.</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -765,7 +768,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1364,26 +1367,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

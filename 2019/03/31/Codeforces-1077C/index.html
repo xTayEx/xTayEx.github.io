@@ -129,18 +129,18 @@
 
 
 
-<meta name="description" content="Good Array 题目大意就是对于一个有限数列，如果其中一个元素可以表示为数列中其他所有元素的和，则这个数列(数组)被称为Good Array。现在有一个数列a，请找出所有的元素，使得删去这些元素后这个数列为Good Array">
+<meta name="description" content="Good Array 题目大意就是对于一个有限数列，如果其中一个元素可以表示为数列中其他所有元素的和，则这个数列(数组)被称为Good Array。现在有一个数列a，请找出所有的元素，使得删去这些元素后这个数列为Good Array">
 <meta name="keywords" content="ACM,C,C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces1077C - Good Array">
 <meta property="og:url" content="https://xtayex.gitee.io/2019/03/31/Codeforces-1077C/index.html">
 <meta property="og:site_name" content="-xGeminix-">
-<meta property="og:description" content="Good Array 题目大意就是对于一个有限数列，如果其中一个元素可以表示为数列中其他所有元素的和，则这个数列(数组)被称为Good Array。现在有一个数列a，请找出所有的元素，使得删去这些元素后这个数列为Good Array">
+<meta property="og:description" content="Good Array 题目大意就是对于一个有限数列，如果其中一个元素可以表示为数列中其他所有元素的和，则这个数列(数组)被称为Good Array。现在有一个数列a，请找出所有的元素，使得删去这些元素后这个数列为Good Array">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-07T02:24:24.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces1077C - Good Array">
-<meta name="twitter:description" content="Good Array 题目大意就是对于一个有限数列，如果其中一个元素可以表示为数列中其他所有元素的和，则这个数列(数组)被称为Good Array。现在有一个数列a，请找出所有的元素，使得删去这些元素后这个数列为Good Array">
+<meta name="twitter:description" content="Good Array 题目大意就是对于一个有限数列，如果其中一个元素可以表示为数列中其他所有元素的和，则这个数列(数组)被称为Good Array。现在有一个数列a，请找出所有的元素，使得删去这些元素后这个数列为Good Array">
 
 
 
@@ -504,10 +504,11 @@
 
       
         <p><a href="https://cn.vjudge.net/problem/CodeForces-1077C" rel="external nofollow noopener noreferrer" target="_blank">Good Array</a></p>
-<p>题目大意就是对于一个有限数列，如果其中一个元素可以表示为数列中其他所有元素的和，则这个数列(数组)被称为Good Array。现在有一个数列a，请找出所有的元素，使得删去这些元素后这个数列为Good Array<br><a id="more"></a></p>
-<p>思路:如果一个数列是Good Array,则一定是其他元素的和等于数列中最大的元素的值。故先排个序，然后用前缀和<script type="math/tex">O(n)</script>解决(注意要用long long)</p>
+<p>题目大意就是对于一个有限数列，如果其中一个元素可以表示为数列中其他所有元素的和，则这个数列(数组)被称为Good Array。现在有一个数列a，请找出所有的元素，使得删去这些元素后这个数列为Good Array <a id="more"></a></p>
+<p>思路:如果一个数列是Good Array,则一定是其他元素的和等于数列中最大的元素的值。故先排个序，然后用前缀和<span class="math display">\[O(n)\]</span>解决(注意要用long long)</p>
 <p>代码如下:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug printf(<span class="meta-string">"debug\n"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mst(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    ll val;</span><br><span class="line">    ll id;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.val&lt;b.val;</span><br><span class="line">&#125;</span><br><span class="line">node arr[<span class="number">2</span>*maxn];</span><br><span class="line">ll sum[<span class="number">2</span>*maxn];</span><br><span class="line">ll ans[<span class="number">2</span>*maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;mst(arr,<span class="number">0</span>);</span><br><span class="line">    mst(sum,<span class="number">0</span>);</span><br><span class="line">    mst(ans,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;arr[i].val;</span><br><span class="line">        arr[i].id=i;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(arr+<span class="number">1</span>,arr+<span class="number">1</span>+n,cmp);</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        sum[i]=sum[i<span class="number">-1</span>]+arr[i].val;</span><br><span class="line">    <span class="keyword">bool</span> flag=<span class="number">0</span>;ll cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll i=n;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i==n)&#123;</span><br><span class="line">            <span class="keyword">if</span>(sum[n<span class="number">-2</span>]==arr[n<span class="number">-1</span>].val)</span><br><span class="line">                ans[cnt++]=arr[i].id;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(sum[n<span class="number">-1</span>]-arr[<span class="number">1</span>].val==arr[n].val)</span><br><span class="line">                ans[cnt++]=arr[i].id;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i==n<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(sum[i<span class="number">-1</span>]==arr[n].val)</span><br><span class="line">                ans[cnt++]=arr[i].id;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(sum[i<span class="number">-1</span>]+sum[n<span class="number">-1</span>]-sum[i<span class="number">-1</span>]-arr[i].val==arr[n].val)</span><br><span class="line">                ans[cnt++]=arr[i].id;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;cnt&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;cnt;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i==<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%lld"</span>,ans[i]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" %lld"</span>,ans[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -757,7 +758,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">|&emsp;博客全站共88.5k字</span>
+  <span class="post-count">|&emsp;博客全站共93.5k字</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1356,26 +1357,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
