@@ -147,7 +147,7 @@
 <meta property="og:image" content="https://pic.downk.cc/item/5f00185114195aa59471b6bb.png">
 <meta property="og:image" content="https://pic.downk.cc/item/5f00188214195aa59471cc29.png">
 <meta property="og:image" content="https://pic.downk.cc/item/5f0018a814195aa59471daeb.png">
-<meta property="og:updated_time" content="2020-07-04T07:03:10.837Z">
+<meta property="og:updated_time" content="2022-09-27T13:46:54.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用手势操控你的电脑——基于Opencv.js，Tensorflow，electron的手势人机交互">
 <meta name="twitter:image" content="https://pic.downk.cc/item/5f00278014195aa594787856.png">
@@ -525,16 +525,16 @@
 <li><p>获取ROI（感兴趣区域）</p>
 <p>其实就是从原图像上截取一个指定区域。</p>
 <center>
-<p><img src="https://pic.downk.cc/item/5f00061014195aa5946a4677.png" style="zoom:50%;"></p>
+<img src="https://pic.downk.cc/item/5f00061014195aa5946a4677.png" style="zoom:50%;">
 </center>
 <center>
-<p>处理前</p>
+处理前
 </center>
 <center>
-<p><img src="https://pic.downk.cc/item/5f00064814195aa5946a5c36.png" style="zoom: 67%;"></p>
+<img src="https://pic.downk.cc/item/5f00064814195aa5946a5c36.png" style="zoom: 67%;">
 </center>
 <center>
-<p>处理后</p>
+处理后
 </center>
 <p>代码如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getRoi</span><span class="params">(frame, x0, y0, width, height)</span>:</span></span><br><span class="line">    roi = frame[y0:y0 + height, x0:x0 + width]</span><br><span class="line">    cv.imshow(<span class="string">'roi'</span>, roi)</span><br><span class="line">    <span class="keyword">return</span> roi</span><br></pre></td></tr></table></figure></li>
@@ -542,30 +542,30 @@
 <p>大致原理是通过遮罩的方法，计算按位与运算，从而过滤掉那些我们不关心的像素。代码如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getSkin</span><span class="params">(frame)</span>:</span></span><br><span class="line">    ycrcb = cv.cvtColor(frame, cv.COLOR_BGR2YCR_CB)</span><br><span class="line">    y, cr, cb = cv.split(ycrcb)</span><br><span class="line">    cr_ = cv.GaussianBlur(cr, (<span class="number">5</span>, <span class="number">5</span>), <span class="number">0</span>) <span class="comment"># 高斯模糊</span></span><br><span class="line">   _, skin = cv.threshold(cr_, <span class="number">0</span>, <span class="number">255</span>, cv.THRESH_BINARY | cv.THRESH_OTSU) <span class="comment"># otsu二值化 </span></span><br><span class="line">    ret = cv.bitwise_and(frame, frame, mask=skin)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
 <center>
-<p><img src="https://pic.downk.cc/item/5f00064814195aa5946a5c36.png" style="zoom:50%;"></p>
+<img src="https://pic.downk.cc/item/5f00064814195aa5946a5c36.png" style="zoom:50%;">
 </center>
 <center>
-<p>处理前</p>
+处理前
 </center>
 <center>
-<p><img src="https://pic.downk.cc/item/5f000a5c14195aa5946bfd10.png" style="zoom:50%;"></p>
+<img src="https://pic.downk.cc/item/5f000a5c14195aa5946bfd10.png" style="zoom:50%;">
 </center>
 <center>
-<p>处理后</p>
+处理后
 </center></li>
 <li><p>提取轮廓并计算傅里叶算子</p>
 <p>提取轮廓可以用opencv中的findContour。计算傅里叶算子可以理解为提取特征。</p>
 <center>
-<p><img src="https://pic.downk.cc/item/5f000a5c14195aa5946bfd10.png" style="zoom:50%;"></p>
+<img src="https://pic.downk.cc/item/5f000a5c14195aa5946bfd10.png" style="zoom:50%;">
 </center>
 <center>
-<p>处理前</p>
+处理前
 </center>
 <center>
-<p><img src="https://pic.downk.cc/item/5f000ad514195aa5946c30ba.png" style="zoom:50%;"></p>
+<img src="https://pic.downk.cc/item/5f000ad514195aa5946c30ba.png" style="zoom:50%;">
 </center>
 <center>
-<p>处理后</p>
+处理后
 </center>
 <p>代码如下：</p>
 <p>提取轮廓</p>
@@ -685,7 +685,7 @@
 <p>调用摄像头并读取图像帧。代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMedia</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> constraints = &#123;</span><br><span class="line">    video: &#123;</span><br><span class="line">      width: <span class="number">400</span>, </span><br><span class="line">      height: <span class="number">400</span>, </span><br><span class="line">      facingMode: <span class="string">'user'</span>,</span><br><span class="line">      mirrored: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    audio: <span class="literal">false</span>,</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">let</span> promise = navigator.mediaDevices.getUserMedia(constraints);</span><br><span class="line">  promise.then(<span class="function"><span class="keyword">function</span> (<span class="params">MediaStream</span>) </span>&#123;</span><br><span class="line">    video.srcObject = MediaStream;</span><br><span class="line">    video.play();</span><br><span class="line">  &#125;).catch(<span class="function"><span class="keyword">function</span> (<span class="params">PermissionDeniedError</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(PermissionDeniedError);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>数据处理</p>
-<p>其实就是把在Opencv里的东西在Opencv.js上再实现一遍</p></li>
+其实就是把在Opencv里的东西在Opencv.js上再实现一遍</li>
 <li><p>模型预测</p>
 <p>将处理后的图像帧数据转换为Tensorflow.js输入所对应的格式后，将其输入上述已经训练好的模型中，获得预测值</p></li>
 <li><p>手势判断与输出</p>

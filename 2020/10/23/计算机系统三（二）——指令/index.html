@@ -137,7 +137,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pic.downk.cc/item/5f928ffc1cd1bbb86bf44e2f.jpg">
 <meta property="og:image" content="https://pic.downk.cc/item/5f928fc01cd1bbb86bf44392.png">
-<meta property="og:updated_time" content="2020-10-23T08:27:37.020Z">
+<meta property="og:updated_time" content="2022-09-27T13:46:54.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机系统三（二）——指令">
 <meta name="twitter:image" content="https://pic.downk.cc/item/5f928ffc1cd1bbb86bf44e2f.jpg">
@@ -658,12 +658,12 @@
 </table>
 <p>其中：</p>
 <ul>
-<li><p>op：操作码</p></li>
-<li><p>rs：第一个源寄存器编号</p></li>
-<li><p>rt：第二个源寄存器编号</p></li>
-<li><p>rd：destination目的寄存器编号</p></li>
-<li><p>shamt：移位位数（00000表示不移位），仅在位移指令中使用</p></li>
-<li><p>funct：功能码，用于选择op操作中的具体函数，如运算操作中的加法函数</p></li>
+<li>op：操作码</li>
+<li>rs：第一个源寄存器编号</li>
+<li>rt：第二个源寄存器编号</li>
+<li>rd：destination目的寄存器编号</li>
+<li>shamt：移位位数（00000表示不移位），仅在位移指令中使用</li>
+<li>funct：功能码，用于选择op操作中的具体函数，如运算操作中的加法函数</li>
 <li><p>R-型指令包括：add,sub,and,or,nor,slt,sltu,sll,srl,jr</p></li>
 <li><p>I-型指令</p></li>
 </ul>
@@ -687,10 +687,10 @@
 </table>
 <p>其中：</p>
 <ul>
-<li><p>op：操作码</p></li>
-<li><p>rs：第一个源操作数寄存器号，参与运算使用</p></li>
-<li><p>rt：第二个源操作数寄存器号，参与运算使用</p></li>
-<li><p>16位立即数</p></li>
+<li>op：操作码</li>
+<li>rs：第一个源操作数寄存器号，参与运算使用</li>
+<li>rt：第二个源操作数寄存器号，参与运算使用</li>
+<li>16位立即数</li>
 <li><p>I-型指令包括：addi,lw,sw,lh,sh,lb,sb,ll,sc,lui,andi,ori,beq,bne,slti,sltiu</p></li>
 <li><p>J-型指令</p></li>
 </ul>
@@ -709,7 +709,7 @@
 </tbody>
 </table>
 <ul>
-<li><p>目标地址计算方法：dst=PC+4+address&lt;&lt;2（下一条指令的地址时当前PC加上4后，取最高的四位，再加上J型指令编码中的26位左移2位（×4）的结果）</p></li>
+<li>目标地址计算方法：dst=PC+4+address&lt;&lt;2（下一条指令的地址时当前PC加上4后，取最高的四位，再加上J型指令编码中的26位左移2位（×4）的结果）</li>
 <li><p>J-型指令有：j, jr, jal</p></li>
 <li><p>MIPS中的同步</p>
 <ul>
