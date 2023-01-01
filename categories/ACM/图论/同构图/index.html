@@ -1,38 +1,27 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post-collapse.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html><html class="appearance-auto" lang="zh-Hans"><head><meta charset="UTF-8"><title>NeoRuTayE's blog</title><meta name="description" content="ACM/acm/Acm/题解/算法/博客/blog"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><!-- End Baidu Analytics --><link rel="icon" href="/images/favicon.ico"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/widget-post-list.css"><meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="-xGeminix-" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">NeoRuTayE's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><span>Categories · 同构图</span></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3><h3 class="is-inline-block"><a href="/Love">🧸</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3><h3 class="is-inline-block"><a href="/Love">🧸</a></h3></header><main><article class="post-container is-flex is-justify-content-center section container is-max-widescreen pt-4 px-2"><div class="columns is-variable is-1-tablet is-3-desktop-only is-2-widescreen is-full-width"><section class="column"><article class="post-item-card"><section class="content post-card-content p-4 pb-5"><header><a href="/tags/ACM"><i class="tag post-item-tag">ACM</i></a><a href="/tags/C"><i class="tag post-item-tag">C</i></a><a href="/tags/C++"><i class="tag post-item-tag">C++</i></a><a href="/tags/%E5%9B%BE%E8%AE%BA"><i class="tag post-item-tag">图论</i></a><a href="/tags/%E5%90%8C%E6%9E%84%E5%9B%BE"><i class="tag post-item-tag">同构图</i></a><a href="/tags/%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE"><i class="tag post-item-tag">暴力枚举</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2019/04/10/HDU2464-A-Pair-of-Graphs/">HDU2464 - A Pair of Graphs</a></h2><time class="has-text-grey" datetime="2019-04-10T03:48:00.000Z">2019-04-10</time><p class="is-flex-grow-2 mt-2">A Pair of Graphs
+一道同构图的题目。大意就是给出两幅图，同时可以执行两种操作，分别是加边和删边，在A图上加边、删边的代价是Ia，Da；在B图上加边、删边的代价是Ib，Db。现在要通过这两种操作使得两幅图同构，问怎样的操作代价最小，求这个最小代价
+因为数据范围很小，N&amp;lt;=8，所以可以直接枚举。具体见代码
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172#include &amp;lt;cstdio&amp;gt;#include &amp;lt;iostream&amp;gt;#include &amp;lt..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2019/04/10/HDU2464-A-Pair-of-Graphs/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="https://ae01.alicdn.com/kf/HTB12WwabSWD3KVjSZSgq6ACxVXaa.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2019/04/06/HDU3926-Hand-in-Hand/"><img class="post-cover-img js-img-fadeIn" src="https://ae01.alicdn.com/kf/HTB12WwabSWD3KVjSZSgq6ACxVXaa.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/ACM"><i class="tag post-item-tag">ACM</i></a><a href="/tags/C"><i class="tag post-item-tag">C</i></a><a href="/tags/C++"><i class="tag post-item-tag">C++</i></a><a href="/tags/%E5%9B%BE%E8%AE%BA"><i class="tag post-item-tag">图论</i></a><a href="/tags/%E5%90%8C%E6%9E%84%E5%9B%BE"><i class="tag post-item-tag">同构图</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2019/04/06/HDU3926-Hand-in-Hand/">HDU3926 - Hand in Hand</a></h2><time class="has-text-grey" datetime="2019-04-06T03:17:00.000Z">2019-04-06</time><p class="is-flex-grow-2 mt-2">Hand in Hand
+题目大意是给你两张图，让你判断这两张图是否同构，条件是两张图上的点最多都只有两个度数，可以看作是一个简单的同构图问题。
+首先说一下什么是同构图
+按字面意思理解，同构图即为&quot;相同结构的图&quot;，用图论中的术语描述就是 &amp;gt;图论当中的术语，假设G=(V,E)和G1=(V1，E1)是两个图，如果存在一个双射(即一一映射)m：V→V1，使得对所有的x,y∈V均有xy∈E等价于m(x)m(y)∈E1，则称G和G1是同构的,这样的一个映射m称之为一个同构
+而我对于同构图的理解是，一个同构图，应具有相同的连通性，链/环的个数以及链上/环上的点的个数应相同，点与点、边与边之间的对应关系应相同
+比方说，下面的就是一对同构图
 
-{% block title %}{{ __('title.category') }}: {{ page.category }} | {{ config.title }}{% endblock %}
+左图是一个只由五元环组成的图，而右图看起来和左图很不一样，但实际上也是一个..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2019/04/06/HDU3926-Hand-in-Hand/">Read more</a></section></article></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><div style="position: sticky; top: 50px;"><main class="aside-card-container categories-widget category-page"><h3>Categories</h3><section><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACM/">ACM</a><span class="category-list-count">89</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DP/">DP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/OpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">OpenGL学习笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-test/">hexo-test</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82/">杂</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9E%8E%E6%90%9E/">瞎搞</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E4%B8%89/">计算机系统三</a><span class="category-list-count">2</span></li></ul></section></main></div></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
 
-{% block content %}
+window.addEventListener('resize', $claudia.throttle(function () {
+    var images = document.querySelectorAll('.js-img-fadeIn')
 
-  {######################}
-  {### CATEGORY BLOCK ###}
-  {######################}
-  <div class="post-block category">
+    images.forEach($claudia.blurBackdropImg)
+}, 150))</script></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com//"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/haojen"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> NeoRuTayE 2023</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <{% if theme.seo %}h2{% else %}h1{% endif %}>{#
-        #}{{ page.category }}{#
-        #}<small>{{  __('title.category')  }}</small>
-        </{%>
-      </div>
+window.addEventListener('resize', $claudia.throttle(function () {
+    var images = document.querySelectorAll('.js-img-fadeIn')
 
-      {% for post in page.posts %}
-        {{ post_template.render(post) }}
-      {% endfor %}
-    </div>
-
-  </div>
-  {##########################}
-  {### END CATEGORY BLOCK ###}
-  {##########################}
-
-  {% include '_partials/pagination.swig' %}
-
-{% endblock %}
-
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+    images.forEach($claudia.blurBackdropImg)
+}, 150))</script></body></html>
